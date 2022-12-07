@@ -1,0 +1,319 @@
+\documentclass[spanish,10pt,a4paper,final,oneside]{article}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, total={15cm, 23cm}]{geometry}
+
+\addtolength{\skip\footins}{2pc plus 5pt}
+
+\usepackage{longtable}
+\setlength{\tabcolsep}{12pt}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\graphicspath{ {./imagenes/} }
+
+\usepackage[colorlinks]{hyperref}
+\hypersetup{colorlinks=true}
+\hypersetup{urlcolor=blue}
+\usepackage{cleveref}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+%\fancyhead[RE]{\small\scshape\nouppercase{\leftmark}}
+%\fancyhead[LO]{\small\scshape\nouppercase{\leftmark}}
+\fancyhead[LE,RO]{\small\thepage}
+\pagestyle{fancy}
+
+\usepackage{authoraftertitle}
+\title{Cuatro cosas sobre\ldots \\ \vspace{0.3cm}domótica}
+\author{Juan Murua Olalde}
+\date{13/04/2021}
+
+\begin{document}
+
+\begin{center}\begin{LARGE}
+\MyTitle
+\end{LARGE}\end{center}
+\begin{footnotesize}\rightline{inicio de redacción: \MyDate}
+\rightline{últimos cambios: \today}\end{footnotesize}
+
+\hypersetup{linkcolor=black}
+%\tableofcontents
+%\vspace{1cm}
+
+
+
+\section{Lista de puntos de control}
+Indicar todos los aspectos del edificio susceptibles de ser manejados por parte del sistema domótico. Se ha de precisar la granularidad con la que se va a manejar cada aspecto, detallando la cantidad exacta de elementos actuadores, sensores o controladores que se va a disponer. Normalmente, identificando la posición de cada uno de ellos dentro del edificio.  
+
+En instalaciones grandes o sofisticadas, es necesario tener también en cuenta la instrumentación propia de los equipos principales de la instalación. Equipos tales como calderas, refrigeradores, ascensores,\ldots pueden disponer de:
+\begin{itemize}
+\item Sus propios sensores internos que monitorizan su funcionamiento.
+\item Interfaces remotos de control que les permiten ser gobernados desde un centro de control. 
+\end{itemize}
+
+En una primera aproximación, no es necesario indicar el tipo exacto de todos esos actuadores, sensores o controladores. A lo sumo citar una indicación de las capacidades que se espera de ellos (sobre todo si difieren de las mínimas estándares habituales). 
+
+
+\subsection{Climatización}
+\begin{itemize}
+\item Actuadores: válvulas (en cada radiador/salidadeaire, o por zonas)
+\item Sensores: medidores de temperatura, medidores de humedad,  medidores de calidad del aire (CO2, partículas,\ldots), medidores de velocidad/flujo de aire  
+\item Controladores: termostato o crono-termostato
+\end{itemize}
+
+\subsection{Iluminación}
+\begin{itemize}
+\item Actuadores: luminarias de servicio (indicando bloques que se encienden/apagan al unisono), luminarias de emergencia
+\item Sensores: detectores fotoelécricos (para detectar falta de luz), detectores de presencia (para detectar personas)
+\item Controladores: interruptores manuales (accionados por el usuario), interruptor crepuscular (señala el momento astronómico del ocaso, según día del año)
+\end{itemize}
+
+\subsection{Persianas y toldos parasoles}
+\begin{itemize}
+\item Actuadores: motores (para cerrar/abrir)
+\item Sensores: medidor de velocidad del viento (para los toldos),  detectores fotoeléctricos (para detectar radiación solar)
+\item Controladores: interruptores manuales (accionados por el usuario)
+\end{itemize}
+
+\subsection{Riego de jardines}
+\begin{itemize}
+\item Actuadores: válvulas
+\item Sensores: medidores de humedad del terreno
+\item Controladores: 
+\end{itemize}
+
+\subsection{Sistemas multimedia o de megafonia o de videoconferencia}
+\begin{itemize}
+\item Actuadores: altavoces, pantallas
+\item Sensores:
+\item Controladores: fuentes de audio/video, controles de usuario (normalmente, mandos a distancia)
+\end{itemize}
+
+\subsection{Fugas de agua y de gas}
+\begin{itemize}
+\item Actuadores: sirenas/luces de alarma, válvulas (para cerrar el suministro y cortar la fuga)
+\item Sensores: detectores de humedad, detectores de gas (según los tipos de gas que se manejen)
+\item Controladores: central de alarmas
+\end{itemize}
+
+\subsection{Sistemas antiincendios}
+\begin{itemize}
+\item Actuadores: sirenas/luces de alarma, sistema de megafonia, rociadores de agua, cierres automáticos de puertas/ventanas, aperturas automáticas de evacuación de humos
+\item Sensores: pulsadores de alarma, detectores de humo, detectores de temperatura
+\item Controladores: central de alarmas
+\end{itemize}
+
+\subsection{Control de accesos y seguridad}
+\begin{itemize}
+\item Actuadores: sirenas/luces de alarma, cerraduras electrónicas, motores (apertura/cierre de puertas y ventanas), sistema de comunicaciones
+\item Sensores: pulsadores de pánico, detectores de apertura de puertas y ventanas, detectores de rotura de cristales, detectores de movimiento, cámaras
+\item Controladores: central de alarmas
+\end{itemize}
+
+\subsection{Consumo de energia}
+\begin{itemize}
+\item Actuadores:
+\item Sensores: medidores de consumo
+\item Controladores: 
+\end{itemize}
+
+
+\subsection{\ldots}
+\begin{itemize}
+\item Actuadores:
+\item Sensores:
+\item Controladores: 
+\end{itemize}
+
+
+
+
+\section{Diagrama de estados}
+Un diagrama de estados recoge de forma clara y precisa cómo se ha de comportar cada elemento del sistema. Cuales son los estados en que se puede encontrar cada elemento y cuales son las condiciones de transición de un estado a otro.
+
+Las condiciones de transición suelen ser una combinación de:
+\begin{itemize}
+\item Estados de otros elementos del sistema.
+\item Valores en ciertos parámetros medidos por los sensores del sistema.
+\item Valores temporales, bien fechas/horas absolutas o bien tiempo transcurrido desde\ldots
+\end{itemize}
+
+Uno de los estandares para representarlos es de SysML:
+\\ \url{https://sysml.org/sysml-faq/what-is-state-machine-diagram.html}
+
+Y una herramienta bastante práctica para dibujar ese tipo de diagramas (y muchos otros tipos) es: \url{https://www.diagrams.net/}
+
+\vspace{0.5cm}
+Algunos enlaces ilustrativos para documentarse:
+\\ \url{https://manuel.cillero.es/doc/metodologia/metrica-3/tecnicas/diagrama-de-transicion-de-estados/}
+\\ \url{http://exa.unne.edu.ar/informatica/anasistem2/public_html/apuntes/maf/anexos/transicion.htm}
+\\ \url{https://sparxsystems.com/resources/tutorials/uml2/state-diagram.html}\\ \url{https://sparxsystems.com/resources/gallery/diagrams/systems/sys-sysml_statemachine_diagram-distiller_simple_statemachine.html}
+\\ \url{https://www.smartdraw.com/state-diagram/}
+\\ \url{http://www.umldesigner.org/ref-doc/implement-the-application.html#state-machine-diagram}
+
+
+
+
+\section{Protocolos de comunicación y datos a tratar}
+
+Obviamente, los diversos elementos del sistema han de poder intercambiar información entre ellos. Este intercambio puede ser tan sencillo como una simple señal encendido/apagado o puede ser tan complejo como una serie de fotogramas en color y alta resolución.
+
+Existen multitud de estandares de interconexión física (cables y conectores) y de interconexión lógica (protocolos). Obviamente, es importante que los diversos elementos de sistema hablen de la misma forma o, en su caso, auxiliados con el mínimo posible de adaptadores.
+Pero de eso se encargan los técnicos especialistas.
+
+Lo importante es \textbf{detallar la información (tipo de dato y frecuencia de actualización) que se pretende tratar}. No es lo mismo un sensor de temperatura biestable (conectado por debajo de una cierta temperatura, desconectado por encima de la misma; transmitiendo solo los cambios de estado cuando se producen); que un sensor de temperatura ``de laboratorio'' (transmitiendo la medición exacta de temperatura cada milisegundo); que un sensor de temperatura ``ambiental'' (transmitiendo la medición cada minuto).
+
+Por otro lado, se ha de \textbf{tener en cuenta las expectativas de control del cliente}. No es lo mismo una instalación donde se espera un funcionamiento autónomo según se ajusten unos pocos mandos de control; que una instalación donde se desea tener una visualización continua y consultas detalladas sobre todos y cada uno de los aspectos manejados por la misma.
+
+
+\section{apéndice: unos ejemplos ilustrativos}
+Para simplificar, se contempla solo calefacción, persianas y riego. Pero, con un poco de imaginación, se pueden extrapolar los ejemplos a cualesquiera otros sistemas que se deseen automatizar.
+
+\begin{footnotesize}Disculpas\ldots estoy trabajando en ello\ldots la idea es preparar la lista de puntos de control, el diagrama de estados y los datos a tratar de cada uno de los ejemplos\ldots \end{footnotesize}
+
+\subsection{Pre-domótica}
+
+La idea es mostrar un chalet con jardín donde:
+\begin{itemize}
+\item Hay un termostato general que controla el encendido/apagado de la caldera de calefacción.
+\item Hay unos interruptores manuales que abren/cierran las válvulas de paso de agua al riego por goteo y los aspersores del jardín.
+\item Cada persiana tiene su motor y su interruptor manual para subirla/bajarla.
+\end{itemize}
+
+\subsection{Domótica}
+
+La idea es mostrar un chalet con jardín donde:
+\begin{itemize}
+\item Cada espacio principal (cocina, salón, habitaciones, pasillo) tiene su propio termostato que controla el encendido/apagado de los radiadores de ese espacio.
+\item Hay unos interruptores manuales y un crono-interruptor que abren/cierran las válvulas de paso de agua al riego por goteo y los aspersores del jardín. El crono-interruptor se puede programar para regar durante un cierto tiempo ciertos dias/horas de la semana.
+\item Cada persiana tiene su motor y su interruptor manual para subirla/bajarla.
+\item Tanto los termostátos, como los interruptores de riego como los interruptores de las persinas están conectados a un controlador central que permite:
+\begin{itemize}
+\item Manejar todos los sistemas desde una app en una tablet o movil conectado a la wifi del chalet.
+\item Idem desde una conexión remota vía Internet. (Obviamente, con las correspondientes medidas de seguridad e identificación de usuario.)
+\item Programar patrones de activación/desactivación en el tiempo. Haciendolo sobre un calendario para cada uno de los sistemas.
+\end{itemize}
+\end{itemize}
+
+\subsection{Domótica avanzada}
+
+La idea es mostrar un chalet con jardín donde, además de todo citado en el apartado anterior:
+\begin{itemize}
+\item Se dispone un sensor de temperatura exterior.
+\item Se disponen sensores de humedad del suelo, repartidos estratégicamente por distintas zonas del jardín. El riego está también sectorizado según esas zonas.
+\item Se dispone un sensor de iluminación exterior para saber si es de día o de noche. Y sensores de radiación solar acumulada en cada fachada del chalet.
+\item El controlador central está conectado a todo eso y dispone además de conexión con un servicio externo de información metereológica. Con lo que:
+
+\begin{itemize}
+\item La calefacción tiene en cuenta:
+\begin{itemize}
+\item Las preferencias momentáneas del usuario, lo que ha ajustado en el termostato correspondiente en la última media hora.
+\item La programación horaria establecida en el calendario.
+\item La temperatura exterior.
+\item La previsión meteorológica para las próximas dos horas.
+\item Indicaciones manuales dadas al sistema central de que la casa va a estar vacía durante un cierto periodo de tiempo (por ejemplo, por un viaje de todos los que viven en ella).
+\end{itemize}
+\end{itemize} 
+
+\item El riego se activa automáticamente para cada zona en función de:
+\begin{itemize}
+\item El tipo de plantas plantado en esa zona.
+\item La humedad del suelo medida en esa zona.
+\item La previsión de lluvias para las próximas 48 horas.
+\end{itemize}
+
+\item Las persianas tienen en cuenta:
+\begin{itemize}
+\item Las preferencias momentáneas del usuario, lo que ha ajustado manualmente en la última hora.
+\item Si una fachada supera un cierto umbral de radiación solar incidente, las persianas se "medio cierran" (dejando rendijas entre lamas).
+\item En los espacios comunes (salón, cocina, baños,\ldots) las persianas se abren automáticamente al hacerse de día.
+\item Al hacerse de noche, todas las persianas se cierran automáticamente.
+\item Si se ha indicado al sistema central que la casa va a estar vacía durante un cierto periodo de tiempo.
+\begin{itemize}
+\item Las persianas de las habitaciones se abren automáticamente. De vez en cuando, alguna persiana de la casa se cierra o se abre automáticamente. El algoritmo del automatismo se basa en lo que el sistema ha ido registrando sobre el comportamiento habitual de los habitantes de la casa, con un pequeño componente aleatorio para que parezca natural.
+\item En caso de alerta por fuertes vientos, todas las persianas se cierran automáticamente durante la duración de la alerta.
+\end{itemize}
+\end{itemize}
+
+\end{itemize}
+
+
+
+
+\section{apéndice: algunas referecias ilustrativas}
+
+Protocolo de interconexión KNX:
+\\ \url{https://www.knx.org/knx-es/para-su-vivienda/aplicaciones/}
+\\ \url{https://www.knx.org/knx-es/para-oficinas/ejemplos-reales/}
+
+Loxone:
+\\ \url{https://www.loxone.com/eses/smart-home/residencial/}
+\\ \url{https://www.loxone.com/eses/edificios/smart-buildings/}
+
+Somfy:
+\\ \url{https://www.somfy.es/}
+
+Crestron:
+\\ \url{https://www.crestron.com/}
+
+Gewiss:
+\\ \url{https://gewiss.com/es/es/products/experience-catalogue/catalogs/series/domotics/chorus---home-automation-knx-easy-bus}
+
+Wolf:
+\\ \url{https://spain.wolf.eu/usuarios/productos/conectividad/}
+
+Delta Dore:
+\\ \url{https://www.deltadore.es/}
+
+HAI Automation:
+\\ \url{http://www.haiautomation.ca/es/}
+
+Fibaro, sistemas inalámbricos:
+\\ \url{https://www.fibaro.com/cl/}
+
+Savant:
+\\ \url{https://www.savant.com/}
+
+Blomotix, controles táctiles:
+\\ \url{https://www.blumotix.it/}
+
+AMX Harman, control de sistemas audiovisuales:
+\\ \url{https://www.amx.com/en/product_families}
+\\ \url{https://www.amx.com/en/product_families/device-control}
+\\ \url{https://www.amx.com/en/products/nss-rpm}
+
+Theben:
+\\ \url{https://www.theben.es/es/productos-1790-c/}
+
+Sistemas de control de edificios de Scheneider Electric:
+\\ \url{ https://www.se.com/es/es/product-category/1200-sistema-de-gesti%C3%B3n-del-edificio/?filter=business-2-gesti%C3%B3n-de-edificios-y-seguridad}
+
+Soluciones ``hogar conectado'' de Legrand:
+\\ \url{https://www.legrand.es/residencial#soluciones-hogar-conectado}
+\\ \url{https://www.legrand.es/documentos/Soluciones-inteligentes-Netatmo-Legrand.pdf}
+
+Bosch ``smart home'':
+\\ \url{https://www.bosch-smarthome.com/es/es/index}
+
+OpenHAB:
+\\ \url{https://www.openhab.org/}
+\\ \url{https://www.openhab.org/addons/}
+
+
+Sistemas profesionales, para edificios grandes:
+\\ \url{https://www.tridium.com/us/en/home}
+\\ \url{https://www.tridium.com/us/en/Products/niagara}
+\\ \url{https://buildings.honeywell.com/us/en/brands/our-brands/trend-controls}
+\\ \url{https://partners.trendcontrols.com/trendproducts/cd/en/index.html}
+\\ \url{https://www.centraline.com/esES/home.html}
+\\ \url{https://products.centraline.com/es/}
+
+
+
+\end{document}
