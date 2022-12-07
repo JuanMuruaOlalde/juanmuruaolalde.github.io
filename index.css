@@ -1,0 +1,37 @@
+    h1 {
+        font-size: medium
+    }
+
+    nav {
+        margin: 15px;
+    }
+
+    .item_nav {
+        margin-right: 5em;
+    }
+
+    .cabecera_de_tema {
+        margin: 0;
+        padding: 1em;
+    }
+
+    .documento {
+        margin: 10px;
+        padding: 1em;
+        background-color: lightgray;
+        min-height: 120px;
+    }
+
+    .documento_imagen {
+        float: left;
+        margin-right: 10px;
+    }
+
+    .documento_ficha {
+        float: none;
+    }
+
+    h3 {
+        margin-top: 0;
+        margin-bottom: 0.5em;
+    }
