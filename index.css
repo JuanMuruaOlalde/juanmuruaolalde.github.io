@@ -10,9 +10,20 @@
         margin-right: 5em;
     }
 
-    .cabecera_de_tema {
+    h2 {
+        margin-top: 2em;
+        margin-bottom: 0.5em;
+    }
+    
+    section {
         margin: 0;
         padding: 1em;
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    article {
+        flex: 300px;
     }
 
     .documento {
