@@ -7,17 +7,17 @@ Cara a los usuarios finales, solo existirán las dos primeras cifras X.Y
 => X es versión mayor: cambios no retrocompatibles
 => Y es versión menor: cambios compatibles con cualquier otra con el mismo X
 También lo podemos ver como que:
-=> Aumentamos X cuando se hace un lanzamiento completo a “producción”.
-=> Aumentamos Y cuando se lanza una corrección a la versión X.
+=> Aumentamos X cuando se emite un lanzamiento completo a “producción”.
+=> Aumentamos Y cuando se emite una corrección sobre la última versión X. en producción
 
 Cara al desarrollo, existirán cuatro cifras: X.Y.p.c
 => p.0 es una versión "para que alguien interno la pruebe", 
-una versión que solo verán los usuarios internos de pruebas:  X.Y.1.0, X.Y.2.0, X.Y.3.0, etc. (nota: se pueden abreviar a X.Y.1, X.Y.2, X.Y.3, etc.)
+una versión que solo verán los usuarios internos de pruebas:  X.Y.1.0, X.Y.2.0, X.Y.3.0, etc.
 => p.c es una versión "de compilacion", 
 una versión que solo verán los programadores: X.Y.p.1, etc.
 También lo podemos ver como que:
-=> Aumentamos p cuando se emite una versión para pruebas.
-=> Aumentamos c cuando empezamos a trabajar después de esa emisión.
+=> Aumentamos p cuando se emite una versión “para pruebas” internas.
+=> Aumentamos c cuando empezamos a trabajar después de cualquier emisión.
 
 Ejemplo práctico:
 
