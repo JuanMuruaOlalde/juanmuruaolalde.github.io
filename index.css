@@ -1,52 +1,54 @@
 h1 {
-  font-size: medium;
+    font-size: medium;
 }
 
 nav {
-  margin: 15px;
+    margin: 15px;
+    display: flex;
 }
 
 .item_nav {
-  margin-right: 5em;
-  padding: 7px;
-  background-color: oldlace;
-  border: 2px solid grey;
-  border-radius: 2px;
+    margin-right: 5em;
+    padding: 7px;
+    background-color: oldlace;
+    border: 2px solid grey;
+    border-radius: 2px;
 }
 
 h2 {
-  margin-top: 2em;
-  margin-bottom: 0.5em;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    width: 100%;
 }
 
 section {
-  margin: 0;
-  padding: 1em;
-  display: flex;
-  flex-flow: row wrap;
+    margin: 0;
+    padding: 1em;
+    display: flex;
+    flex-flow: row wrap;
 }
 
 article {
-  flex: 300px;
+    flex: 300px;
 }
 
 .documento {
-  margin: 10px;
-  padding: 1em;
-  background-color: whitesmoke;
-  min-height: 120px;
+    margin: 10px;
+    padding: 1em;
+    background-color: whitesmoke;
+    min-height: 120px;
 }
 
 .documento_imagen {
-  float: left;
-  margin-right: 10px;
+    float: left;
+    margin-right: 10px;
 }
 
 .documento_ficha {
-  float: none;
+    float: none;
 }
 
 h3 {
-  margin-top: 0;
-  margin-bottom: 0.5em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
 }
