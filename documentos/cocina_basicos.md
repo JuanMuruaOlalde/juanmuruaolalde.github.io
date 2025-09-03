@@ -8,11 +8,13 @@ Aprovecho para comentar que hay muchas formas de cocinar. Cada cual cocina como 
 
 Cualquier cosa se corta mejor con un cuchillo adecuado y bien afilado. Pero cuanto más afilado esté el cuchillo, mayor peligro de cortarnos nosotros.
 
-Solo hay una manera segura de aprender a cortar: jamás de los jamases poner los dedos (ni ninguna otra parte del cuerpo) en la dirección de la herramienta. En todo momento, si el movimiento de la herramienta fuera más lejos de lo que habiamos previsto... que vaya a la tabla de cortar o al aire.
+Solo hay una manera segura de cortar: jamás de los jamases poner los dedos (ni ninguna otra parte del cuerpo) en la dirección de la herramienta. En todo momento, si el movimiento de la herramienta fuera más lejos de lo que habiamos previsto... que se escape a la tabla de cortar o al aire; nunca a nuestro cuerpo (o al de otros).
 
-En según qué cortes, puede resultar complicado al principio. Pero al final seguro que buscamos la manera de agarrar el alimento y hacer el corte de forma segura. Mejor tardar más o cortar peor, que enriquecer el guiso con nuestra sangre.
+En según qué cortes, puede resultar complicado al principio. Pero al final seguro que buscamos alguna manera (más o menos) cómoda de agarrar el alimento y hacer el corte de forma segura. Mejor tardar más o cortar peor, que enriquecer el guiso con nuestra sangre.
 
-Al principio hay que ser extra cuidadoso con cómo nos colocamos en todos y cada uno de los cortes. Pero, a base de mucho cortar, lo de poner los dedos fuera de la trayectoria de la herramienta se convierte en un hábito.
+Al principio hay que ser extra cuidadoso en todos y cada uno de los cortes. Pero, a base de mucho cortar, lo de poner los dedos fuera de la trayectoria de la herramienta se acaba convirtiendo en un hábito.
+
+[Cómo usar un cuchillo y afilarlo (bien) - Diegodoal](https://www.youtube.com/watch?v=2Pc8B18TIdw)
 
 ## Verduras
 
@@ -57,7 +59,7 @@ En una sartén donde tengamos salsa (que hemos preparado previamente), echar una
 
 Una de las salsas más sencillas suele ser: sofreir cebolla picada, con aceite de oliva, a fuego lento; añadir tomate; añadir algún complemento como taquitos de jamón o de chorizo. Dejar un tiempo a fuego lento, hasta que el tomate esté bien hecho. 
 
-Para algunas sugerencias de otras salsas: [Diegodoal: pastas clásicas italianas](https://www.youtube.com/watch?v=eNNkG0s9CB0)
+Para algunas sugerencias de otras salsas: [Pastas clásicas italianas - Diegodoal](https://www.youtube.com/watch?v=eNNkG0s9CB0)
 
 ### cosas importantes a tener en cuenta
 
@@ -67,32 +69,34 @@ No añadir nunca aceite al agua de cocción. El aceite, al escurrir la pasta, cr
 
 ## Legumbres
 
-Dejarlas hidratar en agua. Para las lentejas puede bastar unos 15 minutos, para las alubias mejor unas horas y para los garbanzos mínimo 12 (mejor 24) horas.
+Dejarlas hidratar en agua. Para las lentejas puede bastar unos 15 minutos, para las alubias mejor dejarlas unas cuantas horas y para los garbanzos se necesitan un mínimo de unas 12 horas (mejor 24).
 
-Se puede comenzar a cocer directamente en el agua de hidratar. Cocer a fuego medio o bajo. Cocer la legumbre sola durante un tiempo: lentejas como una hora, alubias como un par de horas, garbanzos un par de horas. Revolviendo de vez en cuando. 
+Se puede comenzar a cocer directamente en el agua de hidratar. Cocer a fuego bajo. Cocer la legumbre sola durante un tiempo: lentejas como una hora, alubias como un par de horas. Revolviendo de vez en cuando. 
 
-Después de ese tiempo cociendose ella sola la legumbre, añadir verduras, sal y un chorrito de aceite de oliva (o "sacramentos", si se desea un aporte de grasa mayor). Seguir cociendo: lentejas otra media hora (hasta que las verduras estén cocidas), alubias como otra hora o así, garbanzos otro par de horas. Revolviendo de vez en cuando.
+Después de ese tiempo cociendose ella sola la legumbre, añadir verduras, sal y un chorrito de aceite de oliva (o "sacramentos", si se desea un aporte de grasa mayor). Seguir cociendo: lentejas otra media hora (hasta que las verduras estén cocidas), alubias como otra hora o así. Revolviendo de vez en cuando.
 
 ### cosas importantes a tener en cuenta
 
-Cocer a fuego medio o lento, para evitar romper la legumbre. (sobre todo las alubias, que necesitan cocerse muy suave). Importante revolver de vez en cuando, para evitar que se pegue el fondo.
+Cocer a fuego lento, para evitar romper la legumbre. (Sobre todo las alubias, que necesitan cocerse muy suave). Importante revolver de vez en cuando, para evitar que se pegue el fondo.
 
 Las alubias mejoran si se les corta la cocción con agua fria, un par de veces por lo menos. También mejoran si tienen abundante grasa al final de la cocción. (Esa es la misión de los "sacramentos": chorizo de cocer, panceta, carne de cerdo grasa,...).
 
-Con el resto de legumbres, si se necesita añadir más agua durante la cocción, que sea caliente.
+Con el resto de legumbres, si se necesita añadir más agua durante la cocción, mejor que sea caliente.
 
-Los garbanzos, incluso, conviene echarlos al agua una vez esté hirviendo. (Es decir, sacarlos del agua de hidratar antes de empezar a calentar y devolverlos al agua cuando esta comience a hervir.)
+### garbanzos
 
-Los garbanzos hacen muy buen caldo si se cuecen con esqueletos de pollo, huesos de caña, huesos de rodilla,... Para hacer caldo, poner abundante agua desde el principio, en una olla grande.
+Los garbanzos son un poco especiales. Van alrevés del resto de legumbres: hay que sacarlos del agua de hidratar antes de empezar y devolverlos al agua cuando esté hirviendo. Es decir, primero ponemos a cocer las verduras y todo lo demás (sin los garbanzos); esperamos a que el guiso esté hirviendo y entonces echamos los garbanzos.
 
-Con los garbanzos se puede aprovechar para cocer también carne de guisar, morcillo o jarrete. Esa carne se puede poner luego con tomate. Así se tiene un segundo plato además de los garbanzos. (Comida completa en un solo guiso: caldo, garbanzos y carne.)
+Los garbanzos hacen muy buen caldo si se cuecen con esqueletos de pollo, huesos de caña o huesos de rodilla. Poner abundante agua desde el principio, en una olla grande. Si se ha de añadir más agua durante la cocción, que sea muy caliente (hirviendo).
+
+Con los garbanzos se puede aprovechar también para cocer carne de guisar, morcillo o jarrete. Esa carne se puede terminar luego aparte, con tomate u otra salsa. Así tenemos una comida de tres platos en un solo guiso: caldo, garbanzos con verduras y carne en salsa.
 
 
 ## Arroz
 
 Poner abundante agua a calentar en una olla. (Mejor si es caldo ligero de carne o de pescado en lugar de simple agua.)
 
-En una sartén o paellera, hacer un sofrito (en aceite de oliva, a fuego bajo, cebolla y/o ajos y/o pimientos hasta que estén dorados). Al final del sofrito se pueden añadir los complementos que más nos gusten: taquitos de carne o de pescado crudos, verduras cocidas, gambas peladas crudas,... Se puede añadir también tomate o alguna otra salsa.
+En una sartén o paellera, hacer un sofrito (en aceite de oliva, a fuego bajo, cebolla y/o ajos y/o pimientos hasta que estén apochados). Al final del sofrito se pueden añadir los complementos que más nos gusten: taquitos de carne o de pescado crudos, verduras cocidas, gambas peladas crudas,... Se puede añadir también tomate o alguna otra salsa.
 
 Rehogar el arroz en el sofrito. La medida de arroz puede ser: una capa fina que cubra toda la sartén o paellera.
 
@@ -125,13 +129,13 @@ Poner en un bol:
 
 nota: Las medidas son simplemente para dar más o menos las proporciones. La proporción más importante es la de aproximadamente 1/2 entre la harina (en gr) y el agua (en ml). Aunque esta proporción también es discutible: hay quien le gusta la masa menos hidratada (más fácil de trabajar) y a quien le gusta más hidratada (más difícil de trabajar). La calidad y el tipo de la harina también influye en la hidratación.
 
-Poner todos los ingredientes en un bol. Remover e integrar todo con una mano (mientras sujetamos el bol con la otra). Remover hasta tener una pella de masa que se pueda sacar del bol y trabajar sobre la mesa con las dos manos. Trabajar la masa, amasandola durante unos diez minutos como mínimo.
+Poner todos los ingredientes en un bol. Remover e integrar todo con una mano (mientras sujetamos el bol con la otra). Remover hasta tener una pella de masa que se pueda sacar del bol y trabajar sobre la mesa con las dos manos. Trabajar la masa, amasandola durante unos 10 minutos como mínimo.
 
-nota: Es mucho menos cansado si usamos una amasadora mecánica, (con varilla "monocuerpo" para masas; no la varilla "multihilos", que es para batir). Si se usa amasado mecánico, con cinco minutos de trabajo es suficiente.
+nota: Es más cómodo si usamos una amasadora mecánica, (con varilla "monocuerpo" para masas; no con la varilla "multihilos", que es para batir); en el amasado mecánico es suficiente con 5 minutos.
 
-Dejar fermentar toda la masa en bloque. En un recipiente hermético de plástico. Durante unas cuatro o cinco horas si está en un ambiente cálido (entre veintitantos y treintatantos grados). Durante unas veinticuatro horas si está en un ambiente refrigerado (debajo de diez grados).
+Dejar fermentar toda la masa en bloque. En un recipiente tapado (o cubierto con film transparente). La fermentación depende de la temperatura; necesita de unas 3 o 4 horas si está en un ambiente cálido (entre veintitantos o treintatantos grados); o de unas 24 horas si está en un ambiente refrigerado (debajo de diez grados).
 
-Encender el horno. El horno ha de estar bien caliente (alrededor de unos 300 grados Celsius) antes de meter el pan.
+Encender el horno y precalentarlo. El horno ha de estar bien caliente (alrededor de unos 300 grados Celsius) antes de meter el pan.
 
 Trocear la masa fermentada y dar forma a cada pieza. Dejar fermentar las piezas a temperatura ambiente; en cestos de madera o similar, recubiertas con tela de lino o similar. Durante más o menos una hora.
 
@@ -147,17 +151,15 @@ Hornear durante unos 30 minutos.
 
 ### cosas importantes a tener en cuenta
 
-La levadura de panaderia es un ser vivo. La sal mata las levaduras. Cuidado al añadir ambas, procurar que una no caiga directamente sobre la otra.
+¡Importantísimo!: No confundir la levadura de panaderia con la (mal llamada)"levadura" de pasteleria. La de pasteleria es un químico gasificante (su nombre en inglés es "backing powder" -polvo de hornear-). No es levadura. No sirve para hacer pan. La levadura de panaderia es un ser vivo. 
 
-El agua conviene que esté tibia (el frio ralentiza el desarrollo de las levaduras). Si el agua es de grifo, conveniene dejarla airear un rato en una jarra abierta o similar (el cloro afecta a las levaduras).
+La sal mata las levaduras; cuidado al añadir ambas, procurar que una no caiga directamente sobre la otra. El agua conviene que esté tibia (el frio ralentiza el desarrollo de las levaduras). Si el agua es de grifo, conveniene dejarla airear un rato en una jarra abierta o similar (el cloro afecta a las levaduras). Pero nada de todo esto es demasiado importante. Las levaduras son lo bastante resistentes como para aguantar todo eso ;-)
 
 El trabajo de amasado es importante. De ahí lo de cuidar como mínimo diez minutos con un reloj cuando se hace manualmente (se hacen unos minutos muuyyy laaargooos... y ¡cansados!).
 
 Sobretrabajar el amasado puede estropear la masa. De ahí lo de cuidar no sobrepasar unos cinco minutos cuando se hace mecánicamente. (A mano, es imposible pasarse,... a no ser que nos guste mucho el ejercicio... ;-)
 
-¡Importante!: No confundir la levadura de panaderia con la (mal llamada) "levadura" de pasteleria. La de pasteleria no es levadura, es un químico gasificante (su nombre en inglés es "backing powder" -polvo de hornear-). No sirve para hacer pan.
-
-Las levaduras son seres vivos y existen multitud de especies de levaduras. Están presentes en muchas superficies, en prácticamente casi cualquier lugar. Las levaduras se pueden cultivar y conservar. Es lo que se denomina 'masa madre': una pella de harina donde crecen levaduras. Una pella de masa madre que se mantiene viva cuidandola todos los días: retirando la mitad para hacer el pan del día y añadiendo harina/agua nueva para recuperar esa mitad de masa.
+nota: Las levaduras son seres vivos y existen multitud de especies de levaduras. Están presentes de forma natural en muchas superficies, en prácticamente casi cualquier lugar. Las levaduras se pueden cultivar y conservar. Es lo que se denomina 'masa madre': una pella de harina donde crecen levaduras. Una pella de masa madre se mantiene viva cuidandola todos los días: retirando la mitad para hacer el pan del día y añadiendo harina/agua nueva para recuperar esa mitad de masa.
 
 
 
