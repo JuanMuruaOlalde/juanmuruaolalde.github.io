@@ -1,0 +1,414 @@
+<!DOCTYPE HTML>
+<html lang="es" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Compras - Flujos de datos en una empresa</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-17b3e2c4.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-5f3dacd7.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flujos de datos en una empresa</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="compras"><a class="header" href="#compras">Compras</a></h1>
+<h2 id="algunas-entidades-habituales"><a class="header" href="#algunas-entidades-habituales">Algunas entidades habituales</a></h2>
+<h3 id="proveedores-y-contactos"><a class="header" href="#proveedores-y-contactos">Proveedores y contactos</a></h3>
+<h4 id="proveedor"><a class="header" href="#proveedor">Proveedor</a></h4>
+<p>El núcleo común (código, razón social, identificación fiscal) está en los <a href="./datos_maestros.html#proveedores">Datos maestros</a>.</p>
+<p>Aquí se mantiene la parte de compras:</p>
+<ul>
+<li>Información de compras. Comprador asignado. Categorías de proveedor. Condiciones de compra. Idioma.</li>
+</ul>
+<p>El resto de la información del proveedor la mantienen otros departamentos:</p>
+<ul>
+<li>Información fiscal y financiera, en <a href="./administracion.html#proveedor">Administración general, Contabilidad y Finanzas</a>.</li>
+<li>Información de calidad, en <a href="./calidad.html#proveedor">Calidad</a>.</li>
+</ul>
+<h4 id="potencial-proveedor"><a class="header" href="#potencial-proveedor">Potencial proveedor</a></h4>
+<ul>
+<li>Información básica. Nombre o razón social. Qué puede suministrar. Origen (feria, búsqueda, recomendación…).</li>
+<li>Estado. Cuándo pasa a ser Proveedor y quién lo decide.</li>
+</ul>
+<p>Normalmente no se le puede comprar a un cierto proveedor hasta que <a href="./calidad.html#proveedor">Calidad</a> lo homologa.</p>
+<h4 id="persona-de-contacto"><a class="header" href="#persona-de-contacto">Persona de contacto</a></h4>
+<ul>
+<li>Información de contacto. Nombre. Cargo. Teléfono. Email. Idioma.</li>
+<li>Proveedor o potencial proveedor al que pertenece.</li>
+</ul>
+<p>Son datos personales, sujetos a la normativa de protección de datos (ver <a href="./juridico.html">Cumplimiento jurídico</a>).</p>
+<h4 id="fuente-de-aprovisionamiento"><a class="header" href="#fuente-de-aprovisionamiento">Fuente de aprovisionamiento</a></h4>
+<ul>
+<li>Qué proveedores pueden suministrar cada artículo. Proveedor preferente. Reparto entre varios proveedores.</li>
+<li>Por cada proveedor y artículo: código y descripción con que lo denomina el proveedor. Unidad de compra. Lote mínimo. Plazo de entrega.</li>
+</ul>
+<p>Imprescindible si se intercambian pedidos por EDI.</p>
+<h3 id="condiciones-de-compra"><a class="header" href="#condiciones-de-compra">Condiciones de compra</a></h3>
+<h4 id="tarifa-del-proveedor"><a class="header" href="#tarifa-del-proveedor">Tarifa del proveedor</a></h4>
+<ul>
+<li>Precios por artículo. Escalas por cantidad. Periodo de validez. Moneda.</li>
+</ul>
+<h4 id="contrato-o-acuerdo-marco"><a class="header" href="#contrato-o-acuerdo-marco">Contrato o acuerdo marco</a></h4>
+<ul>
+<li>Precios y condiciones pactados con un proveedor para un periodo. Volúmenes comprometidos.</li>
+</ul>
+<p>Ver también <a href="./juridico.html">Cumplimiento jurídico</a>.</p>
+<h4 id="condiciones-de-entrega"><a class="header" href="#condiciones-de-entrega">Condiciones de entrega</a></h4>
+<ul>
+<li>Incoterms. Portes. Plazos de entrega. Embalaje y etiquetado exigidos.</li>
+</ul>
+<p>El embalaje y el etiquetado los suele definir <a href="./almacenes_y_logistica.html#embalaje">Almacenes y Logística</a>.</p>
+<h3 id="ciclo-de-compra"><a class="header" href="#ciclo-de-compra">Ciclo de compra</a></h3>
+<h4 id="solicitud-de-compra"><a class="header" href="#solicitud-de-compra">Solicitud de compra</a></h4>
+<ul>
+<li>Quién la pide. Para qué. Artículos o servicios. Cantidades. Fecha en que se necesita. Centro de coste. Aprobación.</li>
+</ul>
+<p>Puede venir de cualquier departamento, o generarse automáticamente desde la planificación de necesidades (ver <a href="./fabricacion_o_servicios.html#necesidades-de-materiales-mrp">Fabricación o Servicios</a>).</p>
+<h4 id="petición-de-oferta"><a class="header" href="#petición-de-oferta">Petición de oferta</a></h4>
+<ul>
+<li>Proveedores consultados. Artículos o servicios. Cantidades. Fecha límite de respuesta.</li>
+</ul>
+<p>Para artículos nuevos o artículos especiales hay que adjuntar planos y especificaciones de <a href="./diseño_tecnico.html">Diseño técnico de productos</a>.</p>
+<h4 id="oferta-del-proveedor"><a class="header" href="#oferta-del-proveedor">Oferta del proveedor</a></h4>
+<ul>
+<li>Precios. Plazos. Condiciones. Validez.</li>
+</ul>
+<p>Comparando las de varios proveedores se elige a quién comprar.</p>
+<h4 id="pedido-de-compra"><a class="header" href="#pedido-de-compra">Pedido de compra</a></h4>
+<ul>
+<li>Información de cabecera: Fechas. Condiciones.</li>
+<li>Información de líneas: Artículos. Cantidades. Precios. Fecha de entrega solicitada y fecha confirmada por el proveedor.</li>
+</ul>
+<p>El proveedor puede recibirlo por EDI o consultarlo (y confirmarlo) en un portal de proveedores. <a href="./almacenes_y_logistica.html#previsión-de-llegadas">Almacenes y Logística</a> necesita conocerlo para preparar las recepciones.</p>
+<h4 id="seguimiento-de-entregas"><a class="header" href="#seguimiento-de-entregas">Seguimiento de entregas</a></h4>
+<ul>
+<li>Pedidos con retraso. Reclamaciones al proveedor. Nuevas fechas.</li>
+</ul>
+<p>Los retrasos afectan a la planificación de <a href="./fabricacion_o_servicios.html">Fabricación o Servicios</a> y/o a las fechas comprometidas por <a href="./comercial_y_ventas.html#pedido">Comercial y Ventas</a>.</p>
+<h4 id="recepción"><a class="header" href="#recepción">Recepción</a></h4>
+<ul>
+<li>Albarán del proveedor. Artículos y cantidades recibidos. Fecha. Pedido al que corresponde.</li>
+</ul>
+<p>La registra <a href="./almacenes_y_logistica.html#recepción">Almacenes y Logística</a>. Si hay inspección, suele ser <a href="./calidad.html#inspección">Calidad</a> decide si se acepta o no la recepción.</p>
+<h4 id="factura-de-proveedor"><a class="header" href="#factura-de-proveedor">Factura de proveedor</a></h4>
+<ul>
+<li>Información de cabecera: Fecha. Vencimientos.</li>
+<li>Información de líneas: Artículos. Cantidades. Precios. Impuestos.</li>
+</ul>
+<p>La registra <a href="./administracion.html#factura-de-proveedor">Administración general, Contabilidad y Finanzas</a>. Antes de pagarla se cruza con el pedido y con la recepción: que lo facturado se haya pedido, que se haya recibido y que haya sido Ok; además de que los precios en factura coincidan con los acordados en el pedido.</p>
+<h4 id="devolución-a-proveedor"><a class="header" href="#devolución-a-proveedor">Devolución a proveedor</a></h4>
+<ul>
+<li>Artículos y cantidades devueltos. Motivo. Abono o reposición esperados.</li>
+</ul>
+<p>Suele partir de una no conformidad de <a href="./calidad.html#no-conformidad">Calidad</a>.</p>
+<h3 id="organización-y-objetivos"><a class="header" href="#organización-y-objetivos">Organización y objetivos</a></h3>
+<h4 id="comprador-y-su-cartera"><a class="header" href="#comprador-y-su-cartera">Comprador y su cartera</a></h4>
+<ul>
+<li>Categorías de compra, familias de artículos o proveedores asignados a cada comprador.</li>
+</ul>
+<h4 id="categorías-de-proveedor"><a class="header" href="#categorías-de-proveedor">Categorías de proveedor</a></h4>
+<ul>
+<li>Tipo de suministro (materias primas, componentes, subcontratación, servicios, transporte…). Criticidad. Zona.</li>
+</ul>
+<h4 id="presupuesto-de-compras"><a class="header" href="#presupuesto-de-compras">Presupuesto de compras</a></h4>
+<ul>
+<li>Por categoría, familia de artículos o centro de coste. Por periodo.</li>
+</ul>
+<p>Se elabora a partir de:</p>
+<ul>
+<li>la <a href="./comercial_y_ventas.html#previsión-de-ventas">Previsión de ventas</a></li>
+<li>y los planes de <a href="./fabricacion_o_servicios.html">Fabricación o Servicios</a>.</li>
+</ul>
+<h4 id="análisis-del-gasto"><a class="header" href="#análisis-del-gasto">Análisis del gasto</a></h4>
+<ul>
+<li>Importes comprados por proveedor, categoría, artículo y periodo. Ahorros conseguidos.</li>
+</ul>
+<p>Lo consulta <a href="./direccion.html">Dirección</a>.</p>
+<p>Es también la base de las emisiones indirectas en la huella de carbono (ver <a href="./prevencion_y_medioambiente.html#huella-de-carbono">Prevención y Medio Ambiente</a>).</p>
+<h3 id="subcontratación"><a class="header" href="#subcontratación">Subcontratación</a></h3>
+<h4 id="pedido-de-subcontratación"><a class="header" href="#pedido-de-subcontratación">Pedido de subcontratación</a></h4>
+<ul>
+<li>Operación o trabajo encargado. Material que enviamos al subcontratista. Material que nos devuelve.</li>
+</ul>
+<p>El subcontratista necesita consultar en el PDM los planos y especificaciones de lo que ha de fabricar (ver <a href="./diseño_tecnico.html">Diseño técnico de productos</a>).</p>
+<p>Nosotros hemos de controlar cuánto material nuestro tiene en su casa (ver <a href="./almacenes_y_logistica.html#almacén">Almacenes y Logística</a>).</p>
+<h4 id="compra-de-servicios"><a class="header" href="#compra-de-servicios">Compra de servicios</a></h4>
+<ul>
+<li>Servicio contratado. Periodo. Certificación de lo realizado (horas, hitos).</li>
+</ul>
+<p>Si el proveedor trabaja en nuestras instalaciones, hay que coordinar con él la prevención de riesgos (ver <a href="./prevencion_y_medioambiente.html#coordinación-de-actividades-empresariales">Prevención y Medio Ambiente</a>).</p>
+<h2 id="algunos-potenciales-puntos-de-fricción"><a class="header" href="#algunos-potenciales-puntos-de-fricción">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="fecha-confirmada-por-el-proveedor-y-sus-cambios"><a class="header" href="#fecha-confirmada-por-el-proveedor-y-sus-cambios">Fecha confirmada por el proveedor y sus cambios</a></h3>
+<p>El proveedor confirma una fecha de entrega, o la cambia, normalmente por correo o por teléfono. El comprador ya sabe la fecha y no siente la necesidad de actualizar el <a href="./compras.html#pedido-de-compra">Pedido de compra</a>. Pero esa fecha la necesitan:</p>
+<ul>
+<li><a href="./fabricacion_o_servicios.html#necesidades-de-materiales-mrp">Fabricación o Servicios</a> (la planificación cuenta con el material en la fecha que dice el sistema),</li>
+<li><a href="./comercial_y_ventas.html#pedido">Comercial y Ventas</a> (fechas comprometidas a los clientes),</li>
+<li><a href="./almacenes_y_logistica.html#previsión-de-llegadas">Almacenes y Logística</a> (organizar las descargas),</li>
+<li><a href="./calidad.html#proveedor">Calidad</a> (puntualidad del proveedor),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que sea el propio proveedor quien confirme y modifique las fechas, por EDI o en un portal de proveedores. El comprador solo revisa las que no le cuadran.</li>
+<li>Avisos automáticos de pedidos sin confirmar o con la fecha vencida, para pedir la confirmación antes de que sea tarde.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Mostrar al comprador qué órdenes de fabricación o qué pedidos de clientes dependen de cada pedido de compra. Un retraso deja de ser una fecha en un correo y pasa a ser un cliente concreto que no recibirá a tiempo.</li>
+</ul>
+<h3 id="datos-de-sostenibilidad-y-de-cumplimiento-de-los-proveedores"><a class="header" href="#datos-de-sostenibilidad-y-de-cumplimiento-de-los-proveedores">Datos de sostenibilidad y de cumplimiento de los proveedores</a></h3>
+<p>País de origen, certificados, emisiones, fichas de datos de seguridad de los productos químicos, información sobre sustancias restringidas, comprobaciones en listas de sanciones… Al comprador le basta con el precio, el plazo y la calidad. Pero estos datos los necesitan:</p>
+<ul>
+<li><a href="./prevencion_y_medioambiente.html#huella-de-carbono">Prevención y Medio Ambiente</a> (huella de carbono, <a href="./prevencion_y_medioambiente.html#producto-químico">productos químicos</a>, <a href="./prevencion_y_medioambiente.html#informe-de-sostenibilidad">Informe de sostenibilidad</a>),</li>
+<li><a href="./juridico.html#control-de-exportaciones">Cumplimiento jurídico</a> (sanciones, debida diligencia en la cadena de suministro),</li>
+<li><a href="./almacenes_y_logistica.html#documentación-aduanera">Almacenes y Logística</a> (origen, para las aduanas),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Pedirlos una sola vez, al dar de alta al proveedor, con un cuestionario único que recoja lo que piden todos los departamentos; y actualizarlos con campañas periódicas, no cada cual por su cuenta.</li>
+<li>Que el proveedor los cargue y los mantenga en el portal de proveedores, con fechas de caducidad y avisos automáticos.</li>
+<li>Aprovechar las plataformas compartidas en las que el proveedor ya ha cargado esa información para otros clientes.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Incluir estos datos en la evaluación del proveedor y en la decisión de compra. Si nunca influyen en nada, el comprador los verá como burocracia.</li>
+</ul>
+<h3 id="motivo-de-la-elección-de-un-proveedor"><a class="header" href="#motivo-de-la-elección-de-un-proveedor">Motivo de la elección de un proveedor</a></h3>
+<p>Después de comparar varias <a href="./compras.html#oferta-del-proveedor">Ofertas de proveedor</a>, el comprador sabe por qué ha elegido una. Para él la decisión ya está tomada. Pero dejarlo registrado es útil:</p>
+<ul>
+<li>para auditorías y para <a href="./juridico.html#mapa-de-riesgos-de-cumplimiento">Cumplimiento jurídico</a> (demostrar que no hubo favoritismos),</li>
+<li>para <a href="./direccion.html">Dirección</a> (por qué no se eligió la oferta más barata),</li>
+<li>para el siguiente comprador que tenga que repetir la compra,</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Un comparativo de ofertas generado por el sistema a partir de las ofertas recibidas, en el que solo hay que marcar la elegida y escoger el motivo.</li>
+<li>Exigirlo solo por encima de un cierto importe.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que el propio comprador pueda consultar, en la siguiente compra, qué se pagó, a quién, y por qué se descartó a los demás.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="almacenes_y_logistica.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="fabricacion_o_servicios.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="almacenes_y_logistica.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="fabricacion_o_servicios.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

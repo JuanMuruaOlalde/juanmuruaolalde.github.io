@@ -1,0 +1,2648 @@
+<!DOCTYPE HTML>
+<html lang="es" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Flujos de datos en una empresa</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-17b3e2c4.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-5f3dacd7.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flujos de datos en una empresa</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="datos-y-categorías-maestros-globales"><a class="header" href="#datos-y-categorías-maestros-globales">Datos y categorías maestros globales</a></h1>
+<p>Son todo aquello que ha de ser igual en toda la empresa, a nivel de todo el planeta. Todo el mundo ha de tener claro que para interactuar es necesaria la uniformidad y coherencia en esos datos y categorías.</p>
+<p>Si en alguna parte, por cualquier razón, mantienen alguna variante local de esos datos. En esa parte se han de hacer responsables de las conversiones pertinentes entre los maestros globales y sus respectivas contrapartes locales. Ya que toda interacción con los demás involucra el maestro global.</p>
+<h2 id="algunos-maestros-habituales"><a class="header" href="#algunos-maestros-habituales">Algunos maestros habituales</a></h2>
+<h3 id="artículos"><a class="header" href="#artículos">Artículos</a></h3>
+<p>Han de ser comunes, como mínimo los códigos de artículo y sus descripciones en varios idiomas.</p>
+<p>También suele ser interesante una clasificación básica, por familias o grupos, para facilitar encontrarlos. Como toda clasificación, mejor si la clasificación es a base de etiquetas (un mismo artículo puede aparecer en varias familias o grupos -tener varias etiquetas-).</p>
+<h3 id="clientes"><a class="header" href="#clientes">Clientes</a></h3>
+<p>El núcleo común, igual en toda la empresa:</p>
+<ul>
+<li>Código de cliente.</li>
+<li>Razón social.</li>
+<li>Identificación fiscal.</li>
+</ul>
+<p>El resto de la información del cliente la mantiene cada departamento, en su parte:</p>
+<ul>
+<li>Información comercial, en <a href="#cliente">Comercial y Ventas</a>.</li>
+<li>Información fiscal y financiera, en <a href="#cliente-1">Administración general, Contabilidad y Finanzas</a>.</li>
+<li>Información logística, en <a href="#cliente-2">Almacenes y Logística</a>.</li>
+</ul>
+<h3 id="proveedores"><a class="header" href="#proveedores">Proveedores</a></h3>
+<p>El núcleo común, igual en toda la empresa:</p>
+<ul>
+<li>Código de proveedor.</li>
+<li>Razón social.</li>
+<li>Identificación fiscal.</li>
+</ul>
+<p>El resto de la información del proveedor la mantiene cada departamento, en su parte:</p>
+<ul>
+<li>Información de compras, en <a href="#proveedor-1">Compras</a>.</li>
+<li>Información fiscal y financiera, en <a href="#proveedor">Administración general, Contabilidad y Finanzas</a>.</li>
+<li>Información de calidad, en <a href="#proveedor-2">Calidad</a>.</li>
+</ul>
+<h3 id="plan-de-cuentas"><a class="header" href="#plan-de-cuentas">Plan de cuentas</a></h3>
+<p>En un grupo multinacional suele haber un plan de cuentas común y uno local en cada país, con su tabla de equivalencias. Es un caso claro de maestro global con variantes locales (ver <a href="#plan-de-cuentas-1">Administración general, Contabilidad y Finanzas</a>).</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="comercial-y-ventas"><a class="header" href="#comercial-y-ventas">Comercial y Ventas</a></h1>
+<h2 id="algunas-entidades-habituales"><a class="header" href="#algunas-entidades-habituales">Algunas entidades habituales</a></h2>
+<h3 id="clientes-y-contactos"><a class="header" href="#clientes-y-contactos">Clientes y contactos</a></h3>
+<h4 id="cliente"><a class="header" href="#cliente">Cliente</a></h4>
+<p>El núcleo común (código, razón social, identificación fiscal) está en los <a href="#clientes">Datos maestros</a>.</p>
+<p>Aquí se mantiene la parte comercial:</p>
+<ul>
+<li>Información comercial. Comercial asignado. Categorías de cliente. Lista de precios y descuentos aplicables. Idioma.</li>
+</ul>
+<p>El resto de la información del cliente la mantienen otros departamentos:</p>
+<ul>
+<li>Información fiscal y financiera, en <a href="#cliente-1">Administración general, Contabilidad y Finanzas</a>.</li>
+<li>Información logística, en <a href="#cliente-2">Almacenes y Logística</a>.</li>
+</ul>
+<h4 id="cliente-potencial"><a class="header" href="#cliente-potencial">Cliente potencial</a></h4>
+<p>También llamado <em>lead</em>, es alguien que aún no compra.</p>
+<ul>
+<li>Información básica. Nombre o razón social. Origen (feria, web, recomendación…).</li>
+<li>Estado. Cuándo pasa a ser Cliente y quién lo decide.</li>
+</ul>
+<h4 id="persona-de-contacto"><a class="header" href="#persona-de-contacto">Persona de contacto</a></h4>
+<ul>
+<li>Información de contacto. Nombre. Cargo. Teléfono. Email. Idioma.</li>
+<li>Cliente o potencial cliente al que pertenece.</li>
+</ul>
+<p>Son datos personales, sujetos a la normativa de protección de datos (ver <a href="#cumplimiento-jurídico">Cumplimiento jurídico</a>).</p>
+<h3 id="maestros-para-ventas"><a class="header" href="#maestros-para-ventas">Maestros para ventas</a></h3>
+<h4 id="referencia-cruzada-de-artículos"><a class="header" href="#referencia-cruzada-de-artículos">Referencia cruzada de artículos</a></h4>
+<ul>
+<li>Código y descripción con que cada cliente denomina a nuestros artículos.</li>
+</ul>
+<p>Imprescindible si se intercambian pedidos por EDI.</p>
+<h4 id="listas-de-precios"><a class="header" href="#listas-de-precios">Listas de precios</a></h4>
+<p>Por tipo de cliente. Por zonas. Por épocas del año.</p>
+<h4 id="descuentos-promociones-y-rappels"><a class="header" href="#descuentos-promociones-y-rappels">Descuentos, promociones y rappels</a></h4>
+<ul>
+<li>Descuentos. Por cliente. Por familia de artículos. Por cantidad.</li>
+<li>Promociones. Periodo de validez.</li>
+<li>Rappels. Descuentos por volumen anual. Escalas.</li>
+</ul>
+<p>Los rappels se han de ir provisionando en contabilidad (ver <a href="#provisión">Administración general, Contabilidad y Finanzas</a>).</p>
+<h4 id="contrato-o-acuerdo-marco"><a class="header" href="#contrato-o-acuerdo-marco">Contrato o acuerdo marco</a></h4>
+<ul>
+<li>Precios y condiciones pactados con un cliente para un periodo. Volúmenes comprometidos.</li>
+</ul>
+<p>Ver también <a href="#cumplimiento-jurídico">Cumplimiento jurídico</a>.</p>
+<h4 id="condiciones-de-entrega"><a class="header" href="#condiciones-de-entrega">Condiciones de entrega</a></h4>
+<ul>
+<li>Incoterms. Portes. Plazos de entrega.</li>
+</ul>
+<h3 id="gestión-del-ciclo-de-ventas"><a class="header" href="#gestión-del-ciclo-de-ventas">Gestión del ciclo de ventas</a></h3>
+<h4 id="acción-comercial"><a class="header" href="#acción-comercial">Acción comercial</a></h4>
+<p>Una entrada en el CRM</p>
+<h4 id="oportunidad"><a class="header" href="#oportunidad">Oportunidad</a></h4>
+<ul>
+<li>Fase. Probabilidad. Importe estimado. Fecha prevista de cierre.</li>
+</ul>
+<p>Alimenta el embudo de ventas (<em>pipeline</em>).</p>
+<h4 id="oferta-o-presupuesto"><a class="header" href="#oferta-o-presupuesto">Oferta o presupuesto</a></h4>
+<ul>
+<li>Información de cabecera: Fechas. Validez. Versión.</li>
+<li>Información de líneas: Artículos. Cantidades. Precios.</li>
+</ul>
+<p>En empresas industriales suele necesitar la colaboración de <a href="#diseño-técnico-de-productos">Diseño técnico de productos</a> (configuración, ingeniería de oferta).</p>
+<h4 id="pedido"><a class="header" href="#pedido">Pedido</a></h4>
+<ul>
+<li>Información de cabecera: Fechas. Condiciones.</li>
+<li>Información de líneas: Artículos. Cantidades. Descuentos. Fecha de entrega comprometida.</li>
+</ul>
+<p>Para comprometer una fecha de entrega hay que consultar la disponibilidad en <a href="#stock">Almacenes y Logística</a> o la capacidad de <a href="#fabricación-o-servicios">Fabricación o Servicios</a>.</p>
+<h4 id="contrato-de-servicio-o-suscripción"><a class="header" href="#contrato-de-servicio-o-suscripción">Contrato de servicio o suscripción</a></h4>
+<ul>
+<li>Periodicidad. Cuotas recurrentes. Renovaciones.</li>
+</ul>
+<h4 id="proyecto"><a class="header" href="#proyecto">Proyecto</a></h4>
+<ul>
+<li>Hitos. Horas. Facturación por avance.</li>
+</ul>
+<h4 id="devolución-o-abono"><a class="header" href="#devolución-o-abono">Devolución o abono</a></h4>
+<ul>
+<li>Artículos y cantidades devueltos. Motivo. Importe a abonar.</li>
+</ul>
+<p>Se gestionan a caballo con <a href="#postventa">Postventa</a>.</p>
+<h3 id="organización-y-objetivos"><a class="header" href="#organización-y-objetivos">Organización y objetivos</a></h3>
+<h4 id="comercial-y-su-cartera"><a class="header" href="#comercial-y-su-cartera">Comercial y su cartera</a></h4>
+<ul>
+<li>Clientes, zonas o canales asignados a cada comercial.</li>
+</ul>
+<h4 id="categorías-de-cliente"><a class="header" href="#categorías-de-cliente">Categorías de cliente</a></h4>
+<ul>
+<li>Zona. Canal (venta directa, distribuidor, online…). Segmento. Sector.</li>
+</ul>
+<h4 id="objetivos-de-ventas"><a class="header" href="#objetivos-de-ventas">Objetivos de ventas</a></h4>
+<ul>
+<li>Por comercial, zona, cliente o familia de artículos. Por periodo.</li>
+</ul>
+<h4 id="previsión-de-ventas"><a class="header" href="#previsión-de-ventas">Previsión de ventas</a></h4>
+<ul>
+<li>Cantidades previstas por artículo (o familia) y periodo.</li>
+</ul>
+<p>Es uno de los datos de Ventas más útiles para otros departamentos, tales como:</p>
+<ul>
+<li><a href="#compras">Compras</a>,</li>
+<li><a href="#fabricación-o-servicios">Fabricación o Servicios</a>,</li>
+<li><a href="#almacenes-y-logística">Almacenes y Logística</a>,</li>
+<li><a href="#dirección">Dirección</a>,</li>
+<li>etc.</li>
+</ul>
+<h4 id="comisiones"><a class="header" href="#comisiones">Comisiones</a></h4>
+<ul>
+<li>Reglas de cálculo. Importes devengados por cada comercial.</li>
+</ul>
+<p>Acaban en la nómina (ver <a href="#departamento-de-personal">Departamento de personal</a>).</p>
+<h2 id="algunos-potenciales-puntos-de-fricción"><a class="header" href="#algunos-potenciales-puntos-de-fricción">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="motivo-de-pérdida-de-una-oferta"><a class="header" href="#motivo-de-pérdida-de-una-oferta">Motivo de pérdida de una oferta</a></h3>
+<p>Lo conoce el comercial cuando el cliente le dice que no. Para él la oferta ya está cerrada: apuntar por qué se perdió no le ayuda a vender más mañana. En cambio, es muy útil para:</p>
+<ul>
+<li><a href="#competidor">Marketing</a> (precios y argumentos de la competencia),</li>
+<li><a href="#diseño-técnico-de-productos">Diseño técnico de productos</a> (lo que el producto no cubre),</li>
+<li><a href="#dirección">Dirección</a> (dónde se está perdiendo terreno),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Pedirlo en el mismo gesto con que se marca la <a href="#oportunidad">Oportunidad</a> como perdida, con una lista corta de motivos (precio, plazo, producto, competidor…) y un campo opcional para el competidor y su precio. Con una lista larga, se acaba eligiendo siempre “otros”.</li>
+<li>Permitir registrarlo desde el móvil, nada más salir de la visita, o dictado por voz.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Devolver periódicamente a los comerciales el resumen de motivos de pérdida, junto con lo que se ha hecho con ellos (un argumento nuevo, una opción de producto, un ajuste de precio).</li>
+<li>Lo que no funciona bien: hacerlo obligatorio sin devolver nada. Se rellena, pero con el primer motivo de la lista.</li>
+</ul>
+<h3 id="información-recogida-en-las-visitas"><a class="header" href="#información-recogida-en-las-visitas">Información recogida en las visitas</a></h3>
+<p>Necesidades del cliente, proyectos que tiene en marcha, cambios en su organización, competidores con los que trabaja… El comercial lo lleva en la cabeza y le basta. Registrado como <a href="#acción-comercial">Acción comercial</a>, es útil:</p>
+<ul>
+<li>para <a href="#estudio-de-mercado">Marketing</a> (tendencias del mercado),</li>
+<li>para quien atiende al cliente cuando el comercial no está (vacaciones, bajas, cambio de cartera),</li>
+<li>para <a href="#postventa">Postventa</a> y <a href="#calidad">Calidad</a> (contexto cuando hay una reclamación),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que el CRM esté en el móvil y que registrar una visita lleve menos de un minuto: cliente, fecha y contacto ya rellenos a partir de la agenda; el resto, texto libre o voz.</li>
+<li>Aceptar registros incompletos (más vale una nota breve que nada) y no exigir campos que nadie va a usar.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que el propio comercial lo aproveche: preparar la siguiente visita leyendo lo anotado en la anterior, ver de un vistazo el historial del cliente.</li>
+<li>Hay que dejar claro que no es una herramienta de control de su actividad. Si se percibe así, se registra lo justo para cubrir el expediente.</li>
+</ul>
+<h3 id="previsión-de-ventas-realista"><a class="header" href="#previsión-de-ventas-realista">Previsión de ventas realista</a></h3>
+<p>La hacen los comerciales, pero a ellos les sirve poco: lo que les importa es el pedido. Es uno de los datos de Ventas más útiles para otros departamentos (ver <a href="#previsión-de-ventas">Previsión de ventas</a>). Tiene además un problema de fondo: si la previsión se confunde con los <a href="#objetivos-de-ventas">Objetivos de ventas</a>, cada cual la ajusta según le convenga (a la baja para superar el objetivo, o al alza para conseguir más recursos).</p>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Partir de una previsión estadística calculada a partir del histórico; el comercial solo corrige lo que sabe que va a cambiar (un cliente nuevo, un proyecto que se cae).</li>
+<li>Pedirla al nivel de detalle que realmente se usa (familia de artículos y mes, por ejemplo), no artículo a artículo.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Separar claramente previsión y objetivo. La previsión es lo que se cree que va a pasar; el objetivo, lo que se quiere que pase.</li>
+<li>Medir y publicar el acierto de las previsiones, sin penalizar.</li>
+<li>Mostrar la relación con lo que sí le importa al comercial: las roturas de stock y los retrasos en las entregas a sus clientes salen, muchas veces, de previsiones mal hechas.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="administración-general-contabilidad-y-finanzas"><a class="header" href="#administración-general-contabilidad-y-finanzas">Administración general, Contabilidad y Finanzas</a></h1>
+<h2 id="algunas-entidades-habituales-1"><a class="header" href="#algunas-entidades-habituales-1">Algunas entidades habituales</a></h2>
+<h3 id="clientes-y-proveedores"><a class="header" href="#clientes-y-proveedores">Clientes y proveedores</a></h3>
+<h4 id="cliente-1"><a class="header" href="#cliente-1">Cliente</a></h4>
+<p>El núcleo común (código, razón social, identificación fiscal) está en los <a href="#clientes">Datos maestros</a>.</p>
+<p>Aquí se mantienen la parte fiscal y la financiera:</p>
+<ul>
+<li>Información fiscal. Dirección fiscal. Régimen de impuestos.</li>
+<li>Información financiera. Formas de pago. Límite de crédito (riesgo).</li>
+</ul>
+<p>El resto de la información del cliente la mantienen otros departamentos:</p>
+<ul>
+<li>Información comercial, en <a href="#cliente">Comercial y Ventas</a>.</li>
+<li>Información logística, en <a href="#cliente-2">Almacenes y Logística</a>.</li>
+</ul>
+<h4 id="proveedor"><a class="header" href="#proveedor">Proveedor</a></h4>
+<p>El núcleo común (código, razón social, identificación fiscal) está en los <a href="#proveedores">Datos maestros</a>.</p>
+<p>Aquí se mantienen la parte fiscal y la financiera:</p>
+<ul>
+<li>Información fiscal. Dirección fiscal. Régimen de impuestos.</li>
+<li>Información financiera. Formas de pago. Cuenta bancaria.</li>
+</ul>
+<p>El resto de la información del proveedor la mantienen otros departamentos:</p>
+<ul>
+<li>Información de compras, en <a href="#proveedor-1">Compras</a>.</li>
+<li>Información de calidad, en <a href="#proveedor-2">Calidad</a>.</li>
+</ul>
+<p>Las peticiones de cambio de cuenta bancaria son un intento de fraude muy habitual: hay que confirmarlas siempre por otro canal.</p>
+<h3 id="facturación"><a class="header" href="#facturación">Facturación</a></h3>
+<h4 id="factura-de-cliente"><a class="header" href="#factura-de-cliente">Factura de cliente</a></h4>
+<ul>
+<li>Información de cabecera: Sociedad que factura. Cliente. Fecha. Forma de pago. Vencimientos.</li>
+<li>Información de líneas: Artículos o servicios. Cantidades. Precios. Descuentos. Impuestos.</li>
+</ul>
+<p>Las facturas se generan a partir de lo entregado o realizado:</p>
+<ul>
+<li><a href="#albarán-de-entrega">Albaranes de entrega</a>,</li>
+<li><a href="#parte-de-horas-o-de-actividad">Partes de horas</a> o hitos de proyecto,</li>
+<li><a href="#parte-de-intervención">Partes de intervención</a> fuera de garantía,</li>
+<li>cuotas de <a href="#contrato-de-servicio-o-suscripción">Contratos de servicio</a>,</li>
+<li>etc.</li>
+</ul>
+<p>En cada vez más países ha de ser electrónica y comunicarse a la administración tributaria en el momento de emitirla.</p>
+<h4 id="factura-rectificativa-o-abono"><a class="header" href="#factura-rectificativa-o-abono">Factura rectificativa o Abono</a></h4>
+<ul>
+<li>Factura que corrige. Motivo. Importes.</li>
+</ul>
+<p>Suele venir de una <a href="#devolución-o-abono">Devolución o Abono</a> de Comercial y Ventas, o de la liquidación de los rappels.</p>
+<h4 id="factura-de-proveedor"><a class="header" href="#factura-de-proveedor">Factura de proveedor</a></h4>
+<p>Su contenido, y el cruce con el pedido y la recepción, están en <a href="#factura-de-proveedor-1">Compras</a>.</p>
+<p>Aquí se añade:</p>
+<ul>
+<li>Contabilización. Cuenta de gasto o de existencias. Centro de coste. Impuestos deducibles.</li>
+<li>Vencimientos de pago.</li>
+</ul>
+<p>Las diferencias de precio o de cantidad las ha de aclarar Compras antes de pagarla.</p>
+<h3 id="cobros-y-pagos"><a class="header" href="#cobros-y-pagos">Cobros y pagos</a></h3>
+<h4 id="vencimiento-de-cobro"><a class="header" href="#vencimiento-de-cobro">Vencimiento de cobro</a></h4>
+<ul>
+<li>Factura. Cliente. Importe. Fecha de vencimiento. Forma de cobro (transferencia, recibo domiciliado, pagaré…). Estado.</li>
+</ul>
+<h4 id="riesgo-de-cliente"><a class="header" href="#riesgo-de-cliente">Riesgo de cliente</a></h4>
+<ul>
+<li>Límite de crédito concedido (ver <a href="#cliente-1">Cliente</a>). Riesgo vivo: pedidos pendientes de servir y facturas pendientes de cobro. Cobertura del seguro de crédito.</li>
+</ul>
+<p><a href="#pedido">Comercial y Ventas</a> lo ha de consultar antes de aceptar un pedido. Si se supera el límite, el pedido queda bloqueado hasta que alguien lo autorice.</p>
+<h4 id="impagado"><a class="header" href="#impagado">Impagado</a></h4>
+<ul>
+<li>Cliente. Facturas. Importe. Gestiones de cobro realizadas. Acuerdos de pago.</li>
+</ul>
+<p>Comercial y Ventas ha de saberlo enseguida, antes de aceptar nuevos pedidos de ese cliente. Si acaba en los tribunales, pasa a <a href="#litigio-o-reclamación-judicial">Cumplimiento jurídico</a>.</p>
+<h4 id="vencimiento-de-pago"><a class="header" href="#vencimiento-de-pago">Vencimiento de pago</a></h4>
+<ul>
+<li>Factura. Proveedor (o empleado, o administración pública). Importe. Fecha de vencimiento. Forma de pago. Estado.</li>
+</ul>
+<p>Se suelen pagar por remesas.</p>
+<h4 id="movimiento-bancario"><a class="header" href="#movimiento-bancario">Movimiento bancario</a></h4>
+<ul>
+<li>Cuenta. Fecha. Importe. Concepto. Cobro o pago al que corresponde.</li>
+</ul>
+<p>Los extractos llegan solos del banco. Lo laborioso es casar cada movimiento con su factura; mucho más fácil si el cliente indica en la transferencia qué factura paga.</p>
+<h4 id="previsión-de-tesorería"><a class="header" href="#previsión-de-tesorería">Previsión de tesorería</a></h4>
+<ul>
+<li>Cobros y pagos previstos por semana o por mes. Saldo previsto en cada cuenta.</li>
+</ul>
+<p>Se nutre de múltiples fuentes:</p>
+<ul>
+<li>vencimientos de cobro y de pago de facturas,</li>
+<li>estimaciones cuándo tocará cobrar o pagar los pedidos pendientes,</li>
+<li>pago de nóminas,</li>
+<li>previsiones de pago de impuestos,</li>
+<li>estimaciones de rendimiento de inversiones,</li>
+<li>etc.</li>
+</ul>
+<h4 id="financiación"><a class="header" href="#financiación">Financiación</a></h4>
+<ul>
+<li>Préstamos, pólizas de crédito, líneas de descuento, <em>leasing</em>, avales. Entidad. Importe. Tipo de interés. Vencimientos. Garantías.</li>
+</ul>
+<p>Para firmarlos hace falta un <a href="#poder-o-apoderamiento">Poder</a>. Muchos avales los piden los clientes en contratos y licitaciones (ver <a href="#contrato-o-acuerdo-marco">Comercial y Ventas</a>).</p>
+<h3 id="contabilidad"><a class="header" href="#contabilidad">Contabilidad</a></h3>
+<h4 id="plan-de-cuentas-1"><a class="header" href="#plan-de-cuentas-1">Plan de cuentas</a></h4>
+<ul>
+<li>Cuentas contables y su estructura.</li>
+</ul>
+<p>En un grupo multinacional suele haber un plan de cuentas común y uno local en cada país, con su tabla de equivalencias. Es un caso claro de maestro global con variantes locales (ver <a href="#plan-de-cuentas">Datos maestros</a>).</p>
+<h4 id="asiento-contable"><a class="header" href="#asiento-contable">Asiento contable</a></h4>
+<ul>
+<li>Sociedad. Fecha. Cuentas. Importes al debe y al haber. Centro de coste. Documento de origen.</li>
+</ul>
+<p>La mayoría se generan solos a partir de facturas, cobros, pagos, nóminas, movimientos de almacén… registrados en otros departamentos. Cuanto mejores sean los datos de origen, menos asientos manuales hay que hacer.</p>
+<h4 id="centro-de-coste"><a class="header" href="#centro-de-coste">Centro de coste</a></h4>
+<ul>
+<li>Departamento, sección o proyecto al que se imputan gastos e ingresos. Responsable.</li>
+</ul>
+<p>Lo han de indicar todos los que piden compras o registran gastos (ver <a href="#solicitud-de-compra">Solicitud de compra</a> y <a href="#gasto-de-viaje">Gasto de viaje</a>).</p>
+<h4 id="inmovilizado"><a class="header" href="#inmovilizado">Inmovilizado</a></h4>
+<ul>
+<li>Bien. Fecha y valor de adquisición. Vida útil. Amortización. Ubicación. Fecha de baja.</li>
+</ul>
+<p>Las altas vienen de las <a href="#inversión">Inversiones</a>. La misma instalación es en Mantenimiento un <a href="#activo-o-equipo">Activo o Equipo</a>, normalmente con otro código: conviene tenerlos enlazados.</p>
+<h4 id="provisión"><a class="header" href="#provisión">Provisión</a></h4>
+<ul>
+<li>Motivo (rappels, litigios, garantías, clientes dudosos, stock obsoleto…). Importe. Periodo.</li>
+</ul>
+<p>Los datos para calcular provisiones pueden venir de varias fuentes:</p>
+<ul>
+<li>rappels de <a href="#descuentos-promociones-y-rappels">Comercial y Ventas</a>,</li>
+<li>litigios de <a href="#litigio-o-reclamación-judicial">Cumplimiento jurídico</a>,</li>
+<li>garantías de <a href="#garantía">Postventa</a>,</li>
+<li>stock obsoleto de <a href="#stock-obsoleto-o-sin-movimiento">Almacenes y Logística</a>,</li>
+<li>etc.</li>
+</ul>
+<h4 id="cierre-y-cuentas-anuales"><a class="header" href="#cierre-y-cuentas-anuales">Cierre y Cuentas anuales</a></h4>
+<ul>
+<li>Balance. Cuenta de resultados. Memoria. Informe de auditoría. Depósito en el registro.</li>
+</ul>
+<p>Antes de cada cierre hace falta que todos los departamentos hayan registrado lo suyo: recepciones, consumos, partes, facturas… Después de cada cierre ya no se puede imputar nada con fecha anterior al cierre; las correcciones van como correcciones en el siguiente periodo.</p>
+<p>Las cuentas anuales han de depositarse en el registro. El cierre anual es una obligación legal.</p>
+<h4 id="consolidación"><a class="header" href="#consolidación">Consolidación</a></h4>
+<ul>
+<li>Cuentas de cada <a href="#sociedad">Sociedad</a> del grupo. Operaciones entre sociedades del grupo, que hay que eliminar. Conversión de monedas.</li>
+</ul>
+<p>Las ventas y compras entre sociedades del grupo han de coincidir en ambos lados; si no, cuadrarlas lleva mucho tiempo.</p>
+<h3 id="costes-y-control-de-gestión"><a class="header" href="#costes-y-control-de-gestión">Costes y control de gestión</a></h3>
+<h4 id="coste-estándar-del-artículo"><a class="header" href="#coste-estándar-del-artículo">Coste estándar del artículo</a></h4>
+<ul>
+<li>Materiales, mano de obra y gastos generales previstos para cada artículo. Fecha de cálculo.</li>
+</ul>
+<p>Se calcula con:</p>
+<ul>
+<li>la <a href="#lista-de-materiales-bom">Lista de materiales</a>,</li>
+<li>la <a href="#ruta-u-hoja-de-ruta">Ruta</a>,</li>
+<li>las tarifas de <a href="#tarifa-del-proveedor">Compras</a>,</li>
+<li>el coste por hora de cada <a href="#puesto-o-centro-de-trabajo">Puesto</a>,</li>
+<li>etc.</li>
+</ul>
+<p>Comercial y Ventas lo necesita para fijar precios.</p>
+<p>Comparando el coste estándar con el <a href="#coste-real-de-fabricación">Coste real</a> salen las desviaciones.</p>
+<h4 id="valoración-de-existencias"><a class="header" href="#valoración-de-existencias">Valoración de existencias</a></h4>
+<ul>
+<li>Valor del stock por artículo y almacén. Método de valoración (coste estándar, precio medio…).</li>
+</ul>
+<p>Las cantidades las da <a href="#stock">Almacenes y Logística</a>; el valor, Contabilidad.</p>
+<h4 id="rentabilidad"><a class="header" href="#rentabilidad">Rentabilidad</a></h4>
+<ul>
+<li>Margen por cliente, artículo, familia, canal, proyecto o comercial.</li>
+</ul>
+<p>Se calcula cruzando las ventas con los costes.</p>
+<p>Lo consultan <a href="#cuadro-de-mando-dashboard">Dirección</a> y <a href="#comercial-y-ventas">Comercial y Ventas</a>.</p>
+<h4 id="seguimiento-del-presupuesto"><a class="header" href="#seguimiento-del-presupuesto">Seguimiento del presupuesto</a></h4>
+<ul>
+<li>Real frente a presupuesto, por centro de coste y cuenta. Desviaciones. Explicaciones.</li>
+</ul>
+<p>El presupuesto lo aprueba <a href="#presupuesto-anual">Dirección</a>.</p>
+<p>Cada responsable de centro de coste ha de explicar sus desviaciones.</p>
+<h3 id="impuestos"><a class="header" href="#impuestos">Impuestos</a></h3>
+<h4 id="declaración-de-impuestos"><a class="header" href="#declaración-de-impuestos">Declaración de impuestos</a></h4>
+<ul>
+<li>Impuesto (sobre el valor añadido, sobre sociedades, retenciones, impuestos especiales…). Periodo. Importe. Fecha de presentación.</li>
+</ul>
+<p>Salen sobre todo de las facturas y de las nóminas. Aunque algunos impuestos necesitan datos muy específicos de otros departamentos: los de envases (ver <a href="#envases-y-embalajes">Prevención y Medio Ambiente</a>), los códigos arancelarios y pesos para las estadísticas de comercio exterior (ver <a href="#datos-logísticos-del-artículo">Almacenes y Logística</a>), etc.</p>
+<h3 id="seguros"><a class="header" href="#seguros">Seguros</a></h3>
+<h4 id="póliza-de-seguro"><a class="header" href="#póliza-de-seguro">Póliza de seguro</a></h4>
+<ul>
+<li>Riesgo cubierto (daños, responsabilidad civil, transporte, crédito…). Aseguradora. Capitales. Franquicias. Vencimiento.</li>
+</ul>
+<p>Para fijar los capitales hace falta el valor de las instalaciones y del stock. Ver también <a href="#contrato">Cumplimiento jurídico</a>.</p>
+<h4 id="siniestro"><a class="header" href="#siniestro">Siniestro</a></h4>
+<ul>
+<li>Fecha. Qué ha pasado. Póliza. Daños. Reclamación a la aseguradora. Indemnización.</li>
+</ul>
+<p>Los datos los aportan quienes sufren el daño: <a href="#incidencia-de-entrega">Almacenes y Logística</a> (mercancía dañada en el transporte), <a href="#orden-de-trabajo">Mantenimiento de infraestructuras</a> (averías, incendios), <a href="#accidente-o-incidente">Prevención y Medio Ambiente</a> (accidentes), etc.</p>
+<h2 id="algunos-potenciales-puntos-de-fricción-1"><a class="header" href="#algunos-potenciales-puntos-de-fricción-1">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="motivo-del-retraso-en-un-cobro"><a class="header" href="#motivo-del-retraso-en-un-cobro">Motivo del retraso en un cobro</a></h3>
+<p>Quien gestiona los cobros se entera de por qué un cliente no paga: está esperando un abono, tiene una reclamación abierta, discrepa de un precio, tiene problemas de liquidez… A Administración le basta con saber que la factura sigue pendiente. Pero el motivo es muy útil para:</p>
+<ul>
+<li><a href="#pedido">Comercial y Ventas</a> (antes de aceptar nuevos pedidos, o para resolver la discrepancia),</li>
+<li><a href="#incidencia-o-reclamación">Postventa</a> y <a href="#reclamación-de-cliente">Calidad</a> (una reclamación sin resolver puede estar bloqueando el cobro),</li>
+<li>la <a href="#previsión-de-tesorería">Previsión de tesorería</a> (no es lo mismo un retraso administrativo que una insolvencia),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Un campo de motivo, con una lista corta, en el propio <a href="#vencimiento-de-cobro">Vencimiento de cobro</a>, que se rellena en la misma pantalla desde la que se reclama al cliente.</li>
+<li>Enlazar el cobro pendiente con la incidencia, el abono o la reclamación que lo bloquea, en vez de describirlo con texto libre.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que el comercial reciba un aviso automático cuando se registra un retraso por discrepancia en un cliente suyo: así se resuelven antes, y Administración cobra antes.</li>
+<li>Medir cuánto tardan en cobrarse las facturas bloqueadas por cada tipo de motivo; suele sorprender.</li>
+</ul>
+<h3 id="imputación-analítica-de-los-gastos"><a class="header" href="#imputación-analítica-de-los-gastos">Imputación analítica de los gastos</a></h3>
+<p>Al contabilizar una factura de proveedor, para las cuentas legales basta con la cuenta contable. El <a href="#centro-de-coste">Centro de coste</a>, el proyecto o la actividad a los que corresponde el gasto apenas le importan a Contabilidad. Sin embargo, son los datos que necesitan:</p>
+<ul>
+<li>cada responsable de centro de coste, para su <a href="#seguimiento-del-presupuesto">Seguimiento del presupuesto</a>,</li>
+<li>quien calcula la <a href="#rentabilidad">Rentabilidad</a> de clientes, productos o proyectos,</li>
+<li><a href="#cuadro-de-mando-dashboard">Dirección</a>,</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que la imputación venga ya de origen: de la <a href="#solicitud-de-compra">Solicitud de compra</a> o del pedido. Al contabilizar la factura, solo se comprueba.</li>
+<li>Reglas de imputación por defecto (por proveedor, por tipo de gasto) para las facturas que no vienen de un pedido: suministros, alquileres, servicios recurrentes…</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que cada responsable vea su seguimiento del presupuesto, actualizado, y pueda bajar hasta la factura. Cuando alguien encuentra un gasto que no es suyo en su centro de coste, la imputación mejora rápido.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="postventa"><a class="header" href="#postventa">Postventa</a></h1>
+<h2 id="algunas-entidades-habituales-2"><a class="header" href="#algunas-entidades-habituales-2">Algunas entidades habituales</a></h2>
+<h3 id="parque-instalado"><a class="header" href="#parque-instalado">Parque instalado</a></h3>
+<h4 id="equipo-instalado"><a class="header" href="#equipo-instalado">Equipo instalado</a></h4>
+<ul>
+<li>Artículo. Número de serie. Cliente. Ubicación. Fecha de instalación o de puesta en marcha.</li>
+<li>Configuración real tal como se entregó (opciones, versiones de software, componentes sustituidos después).</li>
+<li>Historial de intervenciones.</li>
+</ul>
+<p>El número de serie enlaza con la trazabilidad de <a href="#lote-o-número-de-serie">Fabricación o Servicios</a>.</p>
+<h4 id="garantía"><a class="header" href="#garantía">Garantía</a></h4>
+<ul>
+<li>Equipo o artículo. Fechas de inicio y de fin. Qué cubre (piezas, mano de obra, desplazamientos).</li>
+</ul>
+<p>Decide si una intervención se factura o no.</p>
+<h4 id="documentación-de-la-instalación"><a class="header" href="#documentación-de-la-instalación">Documentación de la instalación</a></h4>
+<ul>
+<li>Planos y esquemas tal como se construyó. Manuales. Programas y parámetros cargados.</li>
+</ul>
+<p>En instalaciones grandes o personalizadas a medida para un cliente. Se guarda en el PDM, junto a la documentación de producto de <a href="#diseño-técnico-de-productos">Diseño técnico de productos</a>.</p>
+<h4 id="datos-de-uso-del-equipo"><a class="header" href="#datos-de-uso-del-equipo">Datos de uso del equipo</a></h4>
+<ul>
+<li>Horas de funcionamiento. Alarmas. Lecturas de sensores.</li>
+</ul>
+<p>Recibidos a distancia, si el equipo está conectado.</p>
+<p>Permiten pasar del mantenimiento preventivo al predictivo. Y son una fuente muy valiosa para <a href="#diseño-técnico-de-productos">Diseño técnico de productos</a> y <a href="#marketing">Marketing</a>: ya que permiten ver cómo se usa realmente el producto.</p>
+<h3 id="atención-al-cliente"><a class="header" href="#atención-al-cliente">Atención al cliente</a></h3>
+<h4 id="incidencia-o-reclamación"><a class="header" href="#incidencia-o-reclamación">Incidencia o Reclamación</a></h4>
+<ul>
+<li>Cliente. Persona de contacto. Equipo afectado. Canal (teléfono, email, web, técnico en visita). Fecha.</li>
+<li>Descripción. Gravedad. Estado. Plazos de respuesta y de resolución comprometidos.</li>
+</ul>
+<p>Las reclamaciones por defectos van también a <a href="#reclamación-de-cliente">Calidad</a>.</p>
+<h4 id="solución-conocida"><a class="header" href="#solución-conocida">Solución conocida</a></h4>
+<ul>
+<li>Síntoma. Causa. Solución. Equipos o versiones a los que aplica.</li>
+</ul>
+<p>Una base de conocimiento que crece con cada intervención. Ahorra tiempo a los técnicos y da pistas de mejora a <a href="#diseño-técnico-de-productos">Diseño técnico de productos</a>.</p>
+<h3 id="intervenciones"><a class="header" href="#intervenciones">Intervenciones</a></h3>
+<h4 id="aviso-u-orden-de-servicio"><a class="header" href="#aviso-u-orden-de-servicio">Aviso u Orden de servicio</a></h4>
+<ul>
+<li>Incidencia o mantenimiento que la origina. Equipo. Técnico asignado. Fecha prevista. Prioridad.</li>
+</ul>
+<p>Para asignar un técnico hay que conocer su disponibilidad y su cualificación (ver <a href="#cualificación">Departamento de personal</a>).</p>
+<h4 id="parte-de-intervención"><a class="header" href="#parte-de-intervención">Parte de intervención</a></h4>
+<ul>
+<li>Trabajos realizados. Horas. Desplazamientos. Repuestos utilizados. Causa del fallo.</li>
+<li>Fotos. Firma del cliente.</li>
+</ul>
+<p>Es uno de los datos de Postventa más útiles para otros departamentos:</p>
+<ul>
+<li><a href="#factura-de-cliente">Administración general, Contabilidad y Finanzas</a> (facturar lo que no cubre la garantía),</li>
+<li><a href="#departamento-de-personal">Departamento de personal</a> (horas, dietas),</li>
+<li><a href="#almacenes-y-logística">Almacenes y Logística</a> (repuestos consumidos),</li>
+<li><a href="#calidad">Calidad</a></li>
+<li><a href="#diseño-técnico-de-productos">Diseño técnico de productos</a> (fallos en campo),</li>
+<li>etc.</li>
+</ul>
+<h4 id="repuesto"><a class="header" href="#repuesto">Repuesto</a></h4>
+<ul>
+<li>Artículos de repuesto de cada equipo. Stock en almacén y en los vehículos de los técnicos. Plazo de suministro.</li>
+</ul>
+<p>Hay que garantizarlos durante años, aunque el producto ya no se fabrique.</p>
+<h4 id="devolución-o-rma"><a class="header" href="#devolución-o-rma">Devolución o RMA</a></h4>
+<ul>
+<li>Equipo o artículo devuelto. Motivo. Diagnóstico. Decisión (reparar, sustituir, abonar).</li>
+</ul>
+<p>Se gestionan a caballo con <a href="#devolución-o-abono">Comercial y Ventas</a>.</p>
+<h3 id="contratos-de-servicio"><a class="header" href="#contratos-de-servicio">Contratos de servicio</a></h3>
+<h4 id="contrato-de-mantenimiento"><a class="header" href="#contrato-de-mantenimiento">Contrato de mantenimiento</a></h4>
+<ul>
+<li>Equipos cubiertos. Nivel de servicio (tiempo de respuesta, horario). Visitas preventivas incluidas.</li>
+</ul>
+<p>Lo vende <a href="#contrato-de-servicio-o-suscripción">Comercial y Ventas</a>. Postventa se encarga de cumplirlo.</p>
+<h4 id="plan-de-mantenimiento-de-equipos-de-clientes"><a class="header" href="#plan-de-mantenimiento-de-equipos-de-clientes">Plan de mantenimiento de equipos de clientes</a></h4>
+<ul>
+<li>Tareas preventivas. Frecuencia. Próxima visita.</li>
+</ul>
+<p>Parecido al que mantiene <a href="#plan-de-mantenimiento-preventivo">Mantenimiento de infraestructuras</a> para las instalaciones propias.</p>
+<h2 id="algunos-potenciales-puntos-de-fricción-2"><a class="header" href="#algunos-potenciales-puntos-de-fricción-2">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="causa-del-fallo-en-el-parte-de-intervención"><a class="header" href="#causa-del-fallo-en-el-parte-de-intervención">Causa del fallo en el parte de intervención</a></h3>
+<p>La conoce el técnico, pero lo que a él le importa es dejar el equipo funcionando y pasar al siguiente aviso. Registrada en el <a href="#parte-de-intervención">Parte de intervención</a>, la causa del fallo es muy útil para:</p>
+<ul>
+<li><a href="#solicitud-de-cambio-o-petición-de-estudio">Diseño técnico de productos</a> (fallos que se repiten),</li>
+<li><a href="#acción-correctiva-o-preventiva">Calidad</a> (acciones correctivas),</li>
+<li><a href="#proveedor-1">Compras</a> (componentes de un proveedor que fallan más),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Una lista corta de causas por familia de equipo, en el móvil, y texto libre solo para los casos raros.</li>
+<li>Proponer la causa más probable a partir de los síntomas y de las <a href="#solución-conocida">Soluciones conocidas</a>; el técnico solo la confirma o la corrige.</li>
+<li>Admitir una foto de la pieza dañada como registro mínimo; la codificación la puede hacer después otra persona.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Devolverle al técnico la base de soluciones conocidas que se construye con esas causas: ve que lo que registra hoy le ahorra tiempo mañana, a él y a sus compañeros.</li>
+<li>Contar qué cambios de diseño o de proveedor se han hecho gracias a esos datos.</li>
+<li>No convertirlo en un indicador individual. Si una causa “le compromete”, acabará registrándose otra más inocua.</li>
+</ul>
+<h3 id="configuración-real-del-equipo-después-de-la-intervención"><a class="header" href="#configuración-real-del-equipo-después-de-la-intervención">Configuración real del equipo después de la intervención</a></h3>
+<p>Cuando se sustituye un componente por otro de distinta versión, o se actualiza el software, el <a href="#equipo-instalado">Equipo instalado</a> deja de ser como se entregó. Al técnico que está allí no le hace falta apuntarlo: lo está viendo. Pero lo necesitan:</p>
+<ul>
+<li>el siguiente técnico que vaya (y que preparará los repuestos según lo que dice el sistema),</li>
+<li>la <a href="#lote-o-número-de-serie">trazabilidad</a>, si hay que localizar los equipos con un componente defectuoso,</li>
+<li><a href="#comercial-y-ventas">Comercial y Ventas</a> (equipos antiguos, candidatos a renovación o a mejora),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que registrar el repuesto montado (leyendo su etiqueta o su número de serie) actualice automáticamente la configuración del equipo.</li>
+<li>Para el software, que el propio equipo informe de su versión si está conectado (ver <a href="#datos-de-uso-del-equipo">Datos de uso del equipo</a>).</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Recordar los casos en que un técnico se desplazó con el repuesto equivocado porque la configuración no estaba al día.</li>
+</ul>
+<h3 id="repuestos-consumidos-del-vehículo"><a class="header" href="#repuestos-consumidos-del-vehículo">Repuestos consumidos del vehículo</a></h3>
+<p>El técnico coge del vehículo lo que necesita y sigue trabajando. Si no registra el consumo:</p>
+<ul>
+<li>el stock de <a href="#stock">Almacenes y Logística</a> no es real,</li>
+<li>no se puede facturar al cliente lo que no cubre la garantía (ver <a href="#factura-de-cliente">Factura de cliente</a>),</li>
+<li><a href="#compras">Compras</a> no repone a tiempo,</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Leer la etiqueta del repuesto con el móvil al usarlo, dentro del propio parte de intervención.</li>
+<li>Proponer los repuestos habituales de esa avería, para que solo haya que confirmarlos.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Reponer el vehículo automáticamente según lo consumido. Así el primer beneficiado es el propio técnico: lo que registra hoy es lo que encontrará repuesto mañana; lo que no registra, le faltará.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="almacenes-y-logística"><a class="header" href="#almacenes-y-logística">Almacenes y Logística</a></h1>
+<h2 id="algunas-entidades-habituales-3"><a class="header" href="#algunas-entidades-habituales-3">Algunas entidades habituales</a></h2>
+<h3 id="clientes-y-transportistas"><a class="header" href="#clientes-y-transportistas">Clientes y transportistas</a></h3>
+<h4 id="cliente-2"><a class="header" href="#cliente-2">Cliente</a></h4>
+<p>El núcleo común (código, razón social, identificación fiscal) está en los <a href="#clientes">Datos maestros</a>.</p>
+<p>Aquí se mantiene la parte logística:</p>
+<ul>
+<li>Información logística. Puntos de entrega. Horarios de recepción. Exigencias de embalaje y de etiquetado. Transportista habitual.</li>
+</ul>
+<p>El resto de la información del cliente la mantienen otros departamentos:</p>
+<ul>
+<li>Información comercial, en <a href="#cliente">Comercial y Ventas</a>.</li>
+<li>Información fiscal y financiera, en <a href="#cliente-1">Administración general, Contabilidad y Finanzas</a>.</li>
+</ul>
+<h4 id="transportista"><a class="header" href="#transportista">Transportista</a></h4>
+<ul>
+<li>Zonas y servicios que cubre. Tarifas por zona, peso y volumen. Plazos. Cómo se intercambian los datos de los envíos (web, EDI).</li>
+</ul>
+<p>Un transportista es un proveedor más (ver <a href="#proveedores">Datos maestros</a>): lo contrata <a href="#compra-de-servicios">Compras</a>, pero quien trabaja con él a diario es Logística.</p>
+<h3 id="almacenes-y-artículos"><a class="header" href="#almacenes-y-artículos">Almacenes y artículos</a></h3>
+<h4 id="almacén"><a class="header" href="#almacén">Almacén</a></h4>
+<ul>
+<li>Centro. Dirección. Tipo (materias primas, producto terminado, repuestos…). Responsable.</li>
+</ul>
+<p>En el sistema, un almacén no siempre es un edificio propio. También se definen almacenes para controlar aspectos tales como, por ejemplo:</p>
+<ul>
+<li>el material en casa de un subcontratista (ver <a href="#pedido-de-subcontratación">Pedido de subcontratación</a>),</li>
+<li>el que llevan en sus vehículos los técnicos de <a href="#repuesto">Postventa</a>,</li>
+<li>el que está en consigna en casa de un cliente,</li>
+<li>el que va de camino entre dos centros (en tránsito),</li>
+<li>el que acabamos de descargar y está pendiente de contar/almacenar,</li>
+<li>el que acabamos de contar/preparar y está pendiente de cargar,</li>
+<li>etc.</li>
+</ul>
+<h4 id="ubicación"><a class="header" href="#ubicación">Ubicación</a></h4>
+<ul>
+<li>Zona, pasillo, estantería, hueco. Capacidad. Tipo (de preparación, de reserva, refrigerada, para productos peligrosos…).</li>
+</ul>
+<p>Los productos químicos solo pueden ir en zonas preparadas para ellos (ver <a href="#producto-químico">Prevención y Medio Ambiente</a>).</p>
+<h4 id="datos-logísticos-del-artículo"><a class="header" href="#datos-logísticos-del-artículo">Datos logísticos del artículo</a></h4>
+<ul>
+<li>Unidades de medida (de almacén, de compra, de venta) y sus conversiones. Dimensiones y peso. Unidades por caja y por palé.</li>
+<li>Condiciones de conservación (temperatura, caducidad). Si se controla por lotes o por números de serie.</li>
+<li>Código arancelario y país de origen, para las aduanas.</li>
+</ul>
+<p>Los necesitan también otros departamentos como, por ejemplo:</p>
+<ul>
+<li><a href="#fuente-de-aprovisionamiento">Compras</a> (unidades de compra),</li>
+<li><a href="#comercial-y-ventas">Comercial y Ventas</a> (unidades de venta),</li>
+<li>los transportistas (peso y volumen de los envíos),</li>
+<li><a href="#declaración-de-impuestos">Administración general, Contabilidad y Finanzas</a> (estadísticas de comercio exterior),</li>
+<li>etc.</li>
+</ul>
+<h4 id="embalaje"><a class="header" href="#embalaje">Embalaje</a></h4>
+<ul>
+<li>Tipos de embalaje (cajas, palés, contenedores retornables). Instrucciones de embalaje por artículo o por cliente. Material y peso.</li>
+<li>Embalajes retornables que están en poder de clientes y proveedores.</li>
+</ul>
+<p>De aquí salen las exigencias de embalaje y de etiquetado a los proveedores (ver <a href="#condiciones-de-entrega-1">Compras</a>) y los datos de envases que necesita <a href="#envases-y-embalajes">Prevención y Medio Ambiente</a>.</p>
+<h3 id="existencias"><a class="header" href="#existencias">Existencias</a></h3>
+<h4 id="stock"><a class="header" href="#stock">Stock</a></h4>
+<ul>
+<li>Artículo. Almacén. Ubicación. Lote o número de serie. Cantidad. Estado (disponible, reservado para un pedido o una orden, bloqueado por calidad, en tránsito).</li>
+</ul>
+<p>El stock es uno de los datos de Almacenes más útiles para otros departamentos como, por ejemplo:</p>
+<ul>
+<li><a href="#pedido">Comercial y Ventas</a> (qué se puede prometer),</li>
+<li><a href="#necesidades-de-materiales-mrp">Fabricación o Servicios</a></li>
+<li><a href="#compras">Compras</a> (qué falta),</li>
+<li><a href="#valoración-de-existencias">Administración general, Contabilidad y Finanzas</a> (cuánto vale),</li>
+<li>etc.</li>
+</ul>
+<h4 id="movimiento-de-stock"><a class="header" href="#movimiento-de-stock">Movimiento de stock</a></h4>
+<ul>
+<li>Entrada, salida o traspaso. Artículo. Cantidad. Lote. Ubicaciones de origen y de destino. Fecha y hora. Persona. Documento que lo origina (recepción, orden de fabricación, pedido, ajuste).</li>
+</ul>
+<p>Mejor registrarlo en el momento, leyendo las etiquetas (códigos de barras, RFID) con terminales fijos o móviles, que apuntarlo y teclearlo después.</p>
+<h4 id="traspaso-entre-almacenes"><a class="header" href="#traspaso-entre-almacenes">Traspaso entre almacenes</a></h4>
+<ul>
+<li>Artículos. Cantidades. Almacenes de origen y de destino. Fechas de envío y de llegada.</li>
+</ul>
+<p>Mientras viaja, el material está en tránsito: ha salido de un almacén pero aún no ha llegado al otro.</p>
+<h4 id="inventario-físico"><a class="header" href="#inventario-físico">Inventario físico</a></h4>
+<ul>
+<li>Recuento por ubicación. Diferencias con el stock del sistema. Ajustes y su motivo.</li>
+</ul>
+<p>Las diferencias se valoran y se contabilizan (ver <a href="#valoración-de-existencias">Administración general, Contabilidad y Finanzas</a>). Los recuentos cíclicos, por zonas o por artículos, evitan tener que parar completamente una vez al año para contarlo todo.</p>
+<h4 id="stock-obsoleto-o-sin-movimiento"><a class="header" href="#stock-obsoleto-o-sin-movimiento">Stock obsoleto o sin movimiento</a></h4>
+<ul>
+<li>Artículos sin salidas desde hace tiempo, caducados o de revisiones antiguas. Cantidad. Valor.</li>
+</ul>
+<p>Muchas veces viene de <a href="#orden-de-cambio">Órdenes de cambio</a> o de previsiones de venta que no se cumplieron. Hay que decidir qué hacer con él, y puede requerir una <a href="#provisión">Provisión</a>.</p>
+<h3 id="entradas"><a class="header" href="#entradas">Entradas</a></h3>
+<h4 id="previsión-de-llegadas"><a class="header" href="#previsión-de-llegadas">Previsión de llegadas</a></h4>
+<ul>
+<li>Pedidos de compra pendientes de recibir. Avisos de envío de los proveedores (qué viene, cuándo, en cuántos bultos).</li>
+</ul>
+<p>Sale de los <a href="#pedido-de-compra">Pedidos de compra</a>. Con ella se organizan los muelles y las personas de descarga.</p>
+<h4 id="recepción"><a class="header" href="#recepción">Recepción</a></h4>
+<p>Los datos del albarán y del pedido están en <a href="#recepción-1">Compras</a>. Aquí se añade:</p>
+<ul>
+<li>Comprobación física. Bultos. Cantidades. Daños visibles.</li>
+<li>Etiquetado. Ubicación donde queda.</li>
+</ul>
+<p>Si el material se ha de inspeccionar antes de utilizarlo, queda bloqueado hasta que <a href="#inspección">Calidad</a> lo libera.</p>
+<h4 id="devolución-de-cliente"><a class="header" href="#devolución-de-cliente">Devolución de cliente</a></h4>
+<ul>
+<li>Artículos devueltos. Estado en que llegan. Destino (al stock, a reparar, a desechar).</li>
+</ul>
+<p>Ver <a href="#devolución-o-abono">Devolución o Abono</a> y <a href="#devolución-o-rma">Devolución o RMA</a>.</p>
+<h3 id="salidas"><a class="header" href="#salidas">Salidas</a></h3>
+<h4 id="orden-de-preparación-orden-de-picking"><a class="header" href="#orden-de-preparación-orden-de-picking">Orden de preparación (orden de <em>picking</em>)</a></h4>
+<ul>
+<li>Pedidos a servir. Artículos. Cantidades. Ubicaciones de donde cogerlos. Persona. Fecha.</li>
+</ul>
+<p>Se elaboran a partir de:</p>
+<ul>
+<li>los <a href="#pedido">Pedidos</a> de clientes,</li>
+<li>las <a href="#orden-de-fabricación">Órdenes de fabricación</a> (materiales a llevar a planta),</li>
+<li>los traspasos entre almacenes,</li>
+<li>etc.</li>
+</ul>
+<h4 id="albarán-de-entrega"><a class="header" href="#albarán-de-entrega">Albarán de entrega</a></h4>
+<ul>
+<li>Cliente. Punto de entrega. Artículos. Cantidades. Lotes o números de serie. Fecha.</li>
+</ul>
+<p>Los albaranes entregados son la base de las <a href="#factura-de-cliente">Facturas de cliente</a>. Los lotes y números de serie entregados completan la <a href="#lote-o-número-de-serie">trazabilidad</a> de producto y, si procede, el <a href="#equipo-instalado">parque instalado</a> de Postventa.</p>
+<h4 id="envío"><a class="header" href="#envío">Envío</a></h4>
+<ul>
+<li>Transportista. Bultos. Peso y volumen. Coste. Número de seguimiento. Fecha real de entrega. Acuse de recibo.</li>
+<li>Documentación especial si son mercancías peligrosas.</li>
+</ul>
+<p>La fecha real de entrega permite medir la puntualidad frente a la fecha comprometida por <a href="#pedido">Comercial y Ventas</a>.</p>
+<p>Los pesos y las distancias sirven para calcular la <a href="#huella-de-carbono">huella de carbono</a>.</p>
+<h4 id="incidencia-de-entrega"><a class="header" href="#incidencia-de-entrega">Incidencia de entrega</a></h4>
+<ul>
+<li>Envío. Tipo (retraso, daño, pérdida, entrega incompleta o equivocada). Responsable. Reclamación al transportista.</li>
+</ul>
+<p>Comercial y Ventas ha de saberlo para avisar al cliente. Si hay daños, puede dar lugar a un <a href="#siniestro">Siniestro</a>.</p>
+<h4 id="documentación-aduanera"><a class="header" href="#documentación-aduanera">Documentación aduanera</a></h4>
+<ul>
+<li>Exportaciones e importaciones. Código arancelario. Origen. Valor. Incoterm. Declaración de aduanas.</li>
+</ul>
+<p>Necesita datos:</p>
+<ul>
+<li>de <a href="#condiciones-de-entrega">Comercial y Ventas</a> (precios, Incoterms),</li>
+<li>del artículo (código arancelario, origen)</li>
+<li>del <a href="#control-de-exportaciones">Control de exportaciones</a>,</li>
+<li>etc.</li>
+</ul>
+<h3 id="planificación-e-indicadores"><a class="header" href="#planificación-e-indicadores">Planificación e indicadores</a></h3>
+<h4 id="previsión-de-carga-de-trabajo"><a class="header" href="#previsión-de-carga-de-trabajo">Previsión de carga de trabajo</a></h4>
+<ul>
+<li>Recepciones y expediciones previstas por día. Personas y muelles necesarios.</li>
+</ul>
+<p>Sale de los pedidos de compra, de los pedidos de clientes y de la <a href="#previsión-de-ventas">Previsión de ventas</a>.</p>
+<h4 id="clasificación-abc-de-artículos"><a class="header" href="#clasificación-abc-de-artículos">Clasificación ABC de artículos</a></h4>
+<ul>
+<li>Por número de movimientos o por valor.</li>
+</ul>
+<p>Decide qué ubicaciones se asignan (los que más se mueven conviene tenerlos más cerca de los muelles) y cada cuánto se cuentan (los de mayor valor ha de estar más controlados).</p>
+<h4 id="indicadores-logísticos"><a class="header" href="#indicadores-logísticos">Indicadores logísticos</a></h4>
+<ul>
+<li>Entregas a tiempo y completas. Errores de preparación. Exactitud del inventario. Rotación del stock. Coste logístico por pedido o por kilo.</li>
+<li>Puntualidad de los proveedores.</li>
+</ul>
+<p>La puntualidad de los proveedores la usa <a href="#proveedor-2">Calidad</a> para evaluarlos.</p>
+<h2 id="algunos-potenciales-puntos-de-fricción-3"><a class="header" href="#algunos-potenciales-puntos-de-fricción-3">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="lotes-y-números-de-serie-en-las-salidas"><a class="header" href="#lotes-y-números-de-serie-en-las-salidas">Lotes y números de serie en las salidas</a></h3>
+<p>Para preparar un pedido basta con coger el artículo y la cantidad correctos. Leer además el lote o el número de serie de cada bulto es un paso más, que al almacén no le aporta nada. Pero sin ese dato en el <a href="#albarán-de-entrega">Albarán de entrega</a> no hay trazabilidad hacia delante, y la necesitan:</p>
+<ul>
+<li><a href="#reclamación-de-cliente">Calidad</a> (qué clientes recibieron un lote defectuoso),</li>
+<li><a href="#equipo-instalado">Postventa</a> (qué número de serie tiene cada equipo instalado),</li>
+<li><a href="#cumplimiento-jurídico">Cumplimiento jurídico</a> (si hay que retirar producto del mercado),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Etiquetas con código de barras o RFID en cada bulto, y una sola lectura que registre a la vez artículo, cantidad y lote.</li>
+<li>Que el terminal no dé por terminada la preparación hasta haber leído el lote. Sin texto que teclear, no hay errores de transcripción.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Explicar casos reales de retirada de producto: con trazabilidad se avisa a unos pocos clientes; sin ella, hay que avisar a todos y revisarlo todo.</li>
+</ul>
+<h3 id="fecha-real-de-entrega-e-incidencias-de-entrega"><a class="header" href="#fecha-real-de-entrega-e-incidencias-de-entrega">Fecha real de entrega e incidencias de entrega</a></h3>
+<p>Una vez cargado el camión, el pedido sale del almacén y deja de ser asunto suyo. Lo que pasa después (cuándo llega, si llega completo, si llega dañado) lo sabe el transportista. Sin embargo, es un dato muy útil para:</p>
+<ul>
+<li><a href="#pedido">Comercial y Ventas</a> (puntualidad frente a la fecha comprometida, avisar al cliente de un retraso),</li>
+<li><a href="#factura-de-cliente">Administración general, Contabilidad y Finanzas</a> (el acuse de recibo firmado zanja muchas discusiones antes de cobrar),</li>
+<li><a href="#calidad">Calidad</a> (indicadores de servicio),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Recibir automáticamente, por EDI o por la web del transportista, el seguimiento de cada <a href="#envío">Envío</a> y el acuse de recibo digital, enlazados al número de albarán.</li>
+<li>Exigirlo en el contrato con el transportista (ver <a href="#compra-de-servicios">Compras</a>).</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que Logística vea los indicadores de entrega a tiempo de sus transportistas; le sirven para elegir entre ellos y para reclamarles.</li>
+</ul>
+<h3 id="pesos-y-dimensiones-de-los-artículos"><a class="header" href="#pesos-y-dimensiones-de-los-artículos">Pesos y dimensiones de los artículos</a></h3>
+<p>Los <a href="#datos-logísticos-del-artículo">Datos logísticos del artículo</a> se suelen dar de alta con prisa, cuando llega el primer pedido. Para almacenar basta con saber dónde cabe. Pero un peso o unas dimensiones mal dados afectan a:</p>
+<ul>
+<li>los transportes (tarifas, carga de camiones),</li>
+<li>la <a href="#huella-de-carbono">huella de carbono</a>,</li>
+<li>los <a href="#envases-y-embalajes">envases y embalajes</a>,</li>
+<li>las declaraciones de comercio exterior (ver <a href="#declaración-de-impuestos">Declaración de impuestos</a>),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Medir y pesar en la primera recepción, con una báscula y un medidor de volumen (cubicadora) que pasen los datos directamente al sistema.</li>
+<li>Pedírselos al proveedor junto con el resto de datos del artículo (ver <a href="#fuente-de-aprovisionamiento">Fuente de aprovisionamiento</a>), o tomarlos del modelo 3D de <a href="#modelo-y-plano">Diseño técnico de productos</a> si es de fabricación propia.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Mostrar las diferencias entre lo que factura el transportista (que sí pesa) y lo calculado con los datos del sistema: son errores que se pagan.</li>
+</ul>
+<h3 id="casi-accidentes"><a class="header" href="#casi-accidentes">Casi accidentes</a></h3>
+<p>Una carretilla que casi atropella a alguien, una carga que casi cae… Como no ha pasado nada, nadie lo apunta. Es justo el tipo de dato que necesita <a href="#accidente-o-incidente">Prevención y Medio Ambiente</a> para actuar antes de que haya un accidente de verdad.</p>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Un formulario muy corto, en el móvil o en un terminal del propio almacén: dónde, qué pasó, foto. Anónimo si se quiere.</li>
+<li>No pedir causas ni análisis a quien lo comunica; eso lo hace después Prevención.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Responder siempre, y publicar qué se ha cambiado gracias a cada comunicación (un espejo, una señal, un cambio de recorrido).</li>
+<li>Nunca usarlo para buscar culpables. Si comunicar un casi accidente trae problemas, se deja de comunicar.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="compras"><a class="header" href="#compras">Compras</a></h1>
+<h2 id="algunas-entidades-habituales-4"><a class="header" href="#algunas-entidades-habituales-4">Algunas entidades habituales</a></h2>
+<h3 id="proveedores-y-contactos"><a class="header" href="#proveedores-y-contactos">Proveedores y contactos</a></h3>
+<h4 id="proveedor-1"><a class="header" href="#proveedor-1">Proveedor</a></h4>
+<p>El núcleo común (código, razón social, identificación fiscal) está en los <a href="#proveedores">Datos maestros</a>.</p>
+<p>Aquí se mantiene la parte de compras:</p>
+<ul>
+<li>Información de compras. Comprador asignado. Categorías de proveedor. Condiciones de compra. Idioma.</li>
+</ul>
+<p>El resto de la información del proveedor la mantienen otros departamentos:</p>
+<ul>
+<li>Información fiscal y financiera, en <a href="#proveedor">Administración general, Contabilidad y Finanzas</a>.</li>
+<li>Información de calidad, en <a href="#proveedor-2">Calidad</a>.</li>
+</ul>
+<h4 id="potencial-proveedor"><a class="header" href="#potencial-proveedor">Potencial proveedor</a></h4>
+<ul>
+<li>Información básica. Nombre o razón social. Qué puede suministrar. Origen (feria, búsqueda, recomendación…).</li>
+<li>Estado. Cuándo pasa a ser Proveedor y quién lo decide.</li>
+</ul>
+<p>Normalmente no se le puede comprar a un cierto proveedor hasta que <a href="#proveedor-2">Calidad</a> lo homologa.</p>
+<h4 id="persona-de-contacto-1"><a class="header" href="#persona-de-contacto-1">Persona de contacto</a></h4>
+<ul>
+<li>Información de contacto. Nombre. Cargo. Teléfono. Email. Idioma.</li>
+<li>Proveedor o potencial proveedor al que pertenece.</li>
+</ul>
+<p>Son datos personales, sujetos a la normativa de protección de datos (ver <a href="#cumplimiento-jurídico">Cumplimiento jurídico</a>).</p>
+<h4 id="fuente-de-aprovisionamiento"><a class="header" href="#fuente-de-aprovisionamiento">Fuente de aprovisionamiento</a></h4>
+<ul>
+<li>Qué proveedores pueden suministrar cada artículo. Proveedor preferente. Reparto entre varios proveedores.</li>
+<li>Por cada proveedor y artículo: código y descripción con que lo denomina el proveedor. Unidad de compra. Lote mínimo. Plazo de entrega.</li>
+</ul>
+<p>Imprescindible si se intercambian pedidos por EDI.</p>
+<h3 id="condiciones-de-compra"><a class="header" href="#condiciones-de-compra">Condiciones de compra</a></h3>
+<h4 id="tarifa-del-proveedor"><a class="header" href="#tarifa-del-proveedor">Tarifa del proveedor</a></h4>
+<ul>
+<li>Precios por artículo. Escalas por cantidad. Periodo de validez. Moneda.</li>
+</ul>
+<h4 id="contrato-o-acuerdo-marco-1"><a class="header" href="#contrato-o-acuerdo-marco-1">Contrato o acuerdo marco</a></h4>
+<ul>
+<li>Precios y condiciones pactados con un proveedor para un periodo. Volúmenes comprometidos.</li>
+</ul>
+<p>Ver también <a href="#cumplimiento-jurídico">Cumplimiento jurídico</a>.</p>
+<h4 id="condiciones-de-entrega-1"><a class="header" href="#condiciones-de-entrega-1">Condiciones de entrega</a></h4>
+<ul>
+<li>Incoterms. Portes. Plazos de entrega. Embalaje y etiquetado exigidos.</li>
+</ul>
+<p>El embalaje y el etiquetado los suele definir <a href="#embalaje">Almacenes y Logística</a>.</p>
+<h3 id="ciclo-de-compra"><a class="header" href="#ciclo-de-compra">Ciclo de compra</a></h3>
+<h4 id="solicitud-de-compra"><a class="header" href="#solicitud-de-compra">Solicitud de compra</a></h4>
+<ul>
+<li>Quién la pide. Para qué. Artículos o servicios. Cantidades. Fecha en que se necesita. Centro de coste. Aprobación.</li>
+</ul>
+<p>Puede venir de cualquier departamento, o generarse automáticamente desde la planificación de necesidades (ver <a href="#necesidades-de-materiales-mrp">Fabricación o Servicios</a>).</p>
+<h4 id="petición-de-oferta"><a class="header" href="#petición-de-oferta">Petición de oferta</a></h4>
+<ul>
+<li>Proveedores consultados. Artículos o servicios. Cantidades. Fecha límite de respuesta.</li>
+</ul>
+<p>Para artículos nuevos o artículos especiales hay que adjuntar planos y especificaciones de <a href="#diseño-técnico-de-productos">Diseño técnico de productos</a>.</p>
+<h4 id="oferta-del-proveedor"><a class="header" href="#oferta-del-proveedor">Oferta del proveedor</a></h4>
+<ul>
+<li>Precios. Plazos. Condiciones. Validez.</li>
+</ul>
+<p>Comparando las de varios proveedores se elige a quién comprar.</p>
+<h4 id="pedido-de-compra"><a class="header" href="#pedido-de-compra">Pedido de compra</a></h4>
+<ul>
+<li>Información de cabecera: Fechas. Condiciones.</li>
+<li>Información de líneas: Artículos. Cantidades. Precios. Fecha de entrega solicitada y fecha confirmada por el proveedor.</li>
+</ul>
+<p>El proveedor puede recibirlo por EDI o consultarlo (y confirmarlo) en un portal de proveedores. <a href="#previsión-de-llegadas">Almacenes y Logística</a> necesita conocerlo para preparar las recepciones.</p>
+<h4 id="seguimiento-de-entregas"><a class="header" href="#seguimiento-de-entregas">Seguimiento de entregas</a></h4>
+<ul>
+<li>Pedidos con retraso. Reclamaciones al proveedor. Nuevas fechas.</li>
+</ul>
+<p>Los retrasos afectan a la planificación de <a href="#fabricación-o-servicios">Fabricación o Servicios</a> y/o a las fechas comprometidas por <a href="#pedido">Comercial y Ventas</a>.</p>
+<h4 id="recepción-1"><a class="header" href="#recepción-1">Recepción</a></h4>
+<ul>
+<li>Albarán del proveedor. Artículos y cantidades recibidos. Fecha. Pedido al que corresponde.</li>
+</ul>
+<p>La registra <a href="#recepción">Almacenes y Logística</a>. Si hay inspección, suele ser <a href="#inspección">Calidad</a> decide si se acepta o no la recepción.</p>
+<h4 id="factura-de-proveedor-1"><a class="header" href="#factura-de-proveedor-1">Factura de proveedor</a></h4>
+<ul>
+<li>Información de cabecera: Fecha. Vencimientos.</li>
+<li>Información de líneas: Artículos. Cantidades. Precios. Impuestos.</li>
+</ul>
+<p>La registra <a href="#factura-de-proveedor">Administración general, Contabilidad y Finanzas</a>. Antes de pagarla se cruza con el pedido y con la recepción: que lo facturado se haya pedido, que se haya recibido y que haya sido Ok; además de que los precios en factura coincidan con los acordados en el pedido.</p>
+<h4 id="devolución-a-proveedor"><a class="header" href="#devolución-a-proveedor">Devolución a proveedor</a></h4>
+<ul>
+<li>Artículos y cantidades devueltos. Motivo. Abono o reposición esperados.</li>
+</ul>
+<p>Suele partir de una no conformidad de <a href="#no-conformidad">Calidad</a>.</p>
+<h3 id="organización-y-objetivos-1"><a class="header" href="#organización-y-objetivos-1">Organización y objetivos</a></h3>
+<h4 id="comprador-y-su-cartera"><a class="header" href="#comprador-y-su-cartera">Comprador y su cartera</a></h4>
+<ul>
+<li>Categorías de compra, familias de artículos o proveedores asignados a cada comprador.</li>
+</ul>
+<h4 id="categorías-de-proveedor"><a class="header" href="#categorías-de-proveedor">Categorías de proveedor</a></h4>
+<ul>
+<li>Tipo de suministro (materias primas, componentes, subcontratación, servicios, transporte…). Criticidad. Zona.</li>
+</ul>
+<h4 id="presupuesto-de-compras"><a class="header" href="#presupuesto-de-compras">Presupuesto de compras</a></h4>
+<ul>
+<li>Por categoría, familia de artículos o centro de coste. Por periodo.</li>
+</ul>
+<p>Se elabora a partir de:</p>
+<ul>
+<li>la <a href="#previsión-de-ventas">Previsión de ventas</a></li>
+<li>y los planes de <a href="#fabricación-o-servicios">Fabricación o Servicios</a>.</li>
+</ul>
+<h4 id="análisis-del-gasto"><a class="header" href="#análisis-del-gasto">Análisis del gasto</a></h4>
+<ul>
+<li>Importes comprados por proveedor, categoría, artículo y periodo. Ahorros conseguidos.</li>
+</ul>
+<p>Lo consulta <a href="#dirección">Dirección</a>.</p>
+<p>Es también la base de las emisiones indirectas en la huella de carbono (ver <a href="#huella-de-carbono">Prevención y Medio Ambiente</a>).</p>
+<h3 id="subcontratación"><a class="header" href="#subcontratación">Subcontratación</a></h3>
+<h4 id="pedido-de-subcontratación"><a class="header" href="#pedido-de-subcontratación">Pedido de subcontratación</a></h4>
+<ul>
+<li>Operación o trabajo encargado. Material que enviamos al subcontratista. Material que nos devuelve.</li>
+</ul>
+<p>El subcontratista necesita consultar en el PDM los planos y especificaciones de lo que ha de fabricar (ver <a href="#diseño-técnico-de-productos">Diseño técnico de productos</a>).</p>
+<p>Nosotros hemos de controlar cuánto material nuestro tiene en su casa (ver <a href="#almacén">Almacenes y Logística</a>).</p>
+<h4 id="compra-de-servicios"><a class="header" href="#compra-de-servicios">Compra de servicios</a></h4>
+<ul>
+<li>Servicio contratado. Periodo. Certificación de lo realizado (horas, hitos).</li>
+</ul>
+<p>Si el proveedor trabaja en nuestras instalaciones, hay que coordinar con él la prevención de riesgos (ver <a href="#coordinación-de-actividades-empresariales">Prevención y Medio Ambiente</a>).</p>
+<h2 id="algunos-potenciales-puntos-de-fricción-4"><a class="header" href="#algunos-potenciales-puntos-de-fricción-4">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="fecha-confirmada-por-el-proveedor-y-sus-cambios"><a class="header" href="#fecha-confirmada-por-el-proveedor-y-sus-cambios">Fecha confirmada por el proveedor y sus cambios</a></h3>
+<p>El proveedor confirma una fecha de entrega, o la cambia, normalmente por correo o por teléfono. El comprador ya sabe la fecha y no siente la necesidad de actualizar el <a href="#pedido-de-compra">Pedido de compra</a>. Pero esa fecha la necesitan:</p>
+<ul>
+<li><a href="#necesidades-de-materiales-mrp">Fabricación o Servicios</a> (la planificación cuenta con el material en la fecha que dice el sistema),</li>
+<li><a href="#pedido">Comercial y Ventas</a> (fechas comprometidas a los clientes),</li>
+<li><a href="#previsión-de-llegadas">Almacenes y Logística</a> (organizar las descargas),</li>
+<li><a href="#proveedor-2">Calidad</a> (puntualidad del proveedor),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que sea el propio proveedor quien confirme y modifique las fechas, por EDI o en un portal de proveedores. El comprador solo revisa las que no le cuadran.</li>
+<li>Avisos automáticos de pedidos sin confirmar o con la fecha vencida, para pedir la confirmación antes de que sea tarde.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Mostrar al comprador qué órdenes de fabricación o qué pedidos de clientes dependen de cada pedido de compra. Un retraso deja de ser una fecha en un correo y pasa a ser un cliente concreto que no recibirá a tiempo.</li>
+</ul>
+<h3 id="datos-de-sostenibilidad-y-de-cumplimiento-de-los-proveedores"><a class="header" href="#datos-de-sostenibilidad-y-de-cumplimiento-de-los-proveedores">Datos de sostenibilidad y de cumplimiento de los proveedores</a></h3>
+<p>País de origen, certificados, emisiones, fichas de datos de seguridad de los productos químicos, información sobre sustancias restringidas, comprobaciones en listas de sanciones… Al comprador le basta con el precio, el plazo y la calidad. Pero estos datos los necesitan:</p>
+<ul>
+<li><a href="#huella-de-carbono">Prevención y Medio Ambiente</a> (huella de carbono, <a href="#producto-químico">productos químicos</a>, <a href="#informe-de-sostenibilidad">Informe de sostenibilidad</a>),</li>
+<li><a href="#control-de-exportaciones">Cumplimiento jurídico</a> (sanciones, debida diligencia en la cadena de suministro),</li>
+<li><a href="#documentación-aduanera">Almacenes y Logística</a> (origen, para las aduanas),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Pedirlos una sola vez, al dar de alta al proveedor, con un cuestionario único que recoja lo que piden todos los departamentos; y actualizarlos con campañas periódicas, no cada cual por su cuenta.</li>
+<li>Que el proveedor los cargue y los mantenga en el portal de proveedores, con fechas de caducidad y avisos automáticos.</li>
+<li>Aprovechar las plataformas compartidas en las que el proveedor ya ha cargado esa información para otros clientes.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Incluir estos datos en la evaluación del proveedor y en la decisión de compra. Si nunca influyen en nada, el comprador los verá como burocracia.</li>
+</ul>
+<h3 id="motivo-de-la-elección-de-un-proveedor"><a class="header" href="#motivo-de-la-elección-de-un-proveedor">Motivo de la elección de un proveedor</a></h3>
+<p>Después de comparar varias <a href="#oferta-del-proveedor">Ofertas de proveedor</a>, el comprador sabe por qué ha elegido una. Para él la decisión ya está tomada. Pero dejarlo registrado es útil:</p>
+<ul>
+<li>para auditorías y para <a href="#mapa-de-riesgos-de-cumplimiento">Cumplimiento jurídico</a> (demostrar que no hubo favoritismos),</li>
+<li>para <a href="#dirección">Dirección</a> (por qué no se eligió la oferta más barata),</li>
+<li>para el siguiente comprador que tenga que repetir la compra,</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Un comparativo de ofertas generado por el sistema a partir de las ofertas recibidas, en el que solo hay que marcar la elegida y escoger el motivo.</li>
+<li>Exigirlo solo por encima de un cierto importe.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que el propio comprador pueda consultar, en la siguiente compra, qué se pagó, a quién, y por qué se descartó a los demás.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="fabricación-o-servicios"><a class="header" href="#fabricación-o-servicios">Fabricación o Servicios</a></h1>
+<h2 id="algunas-entidades-habituales-5"><a class="header" href="#algunas-entidades-habituales-5">Algunas entidades habituales</a></h2>
+<h3 id="definición-del-proceso"><a class="header" href="#definición-del-proceso">Definición del proceso</a></h3>
+<h4 id="ruta-u-hoja-de-ruta"><a class="header" href="#ruta-u-hoja-de-ruta">Ruta u Hoja de ruta</a></h4>
+<ul>
+<li>Operaciones y su secuencia. Puesto de trabajo de cada operación. Tiempos de preparación y de ejecución. Utillajes y herramientas.</li>
+</ul>
+<p>Se elabora al industrializar un producto nuevo, partiendo de los planos y de la lista de materiales de <a href="#lista-de-materiales-bom">Diseño técnico de productos</a>.</p>
+<p>Es la base para calcular costes (ver <a href="#coste-estándar-del-artículo">Administración general, Contabilidad y Finanzas</a>).</p>
+<p>Y para calcular cargas de trabajo.</p>
+<h4 id="puesto-o-centro-de-trabajo"><a class="header" href="#puesto-o-centro-de-trabajo">Puesto o Centro de trabajo</a></h4>
+<ul>
+<li>Máquinas o grupos de personas. Capacidad. Calendario y turnos. Coste por hora.</li>
+</ul>
+<p>La disponibilidad real de las máquinas depende de <a href="#mantenimiento-de-infraestructuras">Mantenimiento de infraestructuras</a>.</p>
+<h4 id="instrucción-de-trabajo"><a class="header" href="#instrucción-de-trabajo">Instrucción de trabajo</a></h4>
+<ul>
+<li>Pasos a seguir en cada operación. Diagramas, fotos o vídeos. Parámetros de proceso. Puntos de control. Versión.</li>
+</ul>
+<p>Se guarda en el PDM y se consulta a pie de máquina.</p>
+<h4 id="programa-de-máquina"><a class="header" href="#programa-de-máquina">Programa de máquina</a></h4>
+<ul>
+<li>Programas de CNC, de robots o de PLC. Versión. Máquina en que se usa.</li>
+</ul>
+<p>Se generan con CAM o con simulación <em>offline</em>, a partir de los modelos 3D de <a href="#modelo-y-plano">Diseño técnico de productos</a>.</p>
+<h3 id="planificación"><a class="header" href="#planificación">Planificación</a></h3>
+<h4 id="plan-maestro-de-producción"><a class="header" href="#plan-maestro-de-producción">Plan maestro de producción</a></h4>
+<ul>
+<li>Cantidades a fabricar por artículo (o familia) y periodo.</li>
+</ul>
+<p>Parte de la <a href="#previsión-de-ventas">Previsión de ventas</a> y de los pedidos en cartera.</p>
+<h4 id="necesidades-de-materiales-mrp"><a class="header" href="#necesidades-de-materiales-mrp">Necesidades de materiales (MRP)</a></h4>
+<ul>
+<li>Parámetros de planificación de cada artículo. Stock de seguridad. Tamaño de lote. Plazo.</li>
+<li>Propuestas de fabricación y de compra. Cantidades. Fechas.</li>
+</ul>
+<p>Cruza el plan maestro con:</p>
+<ul>
+<li>las listas de materiales (BOM),</li>
+<li>el stock de <a href="#almacenes-y-logística">Almacenes y Logística</a></li>
+<li>y los pedidos pendientes de <a href="#compras">Compras</a>.</li>
+</ul>
+<p>Las necesidades de materiales se convierten en propuestas de compra.</p>
+<h4 id="programa-de-producción"><a class="header" href="#programa-de-producción">Programa de producción</a></h4>
+<ul>
+<li>Secuencia de órdenes en cada puesto de trabajo. Fechas previstas de inicio y de fin.</li>
+</ul>
+<p>Se rehace cada vez que surge una incidencia.</p>
+<p>Las simulaciones sobre un gemelo digital de la planta ayudan a ver su impacto antes de decidir.</p>
+<h3 id="ejecución"><a class="header" href="#ejecución">Ejecución</a></h3>
+<h4 id="orden-de-fabricación"><a class="header" href="#orden-de-fabricación">Orden de fabricación</a></h4>
+<ul>
+<li>Artículo. Cantidad. Fechas. Ruta y lista de materiales aplicadas. Estado.</li>
+</ul>
+<p><a href="#orden-de-preparación-orden-de-picking">Almacenes y Logística</a> prepara y entrega los materiales que necesitan las órdenes de fabricación en curso.</p>
+<h4 id="parte-de-fabricación"><a class="header" href="#parte-de-fabricación">Parte de fabricación</a></h4>
+<ul>
+<li>Por operación. Cantidades buenas y defectuosas. Tiempos reales. Persona. Paros.</li>
+</ul>
+<p>Es uno de los datos de Fabricación más útiles para otros departamentos tales como:</p>
+<ul>
+<li><a href="#administración-general-contabilidad-y-finanzas">Administración general, Contabilidad y Finanzas</a> (coste real),</li>
+<li><a href="#departamento-de-personal">Departamento de personal</a> (horas, incentivos),</li>
+<li><a href="#calidad">Calidad</a> (rechazos),</li>
+<li><a href="#mantenimiento-de-infraestructuras">Mantenimiento de infraestructuras</a> (paros por avería),</li>
+<li><a href="#pedido">Comercial y Ventas</a> (avance de los pedidos),</li>
+<li>etc.</li>
+</ul>
+<h4 id="consumo-de-material"><a class="header" href="#consumo-de-material">Consumo de material</a></h4>
+<ul>
+<li>Artículos. Cantidades. Lotes. Orden de fabricación.</li>
+</ul>
+<p>Descuenta stock en <a href="#stock">Almacenes y Logística</a>.</p>
+<h4 id="lote-o-número-de-serie"><a class="header" href="#lote-o-número-de-serie">Lote o Número de serie</a></h4>
+<ul>
+<li>Qué se fabricó, cuándo y con qué orden de fabricación.</li>
+<li>Lotes de componentes y materias primas utilizados. Máquinas y personas que intervinieron. Parámetros de proceso.</li>
+</ul>
+<p>Permite la trazabilidad: hacia atrás (de qué proveedor vino un componente defectuoso) y hacia delante (qué clientes recibieron un lote afectado).</p>
+<p>La necesitan <a href="#calidad">Calidad</a>, <a href="#equipo-instalado">Postventa</a> y, si hay que retirar producto del mercado, <a href="#cumplimiento-jurídico">Cumplimiento jurídico</a>.</p>
+<h4 id="incidencia-de-fabricación"><a class="header" href="#incidencia-de-fabricación">Incidencia de fabricación</a></h4>
+<ul>
+<li>Puesto. Orden. Causa (avería, falta de material, defecto de calidad, falta de personal…). Duración. Solución.</li>
+</ul>
+<p>Según la causa, la ha de resolver otro departamento: <a href="#aviso-o-solicitud-de-intervención">Mantenimiento de infraestructuras</a>, <a href="#compras">Compras</a>, <a href="#almacenes-y-logística">Almacenes y Logística</a>, <a href="#no-conformidad">Calidad</a>,…</p>
+<h4 id="datos-de-proceso"><a class="header" href="#datos-de-proceso">Datos de proceso</a></h4>
+<ul>
+<li>Contadores, estados de las máquinas, alarmas, parámetros (temperaturas, presiones…).</li>
+</ul>
+<p>Suelen recogerse automáticamente (SCADA). Así no hay que apuntarlos a mano.</p>
+<p>Alimentan los partes, la trazabilidad y el mantenimiento predictivo.</p>
+<h3 id="indicadores"><a class="header" href="#indicadores">Indicadores</a></h3>
+<h4 id="rendimiento-de-las-instalaciones-oee"><a class="header" href="#rendimiento-de-las-instalaciones-oee">Rendimiento de las instalaciones (OEE)</a></h4>
+<ul>
+<li>Disponibilidad. Rendimiento. Calidad. Por puesto, turno y periodo.</li>
+</ul>
+<h4 id="coste-real-de-fabricación"><a class="header" href="#coste-real-de-fabricación">Coste real de fabricación</a></h4>
+<ul>
+<li>Materiales, horas y gastos generales imputados a cada orden. Desviaciones respecto al coste previsto.</li>
+</ul>
+<p>Lo calcula <a href="#administración-general-contabilidad-y-finanzas">Administración general, Contabilidad y Finanzas</a> con los datos de los partes y de los consumos.</p>
+<h3 id="prestación-de-servicios"><a class="header" href="#prestación-de-servicios">Prestación de servicios</a></h3>
+<h4 id="orden-de-servicio"><a class="header" href="#orden-de-servicio">Orden de servicio</a></h4>
+<ul>
+<li>Cliente. Servicio a prestar. Personas o equipos asignados. Fechas. Estado.</li>
+</ul>
+<p>Viene de un <a href="#contrato-de-servicio-o-suscripción">Contrato de servicio o Suscripción</a> o de un <a href="#proyecto">Proyecto</a> que ha sido vendido por Comercial y Ventas.</p>
+<h4 id="recurso"><a class="header" href="#recurso">Recurso</a></h4>
+<ul>
+<li>Persona, equipo o vehículo. Cualificaciones. Disponibilidad. Coste por hora.</li>
+</ul>
+<p>Las cualificaciones y las disponibilidades de las personas las mantiene <a href="#departamento-de-personal">Departamento de personal</a>.</p>
+<h4 id="parte-de-horas-o-de-actividad"><a class="header" href="#parte-de-horas-o-de-actividad">Parte de horas o de actividad</a></h4>
+<ul>
+<li>Persona. Fecha. Proyecto u orden de servicio. Horas. Tareas realizadas. Gastos.</li>
+</ul>
+<p>Sirve a la vez para:</p>
+<ul>
+<li>facturar al cliente (ver <a href="#factura-de-cliente">Administración general, Contabilidad y Finanzas</a>),</li>
+<li>controlar el avance de los proyectos,</li>
+<li>la nómina (ver <a href="#departamento-de-personal">Departamento de personal</a>),</li>
+<li>el cálculo de costes,</li>
+<li>etc.</li>
+</ul>
+<h2 id="algunos-potenciales-puntos-de-fricción-5"><a class="header" href="#algunos-potenciales-puntos-de-fricción-5">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="causa-de-cada-paro"><a class="header" href="#causa-de-cada-paro">Causa de cada paro</a></h3>
+<p>Cuando una máquina se para, quien la atiende quiere volver a ponerla en marcha cuanto antes. Apuntar por qué se paró (avería, falta de material, cambio de formato, falta de personal, defecto de calidad…) no le ayuda en ese momento. Pero la causa, registrada en la <a href="#incidencia-de-fabricación">Incidencia de fabricación</a>, es muy útil para:</p>
+<ul>
+<li><a href="#aviso-o-solicitud-de-intervención">Mantenimiento de infraestructuras</a> (averías que se repiten),</li>
+<li><a href="#compras">Compras</a> y <a href="#almacenes-y-logística">Almacenes y Logística</a> (faltas de material),</li>
+<li><a href="#no-conformidad">Calidad</a> (defectos),</li>
+<li>el <a href="#rendimiento-de-las-instalaciones-oee">Rendimiento de las instalaciones (OEE)</a> que consulta <a href="#dirección">Dirección</a>,</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que el paro, su hora de inicio y su duración los detecte la propia máquina (ver <a href="#datos-de-proceso">Datos de proceso</a>). A la persona solo se le pide la causa.</li>
+<li>Una pantalla táctil junto a la máquina, con pocos botones grandes: las causas más habituales en ese puesto. Se puede detallar después, en un momento más tranquilo.</li>
+<li>Que elegir la causa sirva a la vez para avisar a quien la tiene que resolver: si es una avería, el aviso le llega a Mantenimiento.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Un panel en la propia línea con los paros del turno y sus causas, y su evolución.</li>
+<li>Comentar en las reuniones de inicio de turno qué causas se han atacado gracias a esos datos.</li>
+</ul>
+<h3 id="lotes-de-los-componentes-consumidos"><a class="header" href="#lotes-de-los-componentes-consumidos">Lotes de los componentes consumidos</a></h3>
+<p>Al montar o al alimentar una máquina, a quien lo hace le basta con usar el componente correcto. De qué lote es le da igual. Sin embargo, registrar el lote en el <a href="#consumo-de-material">Consumo de material</a> es lo que permite la trazabilidad hacia atrás del <a href="#lote-o-número-de-serie">Lote o Número de serie</a> fabricado. Y esa trazabilidad la necesitan:</p>
+<ul>
+<li><a href="#reclamación-de-cliente">Calidad</a> (de qué lote de proveedor viene un defecto),</li>
+<li><a href="#devolución-a-proveedor">Compras</a> (reclamar al proveedor),</li>
+<li><a href="#equipo-instalado">Postventa</a> y <a href="#cumplimiento-jurídico">Cumplimiento jurídico</a> (qué equipos o qué clientes están afectados),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que <a href="#orden-de-preparación-orden-de-picking">Almacenes y Logística</a> entregue el material en kits ya asociados a la orden de fabricación, con el lote registrado en la preparación.</li>
+<li>Si no, leer la etiqueta del contenedor al empezar a usarlo; y que la orden no se pueda iniciar o cerrar sin esa lectura.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Explicar casos reales en que la trazabilidad permitió acotar un problema a unas pocas unidades, en vez de revisar o retirar toda la producción de varias semanas.</li>
+</ul>
+<h3 id="tiempos-reales-y-piezas-defectuosas-en-el-parte"><a class="header" href="#tiempos-reales-y-piezas-defectuosas-en-el-parte">Tiempos reales y piezas defectuosas en el parte</a></h3>
+<p>El <a href="#parte-de-fabricación">Parte de fabricación</a> pide cantidades buenas y defectuosas y tiempos reales. Para quien lo rellena, el trabajo ya está hecho; y a veces tiene la sensación de que esos datos sirven para controlarle. Pero son la base de:</p>
+<ul>
+<li>el <a href="#coste-real-de-fabricación">Coste real de fabricación</a> y, a partir de él, de los precios (ver <a href="#coste-estándar-del-artículo">Coste estándar del artículo</a>),</li>
+<li>la corrección de los tiempos de la <a href="#ruta-u-hoja-de-ruta">Ruta</a>, y por tanto de una planificación realista,</li>
+<li><a href="#calidad">Calidad</a> (rechazos),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Tomar contadores y tiempos directamente de las máquinas siempre que se pueda; la persona solo confirma o corrige.</li>
+<li>Registrar inicio y fin de cada operación con una lectura de la hoja de la orden o del puesto, no tecleando horas al final del turno, de memoria.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Separar claramente el uso de estos datos para mejorar el proceso del uso para evaluar a las personas. Si se mezclan, los datos se “maquillan” (las piezas defectuosas desaparecen, los tiempos se ajustan a lo esperado).</li>
+<li>Mostrar los cambios que se han hecho a partir de ellos: tiempos estándar corregidos, programas de producción que por fin se cumplen.</li>
+</ul>
+<h3 id="parte-de-horas-en-los-proyectos-y-servicios"><a class="header" href="#parte-de-horas-en-los-proyectos-y-servicios">Parte de horas en los proyectos y servicios</a></h3>
+<p>En una empresa de servicios, el <a href="#parte-de-horas-o-de-actividad">Parte de horas o de actividad</a> suele ser la tarea más odiada de la semana. A quien lo rellena no le sirve para hacer su trabajo. Pero de él dependen:</p>
+<ul>
+<li>la <a href="#factura-de-cliente">Factura de cliente</a> (en los servicios facturados por horas),</li>
+<li>el control del avance y del margen de cada <a href="#proyecto">Proyecto</a>,</li>
+<li>la <a href="#nómina">Nómina</a> (horas extra, desplazamientos),</li>
+<li>las estimaciones de las próximas ofertas,</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Proponerlo ya rellenado a partir de la agenda, de las órdenes de servicio asignadas o de la semana anterior; solo hay que corregir.</li>
+<li>Registrarlo cada día, desde el móvil, en menos de un minuto. A final de mes nadie se acuerda de en qué estuvo cada día.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que cada persona, y cada jefe de proyecto, vea el estado de sus proyectos: horas previstas frente a horas reales.</li>
+<li>Usar esos datos en las ofertas siguientes, y decirlo: “este presupuesto sale de las horas reales que registrasteis en proyectos parecidos”.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="calidad"><a class="header" href="#calidad">Calidad</a></h1>
+<h2 id="algunas-entidades-habituales-6"><a class="header" href="#algunas-entidades-habituales-6">Algunas entidades habituales</a></h2>
+<h3 id="sistema-de-gestión"><a class="header" href="#sistema-de-gestión">Sistema de gestión</a></h3>
+<h4 id="documento-del-sistema"><a class="header" href="#documento-del-sistema">Documento del sistema</a></h4>
+<ul>
+<li>Procedimientos, instrucciones y formatos. Versión. Quién lo aprueba. Fecha. A quién se distribuye.</li>
+</ul>
+<p>Los documentos de todos los departamentos pasan por aquí: así se sabe que cada cual trabaja con la versión vigente.</p>
+<p>Es importante que se almacenen en un solo sitio, accesible por todas las personas que necesiten consultarlos. Así se evita tener que recurrir a copias “controladas” (que suelen tener una gran tendencia a quedar desactualizadas).</p>
+<h4 id="certificación"><a class="header" href="#certificación">Certificación</a></h4>
+<ul>
+<li>Norma (ISO 9001, normas sectoriales…). Alcance. Entidad certificadora. Vigencia.</li>
+</ul>
+<p>Muchos clientes la exigen (ver <a href="#comercial-y-ventas">Comercial y Ventas</a>).</p>
+<h4 id="auditoría"><a class="header" href="#auditoría">Auditoría</a></h4>
+<ul>
+<li>Tipo (interna, de cliente, de certificación, a proveedor). Fecha. Área auditada. Auditores. Hallazgos.</li>
+</ul>
+<p>Los hallazgos dan lugar a acciones correctivas.</p>
+<h4 id="requisito-de-cliente"><a class="header" href="#requisito-de-cliente">Requisito de cliente</a></h4>
+<ul>
+<li>Normas o exigencias específicas de un cliente (de embalaje, de documentación, de aprobación de cambios…).</li>
+</ul>
+<p>Han de conocerlos todos los departamentos que trabajan para ese cliente.</p>
+<h3 id="control-del-producto"><a class="header" href="#control-del-producto">Control del producto</a></h3>
+<h4 id="plan-de-control"><a class="header" href="#plan-de-control">Plan de control</a></h4>
+<ul>
+<li>Por artículo y operación. Características a controlar. Tolerancias. Método y equipo de medida. Frecuencia. Tamaño de muestra.</li>
+</ul>
+<p>Las características y tolerancias salen de los planos y especificaciones de <a href="#especificación-técnica">Diseño técnico de productos</a>.</p>
+<h4 id="inspección"><a class="header" href="#inspección">Inspección</a></h4>
+<ul>
+<li>Dónde (en recepción, durante la fabricación, al final). Artículo. Lote. Resultado de cada característica medida. Decisión (aceptado, rechazado).</li>
+</ul>
+<p>Las inspecciones de recepción enlazan con la <a href="#recepción-1">Recepción</a> del pedido de compra. Las inspecciones de proceso, con el <a href="#lote-o-número-de-serie">Lote</a> fabricado. Mejor si los resultados los registra directamente el equipo de medida (así se evitan errores de transcripción).</p>
+<h4 id="certificado-de-calidad"><a class="header" href="#certificado-de-calidad">Certificado de calidad</a></h4>
+<ul>
+<li>Resultados de análisis o ensayos de un lote. Emitido por un proveedor, o por nosotros para un cliente.</li>
+</ul>
+<h4 id="equipo-de-medida"><a class="header" href="#equipo-de-medida">Equipo de medida</a></h4>
+<ul>
+<li>Identificación. Ubicación. Fechas de la última y de la próxima calibración. Resultado. Incertidumbre.</li>
+</ul>
+<p>Si un equipo resulta estar descalibrado, hay que saber qué inspecciones se hicieron con él.</p>
+<h3 id="no-calidad"><a class="header" href="#no-calidad">No calidad</a></h3>
+<h4 id="no-conformidad"><a class="header" href="#no-conformidad">No conformidad</a></h4>
+<ul>
+<li>Origen (recepción, proceso, cliente, auditoría). Artículo. Lote. Cantidad afectada. Descripción.</li>
+<li>Decisión (rechazar, reprocesar, aceptar con concesión). Coste.</li>
+</ul>
+<p>Si viene de un proveedor, acaba en una <a href="#devolución-a-proveedor">Devolución a proveedor</a>.</p>
+<h4 id="reclamación-de-cliente"><a class="header" href="#reclamación-de-cliente">Reclamación de cliente</a></h4>
+<ul>
+<li>Cliente. Artículo. Lote. Descripción del defecto. Plazos de respuesta exigidos. Informe de respuesta (8D o similar).</li>
+</ul>
+<p>Llega a través de <a href="#incidencia-o-reclamación">Postventa</a> o de <a href="#comercial-y-ventas">Comercial y Ventas</a>. Para investigarla hace falta la trazabilidad del lote.</p>
+<h4 id="acción-correctiva-o-preventiva"><a class="header" href="#acción-correctiva-o-preventiva">Acción correctiva o preventiva</a></h4>
+<ul>
+<li>Problema. Causa raíz. Acciones. Responsable. Plazo. Verificación de la eficacia.</li>
+</ul>
+<p>Las acciones suelen recaer en otros departamentos.</p>
+<h4 id="coste-de-la-no-calidad"><a class="header" href="#coste-de-la-no-calidad">Coste de la no calidad</a></h4>
+<ul>
+<li>Rechazos. Reprocesos. Garantías. Devoluciones. Por periodo, artículo, proveedor o cliente.</li>
+</ul>
+<p>Lo consultan <a href="#dirección">Dirección</a> y <a href="#administración-general-contabilidad-y-finanzas">Administración general, Contabilidad y Finanzas</a>.</p>
+<h3 id="proveedores-1"><a class="header" href="#proveedores-1">Proveedores</a></h3>
+<h4 id="proveedor-2"><a class="header" href="#proveedor-2">Proveedor</a></h4>
+<p>El núcleo común (código, razón social, identificación fiscal) está en los <a href="#proveedores">Datos maestros</a>.</p>
+<p>Aquí se mantiene la parte de calidad:</p>
+<ul>
+<li>Información de calidad. Estado de homologación. Certificaciones. Evaluación periódica (calidad, puntualidad, servicio).</li>
+</ul>
+<p>El resto de la información del proveedor la mantienen otros departamentos:</p>
+<ul>
+<li>Información de compras, en <a href="#proveedor-1">Compras</a>.</li>
+<li>Información fiscal y financiera, en <a href="#proveedor">Administración general, Contabilidad y Finanzas</a>.</li>
+</ul>
+<p>Para evaluar la puntualidad del proveedor se usan los datos de entregas de <a href="#compras">Compras</a> y de <a href="#almacenes-y-logística">Almacenes y Logística</a>.</p>
+<h3 id="indicadores-1"><a class="header" href="#indicadores-1">Indicadores</a></h3>
+<h4 id="indicadores-de-calidad"><a class="header" href="#indicadores-de-calidad">Indicadores de calidad</a></h4>
+<ul>
+<li>Rechazos (en ppm o en %). Reclamaciones. Tiempos de respuesta. Por periodo, artículo, cliente o proveedor.</li>
+</ul>
+<h4 id="satisfacción-de-los-clientes"><a class="header" href="#satisfacción-de-los-clientes">Satisfacción de los clientes</a></h4>
+<ul>
+<li>Encuestas. Puntuaciones. Comentarios. Por cliente y periodo.</li>
+</ul>
+<p>También le interesa a <a href="#marketing">Marketing</a> y a <a href="#comercial-y-ventas">Comercial y Ventas</a>.</p>
+<h2 id="algunos-potenciales-puntos-de-fricción-6"><a class="header" href="#algunos-potenciales-puntos-de-fricción-6">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="lecciones-aprendidas-de-las-no-conformidades"><a class="header" href="#lecciones-aprendidas-de-las-no-conformidades">Lecciones aprendidas de las no conformidades</a></h3>
+<p>Al cerrar una <a href="#reclamación-de-cliente">Reclamación de cliente</a> o una <a href="#acción-correctiva-o-preventiva">Acción correctiva o preventiva</a>, Calidad ya ha resuelto el problema. Redactar además la lección aprendida, de forma que se pueda aplicar a otros productos o procesos, no le resuelve nada más. Pero es muy útil para:</p>
+<ul>
+<li><a href="#diseño-técnico-de-productos">Diseño técnico de productos</a> (no repetir el error en los diseños nuevos),</li>
+<li><a href="#ruta-u-hoja-de-ruta">Fabricación o Servicios</a> (al industrializar productos parecidos),</li>
+<li><a href="#proveedor-1">Compras</a> (al seleccionar proveedores para piezas similares),</li>
+<li><a href="#oferta-o-presupuesto">Comercial y Ventas</a> (al aceptar exigencias parecidas de otro cliente),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Un campo específico, breve, al cerrar la acción (“¿qué haríamos distinto la próxima vez?”), con etiquetas por familia de artículo, por proceso y por tipo de fallo para poder encontrarla después.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que las lecciones aparezcan solas donde se necesitan: en la revisión de un diseño nuevo de esa familia de artículos, en la petición de oferta de una pieza similar, etc. Una base de lecciones que nadie consulta acaba por no alimentarse.</li>
+</ul>
+<h3 id="valoración-económica-de-los-defectos"><a class="header" href="#valoración-económica-de-los-defectos">Valoración económica de los defectos</a></h3>
+<p>Para resolver una <a href="#no-conformidad">No conformidad</a> basta con saber qué falla y cuántas piezas están afectadas. Cuánto cuesta (piezas desechadas, horas de reproceso, transportes, desplazamientos, penalizaciones) a Calidad no le hace falta para resolverla. Sin embargo, el <a href="#coste-de-la-no-calidad">Coste de la no calidad</a> es un dato muy útil para:</p>
+<ul>
+<li><a href="#dirección">Dirección</a> (decidir dónde invertir en mejoras),</li>
+<li><a href="#rentabilidad">Administración general, Contabilidad y Finanzas</a> (rentabilidad real de productos y clientes),</li>
+<li><a href="#compras">Compras</a> (repercutir al proveedor lo que le corresponde),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que Calidad registre solo cantidades (piezas, horas, kilómetros) y que el sistema las valore con los costes estándar que ya mantiene Administración (ver <a href="#coste-estándar-del-artículo">Coste estándar del artículo</a>).</li>
+<li>Recoger automáticamente lo que ya está en otros registros: horas de reproceso en los partes de fabricación, desplazamientos en los partes de intervención de Postventa, etc.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Presentar los problemas de calidad en euros en las reuniones de dirección: un problema valorado consigue recursos para resolverse mucho antes que uno descrito solo en porcentaje de defectos.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="mantenimiento-de-infraestructuras"><a class="header" href="#mantenimiento-de-infraestructuras">Mantenimiento de infraestructuras</a></h1>
+<h2 id="algunas-entidades-habituales-7"><a class="header" href="#algunas-entidades-habituales-7">Algunas entidades habituales</a></h2>
+<h3 id="instalaciones"><a class="header" href="#instalaciones">Instalaciones</a></h3>
+<h4 id="activo-o-equipo"><a class="header" href="#activo-o-equipo">Activo o Equipo</a></h4>
+<ul>
+<li>Instalación, máquina, edificio o vehículo. Dónde está y de qué forma parte (jerarquía). Criticidad.</li>
+<li>Fabricante. Modelo. Número de serie. Fecha de puesta en marcha. Garantía.</li>
+</ul>
+<p>El mismo equipo suele aparecer en contabilidad como inmovilizado, con otro código (ver <a href="#inmovilizado">Administración general, Contabilidad y Finanzas</a>). Conviene tener enlazados ambos.</p>
+<h4 id="documentación-de-la-instalación-1"><a class="header" href="#documentación-de-la-instalación-1">Documentación de la instalación</a></h4>
+<ul>
+<li>Planos y esquemas. Manuales de servicio. Programas de PLC y de robots (copias de seguridad). Modelo BIM.</li>
+</ul>
+<p>Se guarda en el PDM y se mantiene al día, versionado, con cada modificación. Si no, la próxima avería se diagnostica a ciegas.</p>
+<h4 id="repuesto-1"><a class="header" href="#repuesto-1">Repuesto</a></h4>
+<ul>
+<li>Artículos de repuesto de cada equipo. Stock mínimo. Ubicación. Proveedor.</li>
+</ul>
+<p>Los repuestos críticos han de estar siempre en almacén.</p>
+<h3 id="mantenimiento-correctivo"><a class="header" href="#mantenimiento-correctivo">Mantenimiento correctivo</a></h3>
+<h4 id="aviso-o-solicitud-de-intervención"><a class="header" href="#aviso-o-solicitud-de-intervención">Aviso o Solicitud de intervención</a></h4>
+<ul>
+<li>Quién avisa. Equipo. Síntoma. Prioridad. Fecha y hora.</li>
+</ul>
+<p>La mayoría de avisos vienen de <a href="#incidencia-de-fabricación">Fabricación o Servicios</a>. Algunos, de alarmas automáticas de las propias máquinas.</p>
+<h4 id="orden-de-trabajo"><a class="header" href="#orden-de-trabajo">Orden de trabajo</a></h4>
+<ul>
+<li>Tipo (correctivo, preventivo, predictivo, mejora). Equipo. Técnicos. Horas. Repuestos utilizados. Coste.</li>
+<li>Causa del fallo. Solución aplicada.</li>
+</ul>
+<p>El historial de órdenes de cada equipo permite calcular el tiempo medio entre averías y el tiempo medio de reparación. Además de llevar un registro de la vida de cada equipo.</p>
+<h3 id="mantenimiento-planificado"><a class="header" href="#mantenimiento-planificado">Mantenimiento planificado</a></h3>
+<h4 id="plan-de-mantenimiento-preventivo"><a class="header" href="#plan-de-mantenimiento-preventivo">Plan de mantenimiento preventivo</a></h4>
+<ul>
+<li>Tareas por equipo. Frecuencia, por tiempo o por uso (horas, ciclos). Próxima fecha prevista.</li>
+</ul>
+<p>Hay que acordar con <a href="#fabricación-o-servicios">Fabricación o Servicios</a> cuándo se para cada máquina.</p>
+<h4 id="lectura-de-contador-o-de-condición"><a class="header" href="#lectura-de-contador-o-de-condición">Lectura de contador o de condición</a></h4>
+<ul>
+<li>Horas de funcionamiento. Ciclos. Vibraciones. Temperaturas.</li>
+</ul>
+<p>Se recogen automáticamente (SCADA), siempre que se pueda.</p>
+<p>Permite el mantenimiento predictivo: intervenir justo antes de que falle.</p>
+<p>Permite el análisis post-mortem: identificar señales previas al fallo.</p>
+<h4 id="inspección-reglamentaria"><a class="header" href="#inspección-reglamentaria">Inspección reglamentaria</a></h4>
+<ul>
+<li>Instalaciones sujetas a inspección obligatoria (eléctricas, de presión, de protección contra incendios, ascensores…). Organismo inspector. Fechas. Resultado. Defectos a corregir.</li>
+</ul>
+<p>Ver también <a href="#prevención-y-medio-ambiente">Prevención y Medio Ambiente</a> y <a href="#normativa-o-requisito-legal">Cumplimiento jurídico</a>.</p>
+<h3 id="recursos"><a class="header" href="#recursos">Recursos</a></h3>
+<h4 id="técnico-de-mantenimiento"><a class="header" href="#técnico-de-mantenimiento">Técnico de mantenimiento</a></h4>
+<ul>
+<li>Especialidad. Habilitaciones (eléctricas, frigoristas…). Turno. Disponibilidad.</li>
+</ul>
+<p>Las habilitaciones y la disponibilidad las mantiene <a href="#cualificación">Departamento de personal</a>.</p>
+<h4 id="empresa-de-mantenimiento-externa"><a class="header" href="#empresa-de-mantenimiento-externa">Empresa de mantenimiento externa</a></h4>
+<ul>
+<li>Contrato. Equipos que atiende. Tiempos de respuesta.</li>
+</ul>
+<p>Se contrata a través de <a href="#compra-de-servicios">Compras</a>.</p>
+<p>Para trabajar en nuestras instalaciones, cualquier subcontrata necesita la <a href="#coordinación-de-actividades-empresariales">Coordinación de actividades empresariales</a>.</p>
+<h3 id="energía-y-suministros"><a class="header" href="#energía-y-suministros">Energía y suministros</a></h3>
+<h4 id="consumo-de-energía-y-suministros"><a class="header" href="#consumo-de-energía-y-suministros">Consumo de energía y suministros</a></h4>
+<ul>
+<li>Electricidad, gas, agua, aire comprimido… Por contador, por instalación y por periodo.</li>
+</ul>
+<p>Lo necesitan:</p>
+<ul>
+<li><a href="#administración-general-contabilidad-y-finanzas">Administración general, Contabilidad y Finanzas</a> (costes)</li>
+<li>y <a href="#huella-de-carbono">Prevención y Medio Ambiente</a> (huella de carbono).</li>
+</ul>
+<h3 id="mejoras-y-ampliaciones"><a class="header" href="#mejoras-y-ampliaciones">Mejoras y ampliaciones</a></h3>
+<h4 id="proyecto-de-mejora-o-de-ampliación"><a class="header" href="#proyecto-de-mejora-o-de-ampliación">Proyecto de mejora o de ampliación</a></h4>
+<ul>
+<li>Objetivo. Presupuesto. Plazos. Instalaciones afectadas.</li>
+</ul>
+<p>El diseño y la programación se pueden ensayar y simular antes en un gemelo digital de la planta, para que el cambio afecte lo menos posible a la producción. Al acabar, hay que actualizar la documentación de la instalación.</p>
+<p>Si es una inversión, pasa por <a href="#inversión">Dirección</a>.</p>
+<h2 id="algunos-potenciales-puntos-de-fricción-7"><a class="header" href="#algunos-potenciales-puntos-de-fricción-7">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="horas-y-repuestos-de-cada-orden-de-trabajo"><a class="header" href="#horas-y-repuestos-de-cada-orden-de-trabajo">Horas y repuestos de cada orden de trabajo</a></h3>
+<p>Al técnico le importa arreglar la avería. Apuntar con detalle cuántas horas ha empleado y qué repuestos ha usado, en la <a href="#orden-de-trabajo">Orden de trabajo</a>, es para él un trámite. Pero esos datos los necesitan:</p>
+<ul>
+<li><a href="#stock">Almacenes y Logística</a> y <a href="#compras">Compras</a> (reponer los repuestos consumidos),</li>
+<li><a href="#administración-general-contabilidad-y-finanzas">Administración general, Contabilidad y Finanzas</a> (coste de mantenimiento de cada equipo),</li>
+<li><a href="#inversión">Dirección</a> (decidir si se sigue reparando un equipo o se sustituye),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Fichar el inicio y el fin de la orden con el móvil, leyendo la etiqueta del equipo; las horas salen solas.</li>
+<li>Leer la etiqueta de cada repuesto al cogerlo del almacén, ya asociado a la orden de trabajo.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que Mantenimiento vea el coste acumulado de cada equipo, y lo use para defender una inversión o una mejora. Es el argumento con más peso cuando se pide sustituir una máquina.</li>
+</ul>
+<h3 id="consumo-de-energía-por-instalación"><a class="header" href="#consumo-de-energía-por-instalación">Consumo de energía por instalación</a></h3>
+<p>Los contadores dependen de Mantenimiento, que vela por que los suministros funcionen. El reparto del consumo por instalación, por centro de coste o por producto le preocupa poco. Pero el <a href="#consumo-de-energía-y-suministros">Consumo de energía y suministros</a> detallado lo necesitan:</p>
+<ul>
+<li><a href="#huella-de-carbono">Prevención y Medio Ambiente</a> (huella de carbono, también por producto),</li>
+<li><a href="#coste-estándar-del-artículo">Administración general, Contabilidad y Finanzas</a> (repartir el coste de la energía a cada producto),</li>
+<li><a href="#dirección">Dirección</a> (ahorros, inversiones en eficiencia),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Contadores con lectura automática, conectados al SCADA o a un sistema de gestión energética. Leer contadores a mano, una vez al mes, da datos tardíos y poco detallados.</li>
+<li>Instalar contadores parciales en las instalaciones que más consumen, no en todas.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Usar esos mismos datos para detectar fugas de aire comprimido, consumos fuera de horario o equipos que consumen más de lo normal. Son ahorros que Mantenimiento puede apuntarse.</li>
+</ul>
+<h3 id="altas-bajas-y-cambios-de-los-equipos"><a class="header" href="#altas-bajas-y-cambios-de-los-equipos">Altas, bajas y cambios de los equipos</a></h3>
+<p>Cuando se desmonta una máquina, se traslada a otro centro o se modifica a fondo, Mantenimiento lo sabe porque lo hace. Actualizar el <a href="#activo-o-equipo">Activo o Equipo</a> y la <a href="#documentación-de-la-instalación-1">Documentación de la instalación</a> no le urge. Pero es imprescindible para:</p>
+<ul>
+<li><a href="#inmovilizado">Administración general, Contabilidad y Finanzas</a> (dar de baja el inmovilizado),</li>
+<li><a href="#evaluación-de-riesgos">Prevención y Medio Ambiente</a> (revisar la evaluación de riesgos),</li>
+<li>la <a href="#póliza-de-seguro">Póliza de seguro</a> (capitales asegurados),</li>
+<li><a href="#calidad">Calidad</a> (procesos que hay que volver a validar),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que cualquier proyecto de mejora o de ampliación (ver <a href="#proyecto-de-mejora-o-de-ampliación">Proyecto de mejora o de ampliación</a>) no se pueda cerrar sin actualizar los equipos afectados y su documentación.</li>
+<li>Un único aviso de “cambio en equipo” que llegue a la vez a todos los que lo necesitan, en vez de que Mantenimiento tenga que acordarse de avisar a cada uno.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>La propia documentación actualizada es lo que necesitará el técnico que atienda la siguiente avería.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="prevención-y-medio-ambiente"><a class="header" href="#prevención-y-medio-ambiente">Prevención y Medio Ambiente</a></h1>
+<h2 id="algunas-entidades-habituales-8"><a class="header" href="#algunas-entidades-habituales-8">Algunas entidades habituales</a></h2>
+<h3 id="prevención-de-riesgos-laborales"><a class="header" href="#prevención-de-riesgos-laborales">Prevención de riesgos laborales</a></h3>
+<h4 id="evaluación-de-riesgos"><a class="header" href="#evaluación-de-riesgos">Evaluación de riesgos</a></h4>
+<ul>
+<li>Por puesto, área o tarea. Riesgos identificados. Probabilidad y gravedad. Medidas preventivas. Responsable y plazo de cada medida.</li>
+</ul>
+<p>De esta evaluación sale qué equipos de protección y qué formación necesita quien ocupa cada puesto (el puesto lo define <a href="#puesto-de-trabajo">Departamento de personal</a>).</p>
+<p>Se ha de revisar cada vez que cambia una instalación, un proceso o un puesto (ver <a href="#mantenimiento-de-infraestructuras">Mantenimiento de infraestructuras</a> y <a href="#fabricación-o-servicios">Fabricación o Servicios</a>).</p>
+<h4 id="formación-en-prevención"><a class="header" href="#formación-en-prevención">Formación en prevención</a></h4>
+<ul>
+<li>Persona. Curso. Fecha. Horas. Fecha de caducidad o de reciclaje.</li>
+</ul>
+<p>Antes de asignar a alguien a un puesto o a una tarea peligrosa, hay que comprobar que tiene la formación vigente (ver <a href="#formación">Departamento de personal</a>).</p>
+<h4 id="vigilancia-de-la-salud"><a class="header" href="#vigilancia-de-la-salud">Vigilancia de la salud</a></h4>
+<ul>
+<li>Persona. Fecha del reconocimiento médico. Resultado de aptitud (apto, apto con restricciones, no apto).</li>
+</ul>
+<p>Del servicio médico solo sale el resultado de aptitud; los datos de salud son confidenciales (ver <a href="#protección-de-datos-personales-rgpd-y-lopdgdd">Cumplimiento jurídico</a>).</p>
+<h4 id="entrega-de-equipos-de-protección"><a class="header" href="#entrega-de-equipos-de-protección">Entrega de equipos de protección</a></h4>
+<ul>
+<li>Persona. Equipo de protección individual (EPI). Fecha. Firma de recepción.</li>
+</ul>
+<p>Se compran a través de <a href="#compras">Compras</a> y se reponen periódicamente.</p>
+<h4 id="accidente-o-incidente"><a class="header" href="#accidente-o-incidente">Accidente o Incidente</a></h4>
+<ul>
+<li>Fecha y hora. Lugar. Persona. Lesión. Baja. Testigos. Descripción.</li>
+<li>Investigación. Causas. Medidas correctoras.</li>
+</ul>
+<p>Las bajas afectan a la nómina y a las comunicaciones oficiales que hace <a href="#ausencia">Departamento de personal</a>.</p>
+<p>Los incidentes sin lesión (los “casi accidentes”) también merecen registrarse.</p>
+<h4 id="coordinación-de-actividades-empresariales"><a class="header" href="#coordinación-de-actividades-empresariales">Coordinación de actividades empresariales</a></h4>
+<ul>
+<li>Empresas externas que trabajan en nuestras instalaciones. Sus trabajadores. Documentación exigida (seguros, formación, aptitud, evaluación de riesgos de sus tareas). Vigencia.</li>
+</ul>
+<p>Afecta a contratas de <a href="#empresa-de-mantenimiento-externa">Mantenimiento de infraestructuras</a>, de limpieza, de obras, transportistas,… que normalmente se contratan a través de <a href="#compra-de-servicios">Compras</a>.</p>
+<p>Recoger y revisar toda la documentación exigida es muy laborioso; por eso existen plataformas online compartidas con los proveedores.</p>
+<h4 id="plan-de-emergencia"><a class="header" href="#plan-de-emergencia">Plan de emergencia</a></h4>
+<ul>
+<li>Riesgos. Medios de protección. Equipos de emergencia y sus miembros. Simulacros realizados.</li>
+</ul>
+<h4 id="producto-químico"><a class="header" href="#producto-químico">Producto químico</a></h4>
+<ul>
+<li>Productos utilizados o almacenados. Ficha técnica de datos de seguridad. Cantidades. Ubicación.</li>
+</ul>
+<p>Las fichas técnicas las facilita el proveedor (ver <a href="#compras">Compras</a>).</p>
+<p>Las cantidades almacenadas pueden estar limitadas por la normativa (ver <a href="#ubicación">Almacenes y Logística</a>).</p>
+<h3 id="medio-ambiente"><a class="header" href="#medio-ambiente">Medio ambiente</a></h3>
+<h4 id="aspecto-ambiental"><a class="header" href="#aspecto-ambiental">Aspecto ambiental</a></h4>
+<ul>
+<li>Consumos, emisiones, vertidos, residuos, ruido… de cada actividad. Importancia. Medidas de control.</li>
+</ul>
+<h4 id="residuo"><a class="header" href="#residuo">Residuo</a></h4>
+<ul>
+<li>Tipo (código del catálogo de residuos). Peligroso o no. Cantidad generada. Gestor autorizado. Documentos de traslado.</li>
+</ul>
+<h4 id="emisión-o-vertido"><a class="header" href="#emisión-o-vertido">Emisión o Vertido</a></h4>
+<ul>
+<li>Foco. Mediciones. Límites autorizados.</li>
+</ul>
+<h4 id="autorización-ambiental"><a class="header" href="#autorización-ambiental">Autorización ambiental</a></h4>
+<ul>
+<li>Licencias y autorizaciones. Condiciones impuestas. Vigencia. Controles periódicos exigidos.</li>
+</ul>
+<p>Ver también <a href="#normativa-o-requisito-legal">Cumplimiento jurídico</a>.</p>
+<h4 id="envases-y-embalajes"><a class="header" href="#envases-y-embalajes">Envases y embalajes</a></h4>
+<ul>
+<li>Material y peso de los envases de cada artículo. Cantidades puestas en el mercado.</li>
+</ul>
+<p>Para las declaraciones de responsabilidad ampliada del productor y los impuestos sobre envases (donde los haya). Necesita datos de:</p>
+<ul>
+<li><a href="#comercial-y-ventas">Comercial y Ventas</a> (cantidades vendidas),</li>
+<li><a href="#embalaje">Almacenes y Logística</a> (embalajes)</li>
+<li>y de <a href="#compras">Compras</a> (envases comprados).</li>
+</ul>
+<h4 id="huella-de-carbono"><a class="header" href="#huella-de-carbono">Huella de carbono</a></h4>
+<ul>
+<li>Emisiones directas (alcance 1). Indirectas por la energía comprada (alcance 2). Resto de indirectas (alcance 3): materiales comprados, transportes, viajes, uso de los productos… Por periodo.</li>
+</ul>
+<p>Se nutre de datos de casi todos:</p>
+<ul>
+<li><a href="#consumo-de-energía-y-suministros">Mantenimiento de infraestructuras</a> (energía),</li>
+<li><a href="#análisis-del-gasto">Compras</a> (materiales y servicios),</li>
+<li><a href="#envío">Almacenes y Logística</a> (transportes),</li>
+<li><a href="#departamento-de-personal">Departamento de personal</a> (viajes, desplazamientos al trabajo),</li>
+<li>etc.</li>
+</ul>
+<h3 id="sostenibilidad"><a class="header" href="#sostenibilidad">Sostenibilidad</a></h3>
+<h4 id="informe-de-sostenibilidad"><a class="header" href="#informe-de-sostenibilidad">Informe de sostenibilidad</a></h4>
+<ul>
+<li>Indicadores ambientales, sociales y de buen gobierno. Por periodo.</li>
+</ul>
+<p>Lo piden clientes, bancos e inversores; y, a partir de cierto tamaño, lo exige la ley. Es uno de los mayores consumidores de datos de toda la empresa: huella de carbono, residuos, plantilla, igualdad, formación, accidentes, proveedores, cumplimiento,…</p>
+<h2 id="algunos-potenciales-puntos-de-fricción-8"><a class="header" href="#algunos-potenciales-puntos-de-fricción-8">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="restricciones-de-aptitud-y-formación-vigente-de-cada-persona"><a class="header" href="#restricciones-de-aptitud-y-formación-vigente-de-cada-persona">Restricciones de aptitud y formación vigente de cada persona</a></h3>
+<p>Prevención registra el resultado de la <a href="#vigilancia-de-la-salud">Vigilancia de la salud</a> y la <a href="#formación-en-prevención">Formación en prevención</a> para cumplir con sus obligaciones. Pero quienes de verdad necesitan saber si alguien puede hacer una tarea son los que asignan el trabajo:</p>
+<ul>
+<li><a href="#recurso">Fabricación o Servicios</a>,</li>
+<li><a href="#técnico-de-mantenimiento">Mantenimiento de infraestructuras</a>,</li>
+<li><a href="#aviso-u-orden-de-servicio">Postventa</a>,</li>
+<li>etc.</li>
+</ul>
+<p>Por miedo a revelar datos de salud, a menudo no se transmite nada.</p>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Transmitir solo lo imprescindible, sin datos médicos: “apto”, “no apto” o la restricción concreta (“no levantar más de 15 kg”, “no trabajar en altura”), con su fecha de caducidad.</li>
+<li>Que formación y aptitudes caducadas aparezcan automáticamente en la planificación, junto a la persona, con antelación suficiente para renovarlas.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que el planificador no pueda asignar una tarea a quien no tiene la aptitud o la formación vigente; así se evitan riesgos y también responsabilidades para quien asigna.</li>
+</ul>
+<h3 id="huella-de-carbono-por-producto"><a class="header" href="#huella-de-carbono-por-producto">Huella de carbono por producto</a></h3>
+<p>Prevención y Medio Ambiente calcula la <a href="#huella-de-carbono">Huella de carbono</a> de la empresa, que es lo que le exige el <a href="#informe-de-sostenibilidad">Informe de sostenibilidad</a>. Repartirla por producto le supone un trabajo extra. Pero la huella por producto es cada vez más útil para:</p>
+<ul>
+<li><a href="#oferta-o-presupuesto">Comercial y Ventas</a> (los clientes la piden en ofertas, licitaciones y cuestionarios),</li>
+<li><a href="#información-comercial-de-producto">Marketing</a> (argumento de venta),</li>
+<li><a href="#diseño-técnico-de-productos">Diseño técnico de productos</a> (ecodiseño: elegir materiales y procesos),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Calcularla automáticamente a partir de datos que ya existen: la <a href="#lista-de-materiales-bom">Lista de materiales</a>, la <a href="#ruta-u-hoja-de-ruta">Ruta</a>, los consumos de energía por instalación y los transportes.</li>
+<li>Guardarla como un dato más del producto, para no rehacer el cálculo cada vez que un cliente la pide.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Llevar la cuenta de las ofertas y de los cuestionarios de clientes que se han podido contestar gracias a ella.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="diseño-técnico-de-productos"><a class="header" href="#diseño-técnico-de-productos">Diseño técnico de productos</a></h1>
+<h2 id="algunas-entidades-habituales-9"><a class="header" href="#algunas-entidades-habituales-9">Algunas entidades habituales</a></h2>
+<h3 id="desarrollo-del-producto"><a class="header" href="#desarrollo-del-producto">Desarrollo del producto</a></h3>
+<h4 id="modelo-y-plano"><a class="header" href="#modelo-y-plano">Modelo y plano</a></h4>
+<ul>
+<li>Modelo 3D. Planos 2D. Especificaciones de fabricación y de montaje.</li>
+<li>Versionado. Estado (en diseño, aprobado, obsoleto). Quién lo aprueba y cuándo.</li>
+</ul>
+<p>Se guardan en el PDM. Se guarda histórico de todas las versiones. Con especial indicación de las dos últimas versiones: la actualmente vigente y la anterior.</p>
+<p>Suelen ser consultados por variadas partes. Sobre todo por:</p>
+<ul>
+<li><a href="#fabricación-o-servicios">Fabricación o Servicios</a>,</li>
+<li><a href="#compras">Compras</a>,</li>
+<li><a href="#petición-de-oferta">Proveedores</a>,</li>
+<li><a href="#subcontratación">Subcontrataciones</a></li>
+<li><a href="#postventa">Postventa</a>,</li>
+<li>etc.</li>
+</ul>
+<p><a href="#marketing">Marketing</a> también suele acceder a modelos y planos. Para la elaboración de catálogos, videos,…</p>
+<p>Al aprobarse un artículo nuevo, se da de alta en los <a href="#artículos">Datos maestros</a> para que el resto de la empresa pueda trabajar con él.</p>
+<h4 id="lista-de-materiales-bom"><a class="header" href="#lista-de-materiales-bom">Lista de materiales (BOM)</a></h4>
+<ul>
+<li>Componentes de cada producto. Cantidades. Versión. Fechas de validez.</li>
+</ul>
+<p>También llamada BOM (<em>bill of materials</em>).</p>
+<p>De un mismo producto suele haber varias variantes:</p>
+<ul>
+<li>la lista de diseño,</li>
+<li>la lista de fabricación (organizada según el proceso, ver <a href="#ruta-u-hoja-de-ruta">Fabricación o Servicios</a>)</li>
+<li>la lista de servicio (con los repuestos, ver <a href="#repuesto">Postventa</a>),</li>
+<li>etc.</li>
+</ul>
+<p>Pasan del PDM al ERP; mantener ambos sistemas sincronizados es una de las integraciones más delicadas.</p>
+<h4 id="especificación-técnica"><a class="header" href="#especificación-técnica">Especificación técnica</a></h4>
+<ul>
+<li>Requisitos que ha de cumplir. Materiales. Tolerancias. Normas aplicables. Características críticas.</li>
+</ul>
+<p><a href="#petición-de-oferta">Compras</a> la envía a los proveedores.</p>
+<p><a href="#plan-de-control">Calidad</a> la utiliza para preparar los planes de control.</p>
+<h4 id="cálculo-simulación-o-ensayo"><a class="header" href="#cálculo-simulación-o-ensayo">Cálculo, Simulación o Ensayo</a></h4>
+<ul>
+<li>Qué se comprueba. Modelo o prototipo utilizado. Condiciones. Resultados. Conclusiones.</li>
+</ul>
+<p>Primero sobre modelos digitales (CAE) y después sobre prototipos físicos.</p>
+<h4 id="prototipo"><a class="header" href="#prototipo">Prototipo</a></h4>
+<ul>
+<li>Versión del diseño. Cómo se hizo (impresión 3D, taller propio, proveedor). Ensayos realizados. Coste.</li>
+</ul>
+<h4 id="invención"><a class="header" href="#invención">Invención</a></h4>
+<ul>
+<li>Descripción. Inventores. Fecha. Decisión (patentar, mantener en secreto, publicar).</li>
+</ul>
+<p>Si se patenta, pasa a <a href="#patente-marca-o-diseño-registrado">Cumplimiento jurídico</a>.</p>
+<h3 id="gestión-de-cambios"><a class="header" href="#gestión-de-cambios">Gestión de cambios</a></h3>
+<h4 id="solicitud-de-cambio-o-petición-de-estudio"><a class="header" href="#solicitud-de-cambio-o-petición-de-estudio">Solicitud de cambio o Petición de estudio</a></h4>
+<ul>
+<li>Quién lo pide. Qué artículo. Motivo. Urgencia. Decisión.</li>
+</ul>
+<p>ECR (Engineering Change Request), ECO (Engineering Change Order)</p>
+<p>Pueden llegar desde variadas partes:</p>
+<ul>
+<li><a href="#solución-conocida">Postventa</a></li>
+<li><a href="#acción-correctiva-o-preventiva">Calidad</a> (fallos),</li>
+<li><a href="#fabricación-o-servicios">Fabricación o Servicios</a> (dificultades de fabricación),</li>
+<li><a href="#compras">Compras</a> (componentes que dejan de fabricarse),</li>
+<li><a href="#comercial-y-ventas">Comercial y Ventas</a> (peticiones de clientes),</li>
+<li>etc.</li>
+</ul>
+<h4 id="orden-de-cambio"><a class="header" href="#orden-de-cambio">Orden de cambio</a></h4>
+<ul>
+<li>Artículos y documentos afectados. Nueva versión. Fecha a partir de la cual se aplica.</li>
+<li>Qué hacer con el stock y los pedidos existentes (agotar, reprocesar, desechar).</li>
+</ul>
+<p>La notificación de lo que se ha cambiado tiene que llegar a tiempo a:</p>
+<ul>
+<li><a href="#compras">Compras</a>,</li>
+<li><a href="#fabricación-o-servicios">Fabricación o Servicios</a>,</li>
+<li><a href="#almacenes-y-logística">Almacenes y Logística</a>,</li>
+<li><a href="#calidad">Calidad</a></li>
+<li>y <a href="#postventa">Postventa</a>.</li>
+</ul>
+<p>Si alguno se entera tarde, se compra o se fabrica la versión antigua.</p>
+<h3 id="ofertas-y-configuración"><a class="header" href="#ofertas-y-configuración">Ofertas y configuración</a></h3>
+<h4 id="reglas-de-configuración"><a class="header" href="#reglas-de-configuración">Reglas de configuración</a></h4>
+<ul>
+<li>Opciones de cada producto. Compatibilidades e incompatibilidades. Coste de cada opción.</li>
+</ul>
+<p>Permiten a <a href="#oferta-o-presupuesto">Comercial y Ventas</a> configurar un producto sin consultar cada vez a la oficina técnica.</p>
+<h4 id="ingeniería-de-oferta"><a class="header" href="#ingeniería-de-oferta">Ingeniería de oferta</a></h4>
+<ul>
+<li>Estudio técnico de una petición especial. Solución propuesta. Estimación de horas y de costes.</li>
+</ul>
+<p>Para las <a href="#oferta-o-presupuesto">Ofertas</a> que no se resuelven con las reglas de configuración.</p>
+<h3 id="documentación-de-producto"><a class="header" href="#documentación-de-producto">Documentación de producto</a></h3>
+<h4 id="documento-técnico"><a class="header" href="#documento-técnico">Documento técnico</a></h4>
+<ul>
+<li>Manual de uso, de mantenimiento, instrucciones de montaje, catálogo técnico… Versión. Idiomas. Artículos y revisiones a los que aplica.</li>
+</ul>
+<p>Mejor redactarlo como documento estructurado y modular, reaprovechando textos y gráficos del resto del PDM. Existen diversos productos software para redacción de documentos técnicos.</p>
+<p>Los documentos técnicos suelen ser consultados por múltiples partes:</p>
+<ul>
+<li><a href="#postventa">Postventa</a>,</li>
+<li><a href="#almacenes-y-logística">Almacenes y Logística</a> (manuales de mantenimiento)</li>
+<li><a href="#marketing">Marketing</a>,</li>
+<li>los propios clientes,</li>
+<li>etc.</li>
+</ul>
+<h4 id="glosario-y-memoria-de-traducción"><a class="header" href="#glosario-y-memoria-de-traducción">Glosario y Memoria de traducción</a></h4>
+<ul>
+<li>Términos técnicos y su traducción aprobada en cada idioma. Frases ya traducidas.</li>
+</ul>
+<p>Ahorra traducciones y mantiene la coherencia. Por ejemplo: en los documentos técnicos, en las descripciones en varios idiomas de los <a href="#artículos">Datos maestros</a>,…</p>
+<h4 id="expediente-técnico-y-declaración-de-conformidad"><a class="header" href="#expediente-técnico-y-declaración-de-conformidad">Expediente técnico y Declaración de conformidad</a></h4>
+<ul>
+<li>Normas y directivas aplicables. Ensayos. Análisis de riesgos. Declaración firmada.</li>
+</ul>
+<p>Necesarios para poner el producto en el mercado (por ejemplo, con el marcado CE). Ver también <a href="#normativa-o-requisito-legal">Cumplimiento jurídico</a>.</p>
+<h2 id="algunos-potenciales-puntos-de-fricción-9"><a class="header" href="#algunos-potenciales-puntos-de-fricción-9">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="qué-hacer-con-lo-existente-en-cada-cambio"><a class="header" href="#qué-hacer-con-lo-existente-en-cada-cambio">Qué hacer con lo existente en cada cambio</a></h3>
+<p>Para quien diseña, la <a href="#orden-de-cambio">Orden de cambio</a> consiste sobre todo en la nueva versión. Decidir qué hacer con el stock y los pedidos de la versión anterior, o si la pieza nueva sirve para sustituir a la antigua, le parece un asunto de otros. Pero sin esa información:</p>
+<ul>
+<li><a href="#pedido-de-compra">Compras</a> no sabe si anular los pedidos pendientes,</li>
+<li><a href="#stock-obsoleto-o-sin-movimiento">Almacenes y Logística</a> se queda con stock que nadie sabe si usar o desechar,</li>
+<li><a href="#fabricación-o-servicios">Fabricación o Servicios</a> no sabe desde qué orden aplicar el cambio,</li>
+<li><a href="#repuesto">Postventa</a> no sabe si puede montar la pieza nueva en los equipos antiguos,</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que la orden de cambio no se pueda aprobar sin rellenar unos pocos campos: intercambiabilidad (sí / no / solo en un sentido), qué hacer con el stock (agotar, reprocesar, desechar) y fecha o lote de aplicación.</li>
+<li>Mostrar, al preparar el cambio, el stock y los pedidos pendientes de los artículos afectados, para decidir con datos.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Valorar el stock obsoleto que generan los cambios mal comunicados; suele ser una cifra que llama la atención.</li>
+</ul>
+<h3 id="atributos-del-artículo-que-ya-conoce-quien-lo-diseña"><a class="header" href="#atributos-del-artículo-que-ya-conoce-quien-lo-diseña">Atributos del artículo que ya conoce quien lo diseña</a></h3>
+<p>Peso, material, dimensiones, materiales de los envases, sustancias restringidas, posible clasificación como producto de doble uso… Quien diseña los conoce (o el sistema CAD los calcula), pero no los necesita para diseñar. Sin embargo, otros departamentos los acaban buscando o estimando por su cuenta:</p>
+<ul>
+<li><a href="#datos-logísticos-del-artículo">Almacenes y Logística</a> (pesos y dimensiones),</li>
+<li><a href="#envases-y-embalajes">Prevención y Medio Ambiente</a> (envases, sustancias, huella de carbono),</li>
+<li><a href="#control-de-exportaciones">Cumplimiento jurídico</a> (control de exportaciones),</li>
+<li><a href="#declaración-de-impuestos">Administración general, Contabilidad y Finanzas</a> (estadísticas de comercio exterior),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Pasarlos automáticamente del modelo 3D al PDM y de este al ERP (masa, material, dimensiones), sin que nadie los teclee.</li>
+<li>Para los que no salen del modelo, unos pocos campos obligatorios antes de aprobar el artículo, con listas de valores.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Recoger las veces en que un dato estimado a ojo por otro departamento causó un problema (un transporte mal cotizado, una declaración corregida).</li>
+</ul>
+<h3 id="repuestos-y-facilidad-de-servicio"><a class="header" href="#repuestos-y-facilidad-de-servicio">Repuestos y facilidad de servicio</a></h3>
+<p>Al diseñar se piensa en fabricar y en usar el producto. Indicar qué piezas son repuestos recomendados, cada cuánto se desgastan o cómo se sustituyen no ayuda a terminar el diseño. Pero de ello dependen:</p>
+<ul>
+<li><a href="#repuesto">Postventa</a> (lista de servicio, repuestos en los vehículos),</li>
+<li><a href="#compras">Compras</a> y <a href="#almacenes-y-logística">Almacenes y Logística</a> (stock de repuestos durante años),</li>
+<li><a href="#contrato-de-servicio-o-suscripción">Comercial y Ventas</a> (contratos de mantenimiento),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Marcar en la <a href="#lista-de-materiales-bom">Lista de materiales</a> qué piezas son repuestos, en el mismo momento en que se crea, con una simple casilla.</li>
+<li>Que Postventa participe en las revisiones de diseño y proponga ella misma esas marcas.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Hacer llegar a Diseño los datos de fallos en campo y los costes de intervención de sus productos (ver <a href="#parte-de-intervención">Parte de intervención</a>).</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="marketing"><a class="header" href="#marketing">Marketing</a></h1>
+<h2 id="algunas-entidades-habituales-10"><a class="header" href="#algunas-entidades-habituales-10">Algunas entidades habituales</a></h2>
+<h3 id="mercado"><a class="header" href="#mercado">Mercado</a></h3>
+<h4 id="estudio-de-mercado"><a class="header" href="#estudio-de-mercado">Estudio de mercado</a></h4>
+<ul>
+<li>Mercado o segmento estudiado. Tamaño. Tendencias. Competidores. Fuentes. Fecha.</li>
+</ul>
+<h4 id="competidor"><a class="header" href="#competidor">Competidor</a></h4>
+<ul>
+<li>Nombre. Productos. Precios conocidos. Puntos fuertes y débiles.</li>
+</ul>
+<p>Buena parte de esta información la traen los comerciales de sus visitas (ver <a href="#acción-comercial">Comercial y Ventas</a>).</p>
+<h4 id="público-objetivo"><a class="header" href="#público-objetivo">Público objetivo</a></h4>
+<ul>
+<li>Segmentos a los que se dirige cada producto o campaña. Perfil. Necesidades.</li>
+</ul>
+<p>Conviene que use las mismas <a href="#categorías-de-cliente">Categorías de cliente</a> que usa Comercial y Ventas.</p>
+<h3 id="producto-y-marca"><a class="header" href="#producto-y-marca">Producto y marca</a></h3>
+<h4 id="información-comercial-de-producto"><a class="header" href="#información-comercial-de-producto">Información comercial de producto</a></h4>
+<ul>
+<li>Nombre comercial. Descripciones y argumentos de venta en cada idioma. Imágenes. Vídeos. Características destacadas.</li>
+</ul>
+<p>Se elabora a partir de los datos técnicos de <a href="#especificación-técnica">Diseño técnico de productos</a>.</p>
+<p>Alimenta la web, los catálogos, las tiendas en línea, las ofertas de <a href="#oferta-o-presupuesto">Comercial y Ventas</a>,…</p>
+<h4 id="imagen-corporativa"><a class="header" href="#imagen-corporativa">Imagen corporativa</a></h4>
+<ul>
+<li>Logotipos. Colores. Tipografías. Plantillas de documentos.</li>
+</ul>
+<p>Se aplica a todo documento que sale de la empresa: ofertas, facturas, albaranes, manuales, correos,…</p>
+<p>Las plantillas se guardan en el PDM.</p>
+<p>Las marcas y logotipos se registran a través de <a href="#patente-marca-o-diseño-registrado">Cumplimiento jurídico</a>.</p>
+<h3 id="campañas-y-comunicación"><a class="header" href="#campañas-y-comunicación">Campañas y comunicación</a></h3>
+<h4 id="campaña"><a class="header" href="#campaña">Campaña</a></h4>
+<ul>
+<li>Objetivo. Público. Canales. Mensajes. Fechas. Presupuesto. Resultados.</li>
+</ul>
+<h4 id="material-de-promoción"><a class="header" href="#material-de-promoción">Material de promoción</a></h4>
+<ul>
+<li>Folletos, anuncios, vídeos, presentaciones… Versión. Idioma. Campaña o producto al que pertenece.</li>
+</ul>
+<h4 id="evento-o-feria"><a class="header" href="#evento-o-feria">Evento o Feria</a></h4>
+<ul>
+<li>Fecha. Lugar. Coste. Asistentes. Contactos conseguidos.</li>
+</ul>
+<p>Los contactos pasan a <a href="#cliente-potencial">Comercial y Ventas</a> como potenciales clientes, indicando su origen.</p>
+<h4 id="comunicación-comercial"><a class="header" href="#comunicación-comercial">Comunicación comercial</a></h4>
+<ul>
+<li>Envíos de boletines o correos. Destinatarios. Aperturas. Bajas.</li>
+</ul>
+<p>Solo a quien ha dado su <a href="#consentimiento">Consentimiento</a>.</p>
+<h3 id="canales-digitales"><a class="header" href="#canales-digitales">Canales digitales</a></h3>
+<h4 id="web-y-redes-sociales"><a class="header" href="#web-y-redes-sociales">Web y redes sociales</a></h4>
+<ul>
+<li>Contenidos publicados. Visitas. Seguidores. Interacciones. Comentarios y menciones.</li>
+</ul>
+<p>Las quejas que llegan por aquí se pasan a <a href="#incidencia-o-reclamación">Postventa</a>.</p>
+<h4 id="solicitud-de-información"><a class="header" href="#solicitud-de-información">Solicitud de información</a></h4>
+<ul>
+<li>Formulario web, chat, correo… Persona. Empresa. Qué le interesa.</li>
+</ul>
+<p>Las solicitudes que llegan por aquí se pasan a <a href="#cliente-potencial">Comercial y Ventas</a>. Conviene saber después si acabó en venta, para medir qué campañas funcionan.</p>
+<h3 id="análisis"><a class="header" href="#análisis">Análisis</a></h3>
+<h4 id="estudio-de-comportamiento"><a class="header" href="#estudio-de-comportamiento">Estudio de comportamiento</a></h4>
+<ul>
+<li>Qué compran los clientes, cuándo, cómo y por qué canal. Qué productos se usan y cómo.</li>
+</ul>
+<p>Parte del histórico de ventas, de la web y de los <a href="#datos-de-uso-del-equipo">Datos de uso del equipo</a>.</p>
+<p>Se elabora con herramientas de minería de datos, sobre el almacén de datos que prepara <a href="#almacén-de-datos">Sistemas de información, IT</a>.</p>
+<h4 id="presupuesto-de-marketing"><a class="header" href="#presupuesto-de-marketing">Presupuesto de marketing</a></h4>
+<ul>
+<li>Por campaña, canal o producto. Por periodo. Gasto real.</li>
+</ul>
+<h2 id="algunos-potenciales-puntos-de-fricción-10"><a class="header" href="#algunos-potenciales-puntos-de-fricción-10">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="información-comercial-de-producto-estructurada"><a class="header" href="#información-comercial-de-producto-estructurada">Información comercial de producto estructurada</a></h3>
+<p>Marketing elabora textos, imágenes y argumentos de venta para sus catálogos, folletos y campañas, a menudo directamente en las herramientas de maquetación. Para ese uso no necesita guardarlos de forma estructurada, enlazados a cada artículo. Pero la <a href="#información-comercial-de-producto">Información comercial de producto</a>, estructurada, la necesitan:</p>
+<ul>
+<li><a href="#oferta-o-presupuesto">Comercial y Ventas</a> (ofertas),</li>
+<li>los distribuidores y las tiendas en línea (fichas de producto),</li>
+<li><a href="#postventa">Postventa</a> (descripciones coherentes con lo vendido),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Mantener textos e imágenes en un único repositorio, ligado al artículo y a sus idiomas (ver <a href="#glosario-y-memoria-de-traducción">Glosario y Memoria de traducción</a>), y generar los catálogos a partir de él, no al revés.</li>
+<li>Partir de los datos técnicos que ya están en el PDM, para no volver a teclearlos.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Mostrar a Marketing dónde y cuánto se usan sus contenidos: ofertas generadas, descargas de los distribuidores, visitas a las fichas de producto.</li>
+</ul>
+<h3 id="quejas-y-comentarios-en-las-redes"><a class="header" href="#quejas-y-comentarios-en-las-redes">Quejas y comentarios en las redes</a></h3>
+<p>Quien gestiona las redes sociales contesta en público a una queja y da el asunto por atendido. Registrarla como <a href="#incidencia-o-reclamación">Incidencia o Reclamación</a> le parece duplicar el trabajo. Pero si no se hace:</p>
+<ul>
+<li><a href="#postventa">Postventa</a> no la resuelve,</li>
+<li><a href="#reclamación-de-cliente">Calidad</a> no la cuenta,</li>
+<li><a href="#diseño-técnico-de-productos">Diseño técnico de productos</a> no se entera de problemas que se repiten,</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que la herramienta de gestión de redes permita convertir un comentario en incidencia con un solo clic, con el texto y el enlace ya copiados.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que la respuesta pública pueda decir “lo estamos resolviendo”, y que la resolución vuelva al hilo de la red. Una queja bien resuelta en público es muy buena publicidad.</li>
+</ul>
+<h3 id="contactos-conseguidos-en-ferias-y-campañas"><a class="header" href="#contactos-conseguidos-en-ferias-y-campañas">Contactos conseguidos en ferias y campañas</a></h3>
+<p>Marketing suele medir su éxito por el número de contactos conseguidos. Lo que necesita <a href="#cliente-potencial">Comercial y Ventas</a> es otra cosa: qué le interesa a cada contacto, con qué urgencia, y si ha dado su <a href="#consentimiento">Consentimiento</a> para recibir comunicaciones comerciales.</p>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Leer la tarjeta o la acreditación del visitante y completar en el momento tres o cuatro preguntas fijas, incluida la casilla de consentimiento.</li>
+<li>Pasar los contactos al CRM el mismo día, con su origen (<a href="#evento-o-feria">Evento o Feria</a>, <a href="#campaña">Campaña</a>) ya indicado.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que Comercial y Ventas informe de qué contactos acabaron en venta. Así Marketing mide sus campañas por las ventas que generan, y no solo por el número de contactos.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="dirección"><a class="header" href="#dirección">Dirección</a></h1>
+<h2 id="algunas-entidades-habituales-11"><a class="header" href="#algunas-entidades-habituales-11">Algunas entidades habituales</a></h2>
+<h3 id="estrategia-y-objetivos"><a class="header" href="#estrategia-y-objetivos">Estrategia y objetivos</a></h3>
+<h4 id="plan-estratégico"><a class="header" href="#plan-estratégico">Plan estratégico</a></h4>
+<ul>
+<li>Visión a varios años. Objetivos. Iniciativas. Responsables.</li>
+</ul>
+<h4 id="objetivo-e-indicador-clave-kpi"><a class="header" href="#objetivo-e-indicador-clave-kpi">Objetivo e Indicador clave (<em>KPI</em>)</a></h4>
+<ul>
+<li>Qué se mide. Cómo se calcula. Meta. Responsable. Periodicidad.</li>
+</ul>
+<p>Cada indicador ha de tener una definición única: si cada departamento lo calcula a su manera, no hay forma de comparar.</p>
+<h4 id="presupuesto-anual"><a class="header" href="#presupuesto-anual">Presupuesto anual</a></h4>
+<ul>
+<li>Ventas, gastos e inversiones previstos. Por sociedad, departamento y mes.</li>
+</ul>
+<p>Junta los presupuestos de todos los departamentos, empezando por los <a href="#objetivos-de-ventas">Objetivos de ventas</a>. Lo consolida <a href="#administración-general-contabilidad-y-finanzas">Administración general, Contabilidad y Finanzas</a>.</p>
+<h3 id="seguimiento"><a class="header" href="#seguimiento">Seguimiento</a></h3>
+<h4 id="cuadro-de-mando-dashboard"><a class="header" href="#cuadro-de-mando-dashboard">Cuadro de mando (<em>dashboard</em>)</a></h4>
+<ul>
+<li>Indicadores clave. Valores reales frente a objetivos y presupuesto. Evolución en el tiempo. Detalle por sociedad, departamento, cliente, producto…</li>
+</ul>
+<p>Se alimenta del <a href="#almacén-de-datos">Almacén de datos</a>, con datos de todos los departamentos.</p>
+<p>Mejor si permite bajar al detalle (<em>drill-down</em>) sin tener que pedir informes a nadie.</p>
+<h4 id="alerta"><a class="header" href="#alerta">Alerta</a></h4>
+<ul>
+<li>Qué ha pasado. Gravedad. A quién avisar. Qué se ha hecho.</li>
+</ul>
+<p>Incidencias graves que la dirección ha de conocer enseguida. Incidencias tales como: un accidente grave (ver <a href="#accidente-o-incidente">Prevención y Medio Ambiente</a>), la reclamación de un cliente importante, un ciberataque, etc.</p>
+<h3 id="decisiones"><a class="header" href="#decisiones">Decisiones</a></h3>
+<h4 id="reunión-y-acuerdo"><a class="header" href="#reunión-y-acuerdo">Reunión y Acuerdo</a></h4>
+<ul>
+<li>Comité o reunión. Fecha. Asistentes. Decisiones. Responsables. Plazos.</li>
+</ul>
+<p>Los acuerdos de los órganos de la sociedad van además a las <a href="#acta-y-acuerdo">Actas</a> de Cumplimiento jurídico.</p>
+<h4 id="inversión"><a class="header" href="#inversión">Inversión</a></h4>
+<ul>
+<li>Objetivo. Importe. Rentabilidad esperada. Aprobación. Seguimiento del gasto real.</li>
+</ul>
+<p>Las propuestas suelen venir principalmente de <a href="#proyecto-de-mejora-o-de-ampliación">Mantenimiento de infraestructuras</a>, <a href="#fabricación-o-servicios">Fabricación o Servicios</a> y <a href="#sistemas-de-información-it">Sistemas de información, IT</a>.</p>
+<p>Una vez hechas, las inversiones pasan a contabilidad como inmovilizado (ver <a href="#inmovilizado">Administración general, Contabilidad y Finanzas</a>).</p>
+<h4 id="riesgo-empresarial"><a class="header" href="#riesgo-empresarial">Riesgo empresarial</a></h4>
+<ul>
+<li>Tipo (estratégico, financiero, operativo, de cumplimiento…). Probabilidad. Impacto. Medidas. Responsable.</li>
+</ul>
+<p>Incluye los riesgos legales del <a href="#mapa-de-riesgos-de-cumplimiento">Mapa de riesgos de cumplimiento</a>.</p>
+<h3 id="organización"><a class="header" href="#organización">Organización</a></h3>
+<h4 id="organigrama"><a class="header" href="#organigrama">Organigrama</a></h4>
+<ul>
+<li>Sociedades, departamentos y sus responsables. Quién depende de quién.</li>
+</ul>
+<p>Lo mantiene <a href="#puesto-de-trabajo">Departamento de personal</a>. Lo necesitan todos: para saber a quién dirigirse y para los circuitos de aprobación (compras, gastos, vacaciones…).</p>
+<h2 id="algunos-potenciales-puntos-de-fricción-11"><a class="header" href="#algunos-potenciales-puntos-de-fricción-11">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="decisiones-tomadas-en-las-reuniones"><a class="header" href="#decisiones-tomadas-en-las-reuniones">Decisiones tomadas en las reuniones</a></h3>
+<p>En un comité de dirección se toman decisiones que a sus asistentes les quedan claras. Dejarlas registradas, con su responsable y su plazo, en la <a href="#reunión-y-acuerdo">Reunión y Acuerdo</a>, les parece un trámite. Pero quienes no estaban necesitan conocerlas:</p>
+<ul>
+<li>los departamentos que las han de ejecutar,</li>
+<li>quienes tienen que adaptar sus planes (presupuestos, compras, contrataciones…),</li>
+<li><a href="#acta-y-acuerdo">Cumplimiento jurídico</a>, si el acuerdo requiere un acta formal,</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que una persona se encargue de registrar los acuerdos durante la propia reunión, en una lista compartida: qué, quién, cuándo.</li>
+<li>Revisar esa lista al principio de la reunión siguiente.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Si los acuerdos se revisan y se cumplen, la propia dirección ve que sus decisiones se ejecutan; si no, se repiten las mismas discusiones reunión tras reunión.</li>
+</ul>
+<h3 id="definición-de-cada-indicador"><a class="header" href="#definición-de-cada-indicador">Definición de cada indicador</a></h3>
+<p>Dirección decide qué indicadores seguir y con qué metas. La definición exacta de cada uno (qué se cuenta, de dónde sale cada dato, cómo se calcula) le parece un detalle técnico. Pero si no se fija por escrito en el <a href="#objetivo-e-indicador-clave-kpi">Objetivo e Indicador clave</a>:</p>
+<ul>
+<li>cada departamento lo calcula a su manera y las cifras no coinciden,</li>
+<li><a href="#catálogo-de-productos-de-datos">Sistemas de información, IT</a> no puede automatizarlo en el <a href="#cuadro-de-mando-dashboard">Cuadro de mando</a>,</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Una ficha breve por indicador, en el catálogo de datos que mantiene IT: definición, fórmula, fuente de cada dato, responsable.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Las reuniones dedican el tiempo a decidir, y no a discutir de quién es la cifra buena.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="departamento-de-personal"><a class="header" href="#departamento-de-personal">Departamento de personal</a></h1>
+<h2 id="algunas-entidades-habituales-12"><a class="header" href="#algunas-entidades-habituales-12">Algunas entidades habituales</a></h2>
+<h3 id="personas-y-puestos"><a class="header" href="#personas-y-puestos">Personas y puestos</a></h3>
+<h4 id="empleado"><a class="header" href="#empleado">Empleado</a></h4>
+<ul>
+<li>Información personal. Nombre. Identificación. Dirección. Contacto. Situación familiar (si afecta a la nómina).</li>
+<li>Información organizativa. Sociedad. Centro de trabajo. Departamento. Puesto. Responsable directo.</li>
+<li>Información para el pago. Cuenta bancaria. Situación fiscal y de seguridad social.</li>
+</ul>
+<p>Son datos personales, algunos especialmente protegidos (ver <a href="#protección-de-datos-personales-rgpd-y-lopdgdd">Cumplimiento jurídico</a>).</p>
+<p>Casi todos los departamentos necesitan la información organizativa (quién es quién); el resto solo ha de verlo quien lo necesita.</p>
+<p>Las altas, bajas y cambios de puesto se han de comunicar enseguida:</p>
+<ul>
+<li>a <a href="#usuario-y-permisos">Sistemas de información, IT</a> (usuarios y permisos)</li>
+<li>y a <a href="#prevención-y-medio-ambiente">Prevención y Medio Ambiente</a> (formación y aptitud que exige el nuevo puesto).</li>
+</ul>
+<h4 id="candidato"><a class="header" href="#candidato">Candidato</a></h4>
+<ul>
+<li>Datos personales. Currículum. Puesto al que opta. Entrevistas. Resultado.</li>
+</ul>
+<p>Si se le contrata, pasa a ser Empleado. Si no, sus datos solo se pueden guardar durante un tiempo limitado.</p>
+<h4 id="puesto-de-trabajo"><a class="header" href="#puesto-de-trabajo">Puesto de trabajo</a></h4>
+<ul>
+<li>Funciones. Requisitos (formación, experiencia, habilitaciones). Categoría profesional. Banda salarial. Departamento. De quién depende.</li>
+</ul>
+<p>Con los puestos y sus dependencias se forma el <a href="#organigrama">Organigrama</a>.</p>
+<p>Los riesgos de cada puesto los evalúa <a href="#evaluación-de-riesgos">Prevención y Medio Ambiente</a>.</p>
+<h3 id="contratación-y-nómina"><a class="header" href="#contratación-y-nómina">Contratación y nómina</a></h3>
+<h4 id="contrato-laboral"><a class="header" href="#contrato-laboral">Contrato laboral</a></h4>
+<ul>
+<li>Tipo. Fechas de inicio y de fin. Jornada. Convenio aplicable. Categoría. Salario pactado. Periodo de prueba.</li>
+</ul>
+<h4 id="nómina"><a class="header" href="#nómina">Nómina</a></h4>
+<ul>
+<li>Conceptos fijos. Salario base. Complementos.</li>
+<li>Conceptos variables. Horas extra. Pluses de turno o de nocturnidad. Incentivos. Comisiones. Dietas.</li>
+<li>Retenciones. Cotizaciones. Importe neto.</li>
+</ul>
+<p>Los conceptos variables vienen de otros departamentos:</p>
+<ul>
+<li>horas y turnos de <a href="#parte-de-fabricación">Fabricación o Servicios</a>,</li>
+<li>comisiones de <a href="#comisiones">Comercial y Ventas</a>,</li>
+<li>dietas de <a href="#parte-de-intervención">Postventa</a>,</li>
+<li>etc.</li>
+</ul>
+<p>Si esos conceptos llegan tarde o incompletos, la nómina sale mal.</p>
+<p>Mensualmente, el resultado de la nómina va a <a href="#administración-general-contabilidad-y-finanzas">Administración general, Contabilidad y Finanzas</a>, para contabilizarla y pagarla.  (nota: en algunos países el periodo es distinto, por ejemplo quincenalmente)</p>
+<h4 id="cotización-y-comunicaciones-oficiales"><a class="header" href="#cotización-y-comunicaciones-oficiales">Cotización y comunicaciones oficiales</a></h4>
+<ul>
+<li>Altas, bajas y variaciones comunicadas a la seguridad social. Cotizaciones. Retenciones declaradas a la administración tributaria.</li>
+</ul>
+<h4 id="gasto-de-viaje"><a class="header" href="#gasto-de-viaje">Gasto de viaje</a></h4>
+<ul>
+<li>Persona. Fecha. Motivo. Kilometraje, dietas, alojamiento, transporte. Justificantes. Aprobación.</li>
+</ul>
+<p>Se reembolsan con la nómina o aparte.</p>
+<p>Los datos tales como kilometraje y transportes también se suelen considerar para el cálculo la huella de carbono (ver <a href="#huella-de-carbono">Prevención y Medio Ambiente</a>).</p>
+<h3 id="tiempo-de-trabajo"><a class="header" href="#tiempo-de-trabajo">Tiempo de trabajo</a></h3>
+<h4 id="calendario-laboral-y-turnos"><a class="header" href="#calendario-laboral-y-turnos">Calendario laboral y Turnos</a></h4>
+<ul>
+<li>Días laborables y festivos de cada centro. Horarios. Turnos y personas asignadas a cada uno.</li>
+</ul>
+<p>Lo necesita <a href="#puesto-o-centro-de-trabajo">Fabricación o Servicios</a> para calcular la capacidad.</p>
+<h4 id="registro-de-jornada"><a class="header" href="#registro-de-jornada">Registro de jornada</a></h4>
+<ul>
+<li>Persona. Horas de entrada y de salida. Pausas.</li>
+</ul>
+<p>En muchos países es obligatorio. Mejor si se registra automáticamente (lector de tarjetas, aplicación en el móvil).</p>
+<h4 id="ausencia"><a class="header" href="#ausencia">Ausencia</a></h4>
+<ul>
+<li>Vacaciones, permisos, bajas por enfermedad o por accidente. Fechas. Justificación. Aprobación.</li>
+</ul>
+<p><a href="#fabricación-o-servicios">Fabricación o Servicios</a> y <a href="#postventa">Postventa</a> han de conocerlas con antelación para planificar.</p>
+<p>Las bajas por accidente enlazan con <a href="#accidente-o-incidente">Prevención y Medio Ambiente</a>.</p>
+<h3 id="desarrollo-profesional"><a class="header" href="#desarrollo-profesional">Desarrollo profesional</a></h3>
+<h4 id="formación"><a class="header" href="#formación">Formación</a></h4>
+<ul>
+<li>Plan de formación. Cursos. Asistentes. Horas. Coste. Evaluación.</li>
+</ul>
+<p>Incluye la formación en prevención (ver <a href="#formación-en-prevención">Prevención y Medio Ambiente</a>).</p>
+<h4 id="cualificación"><a class="header" href="#cualificación">Cualificación</a></h4>
+<ul>
+<li>Competencias de cada persona. Habilitaciones y carnés (carretillas, trabajos eléctricos, soldadura…). Fechas de caducidad.</li>
+</ul>
+<p>La consultan quienes asignan tareas: <a href="#recurso">Fabricación o Servicios</a>, <a href="#técnico-de-mantenimiento">Mantenimiento de infraestructuras</a>, <a href="#aviso-u-orden-de-servicio">Postventa</a>, etc.</p>
+<h4 id="evaluación-del-desempeño"><a class="header" href="#evaluación-del-desempeño">Evaluación del desempeño</a></h4>
+<ul>
+<li>Persona. Periodo. Objetivos. Resultados. Valoración.</li>
+</ul>
+<p>Suele estar ligada a los <a href="#objetivo-e-indicador-clave-kpi">Objetivos</a> de la empresa y a la retribución variable.</p>
+<h4 id="carrera-profesional"><a class="header" href="#carrera-profesional">Carrera profesional</a></h4>
+<ul>
+<li>Puestos ocupados. Promociones. Formación recibida. Planes de desarrollo.</li>
+</ul>
+<h3 id="relaciones-laborales"><a class="header" href="#relaciones-laborales">Relaciones laborales</a></h3>
+<h4 id="representación-de-los-trabajadores"><a class="header" href="#representación-de-los-trabajadores">Representación de los trabajadores</a></h4>
+<ul>
+<li>Comité o delegados. Miembros. Fechas de elección. Acuerdos y convenios firmados.</li>
+</ul>
+<h4 id="igualdad"><a class="header" href="#igualdad">Igualdad</a></h4>
+<ul>
+<li>Retribuciones por sexo y categoría. Plan de igualdad. Medidas y su seguimiento.</li>
+</ul>
+<p>Obligatorio a partir de cierto tamaño. Es también uno de los indicadores del <a href="#informe-de-sostenibilidad">Informe de sostenibilidad</a>.</p>
+<h2 id="algunos-potenciales-puntos-de-fricción-12"><a class="header" href="#algunos-potenciales-puntos-de-fricción-12">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="altas-bajas-y-cambios-de-puesto"><a class="header" href="#altas-bajas-y-cambios-de-puesto">Altas, bajas y cambios de puesto</a></h3>
+<p>Para el Departamento de personal, una baja termina cuando se liquida la última nómina y se comunica a la seguridad social. Avisar a todos los demás no forma parte de su trámite. Pero cada cambio en un <a href="#empleado">Empleado</a> lo necesitan:</p>
+<ul>
+<li><a href="#usuario-y-permisos">Sistemas de información, IT</a> (dar o quitar accesos; un acceso olvidado de alguien que ya se fue es un riesgo de seguridad),</li>
+<li><a href="#formación-en-prevención">Prevención y Medio Ambiente</a> (formación y aptitud que exige el nuevo puesto),</li>
+<li><a href="#centro-de-coste">Administración general, Contabilidad y Finanzas</a> (a qué centro de coste se imputa),</li>
+<li><a href="#recurso">Fabricación o Servicios</a> (personas disponibles para planificar),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que un solo registro en el sistema de personal ponga en marcha el resto: avisos a cada departamento, o mejor aún, altas y bajas automáticas de usuarios.</li>
+<li>Una lista de comprobación por tipo de cambio (alta, baja, cambio de puesto), para no depender de la memoria.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que la propia persona que se incorpora tenga su ordenador, sus accesos y su formación preparados el primer día; es la mejor imagen que puede dar el Departamento de personal.</li>
+</ul>
+<h3 id="cualificaciones-y-habilitaciones-al-día"><a class="header" href="#cualificaciones-y-habilitaciones-al-día">Cualificaciones y habilitaciones al día</a></h3>
+<p>Personal registra los cursos y los carnés para el expediente de cada persona. Para quien lo registra, el certificado ya está archivado. Pero la <a href="#cualificación">Cualificación</a> vigente la consultan:</p>
+<ul>
+<li><a href="#recurso">Fabricación o Servicios</a>, <a href="#técnico-de-mantenimiento">Mantenimiento de infraestructuras</a> y <a href="#aviso-u-orden-de-servicio">Postventa</a>, al asignar tareas,</li>
+<li><a href="#prevención-y-medio-ambiente">Prevención y Medio Ambiente</a>,</li>
+<li>los clientes, en algunos sectores, antes de dejar entrar a un técnico,</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que la habilitación se registre al terminar el curso, con su fecha de caducidad, y si puede ser cargada directamente por la entidad formadora.</li>
+<li>Avisos automáticos de caducidades próximas, a la persona y a su responsable.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que la persona pueda consultar y descargar sus propias habilitaciones; le sirven a ella para su carrera profesional.</li>
+</ul>
+<h3 id="ausencias-previstas"><a class="header" href="#ausencias-previstas">Ausencias previstas</a></h3>
+<p>Las vacaciones y los permisos se suelen pedir y aprobar entre la persona y su responsable, por correo o de palabra. Personal solo necesita saberlas a tiempo para la nómina. Pero la <a href="#ausencia">Ausencia</a> prevista la necesitan con antelación:</p>
+<ul>
+<li><a href="#programa-de-producción">Fabricación o Servicios</a> (capacidad disponible),</li>
+<li><a href="#aviso-u-orden-de-servicio">Postventa</a> (técnicos disponibles para asignar avisos),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Que la petición y la aprobación se hagan en el propio sistema, desde el móvil, en vez de por correo. Así la ausencia aprobada queda registrada sin trabajo extra.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que cada persona vea en el sistema sus días disponibles, y cada responsable el calendario de su equipo; a ellos también les sirve para organizarse.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="cumplimiento-jurídico"><a class="header" href="#cumplimiento-jurídico">Cumplimiento jurídico</a></h1>
+<h2 id="algunas-entidades-habituales-13"><a class="header" href="#algunas-entidades-habituales-13">Algunas entidades habituales</a></h2>
+<h3 id="contratos-y-poderes"><a class="header" href="#contratos-y-poderes">Contratos y poderes</a></h3>
+<h4 id="contrato"><a class="header" href="#contrato">Contrato</a></h4>
+<ul>
+<li>Partes. Objeto. Fechas de firma, de inicio y de vencimiento. Renovación automática. Plazo de preaviso.</li>
+<li>Obligaciones y penalizaciones. Garantías exigidas. Ley aplicable y jurisdicción.</li>
+<li>Documento firmado. Versiones anteriores.</li>
+</ul>
+<p>Los contratos los negocian otros departamentos:</p>
+<ul>
+<li>con clientes en <a href="#contrato-o-acuerdo-marco">Comercial y Ventas</a>,</li>
+<li>con proveedores en <a href="#contrato-o-acuerdo-marco-1">Compras</a>,</li>
+<li>con empleados en <a href="#contrato-laboral">Departamento de personal</a>.</li>
+</ul>
+<p>Aquí se revisan, se custodian y se vigilan los vencimientos.</p>
+<h4 id="poder-o-apoderamiento"><a class="header" href="#poder-o-apoderamiento">Poder o Apoderamiento</a></h4>
+<ul>
+<li>Persona apoderada. Qué puede firmar. Límites de importe. Firma solidaria o mancomunada. Fechas de otorgamiento y de revocación.</li>
+</ul>
+<p>Lo consultan quienes han de firmar contratos, pedidos, avales o pagos.</p>
+<h3 id="protección-de-datos-personales"><a class="header" href="#protección-de-datos-personales">Protección de datos personales</a></h3>
+<h4 id="registro-de-actividades-de-tratamiento"><a class="header" href="#registro-de-actividades-de-tratamiento">Registro de actividades de tratamiento</a></h4>
+<ul>
+<li>Qué datos personales se tratan. Para qué. Base legal. Quién accede. Cuánto tiempo se conservan. Medidas de seguridad.</li>
+</ul>
+<p>Recoge los tratamientos de todos los departamentos: personas de contacto de clientes y proveedores, empleados, candidatos, videovigilancia,…</p>
+<h4 id="consentimiento"><a class="header" href="#consentimiento">Consentimiento</a></h4>
+<ul>
+<li>Persona. Para qué lo da. Fecha y canal. Retirada.</li>
+</ul>
+<p>Imprescindible para las comunicaciones comerciales de <a href="#marketing">Marketing</a>.</p>
+<h4 id="ejercicio-de-derechos"><a class="header" href="#ejercicio-de-derechos">Ejercicio de derechos</a></h4>
+<ul>
+<li>Solicitud de acceso, rectificación, supresión u oposición. Persona. Fecha. Plazo de respuesta. Respuesta dada.</li>
+</ul>
+<p>Para responder hay que localizar todos los datos de esa persona, en todos los sistemas.</p>
+<h4 id="encargado-del-tratamiento"><a class="header" href="#encargado-del-tratamiento">Encargado del tratamiento</a></h4>
+<ul>
+<li>Proveedor que trata datos personales por cuenta nuestra (gestoría, servicios en la nube, mantenimiento informático…). Contrato de encargo. Garantías que ofrece.</li>
+</ul>
+<h4 id="brecha-de-seguridad"><a class="header" href="#brecha-de-seguridad">Brecha de seguridad</a></h4>
+<ul>
+<li>Qué ha pasado. Datos y personas afectadas. Medidas tomadas. Comunicación a la autoridad de control y a los afectados.</li>
+</ul>
+<p>Normalmente la detecta <a href="#incidente-de-seguridad">Sistemas de información, IT</a>. Los plazos para comunicarla son muy cortos (72 horas en la Unión Europea).</p>
+<h3 id="cumplimiento-normativo"><a class="header" href="#cumplimiento-normativo">Cumplimiento normativo</a></h3>
+<h4 id="normativa-o-requisito-legal"><a class="header" href="#normativa-o-requisito-legal">Normativa o requisito legal</a></h4>
+<ul>
+<li>Norma. Ámbito (fiscal, laboral, ambiental, de producto…). Qué exige. Departamento responsable. Fecha de entrada en vigor.</li>
+</ul>
+<p>Cada área técnica vigila su parte (ver <a href="#calidad">Calidad</a>, <a href="#prevención-y-medio-ambiente">Prevención y Medio Ambiente</a>, <a href="#fabricación-o-servicios">Fabricación o servicios</a>, etc.).</p>
+<h4 id="mapa-de-riesgos-de-cumplimiento"><a class="header" href="#mapa-de-riesgos-de-cumplimiento">Mapa de riesgos de cumplimiento</a></h4>
+<ul>
+<li>Riesgo. Actividad o departamento donde se puede dar. Probabilidad. Impacto. Controles establecidos.</li>
+</ul>
+<h4 id="código-ético-y-políticas-internas"><a class="header" href="#código-ético-y-políticas-internas">Código ético y políticas internas</a></h4>
+<ul>
+<li>Documento. Versión. Fecha de aprobación. Personas que lo han recibido y aceptado.</li>
+</ul>
+<h4 id="denuncia-interna-whistleblowing"><a class="header" href="#denuncia-interna-whistleblowing">Denuncia interna (<em>whistleblowing</em>)</a></h4>
+<ul>
+<li>Hechos comunicados. Fecha. Canal. Investigación. Resolución.</li>
+</ul>
+<p>El canal ha de garantizar la confidencialidad de quien denuncia.</p>
+<h4 id="control-de-exportaciones"><a class="header" href="#control-de-exportaciones">Control de exportaciones</a></h4>
+<ul>
+<li>Clasificación de los artículos (doble uso, licencias necesarias).</li>
+<li>Comprobación de clientes y destinos en las listas de sanciones.</li>
+</ul>
+<p>Necesita datos de:</p>
+<ul>
+<li><a href="#diseño-técnico-de-productos">Diseño técnico de productos</a> (qué es el artículo),</li>
+<li><a href="#comercial-y-ventas">Comercial y Ventas</a> (a quién se vende)</li>
+<li><a href="#almacenes-y-logística">Almacenes y Logística</a> (adónde se envía),</li>
+<li>etc.</li>
+</ul>
+<h3 id="propiedad-industrial-e-intelectual"><a class="header" href="#propiedad-industrial-e-intelectual">Propiedad industrial e intelectual</a></h3>
+<h4 id="patente-marca-o-diseño-registrado"><a class="header" href="#patente-marca-o-diseño-registrado">Patente, Marca o Diseño registrado</a></h4>
+<ul>
+<li>Tipo. Número. Titular. Países donde está protegido. Fechas de concesión, de renovación y de caducidad.</li>
+</ul>
+<p>Las patentes y los diseños salen de <a href="#diseño-técnico-de-productos">Diseño técnico de productos</a>; las marcas, de <a href="#marketing">Marketing</a>.</p>
+<h4 id="licencia"><a class="header" href="#licencia">Licencia</a></h4>
+<ul>
+<li>Qué se licencia (tecnología, marca, software). A quién o de quién. Condiciones. Royalties. Vencimiento.</li>
+</ul>
+<p>Las licencias de software las controla <a href="#licencia-de-software">Sistemas de información, IT</a>.</p>
+<h3 id="sociedad-y-litigios"><a class="header" href="#sociedad-y-litigios">Sociedad y litigios</a></h3>
+<h4 id="sociedad"><a class="header" href="#sociedad">Sociedad</a></h4>
+<ul>
+<li>Cada una de las sociedades del grupo. Razón social. Identificación fiscal. Domicilio. Datos registrales.</li>
+<li>Socios o accionistas y su participación. Administradores. Fechas de nombramiento y de cese.</li>
+</ul>
+<p>Lo necesitan todos: cada pedido, factura, contrato o nómina pertenece a una sociedad concreta.</p>
+<h4 id="acta-y-acuerdo"><a class="header" href="#acta-y-acuerdo">Acta y Acuerdo</a></h4>
+<ul>
+<li>Órgano (junta de socios, consejo de administración). Fecha. Asistentes. Acuerdos tomados.</li>
+</ul>
+<p>Muchos acuerdos los prepara <a href="#dirección">Dirección</a>.</p>
+<p>Ciertos tipos de reuniones requieren levantamiento y conservación de un acta formal.</p>
+<h4 id="litigio-o-reclamación-judicial"><a class="header" href="#litigio-o-reclamación-judicial">Litigio o Reclamación judicial</a></h4>
+<ul>
+<li>Partes. Objeto. Importe reclamado. Tribunal. Abogado externo. Estado. Plazos.</li>
+</ul>
+<p>Si hay riesgo de perder, se provisiona en contabilidad (ver <a href="#provisión">Administración general, Contabilidad y Finanzas</a>).</p>
+<h2 id="algunos-potenciales-puntos-de-fricción-13"><a class="header" href="#algunos-potenciales-puntos-de-fricción-13">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="obligaciones-de-cada-contrato-que-afectan-al-día-a-día"><a class="header" href="#obligaciones-de-cada-contrato-que-afectan-al-día-a-día">Obligaciones de cada contrato que afectan al día a día</a></h3>
+<p>Cumplimiento jurídico revisa y custodia el <a href="#contrato">Contrato</a> firmado. Para su trabajo le basta con el documento. Pero las obligaciones concretas que contiene (penalizaciones por retraso, niveles de servicio, garantías, plazos de aviso, exigencias de embalaje o de documentación, confidencialidad…) las tienen que cumplir otros:</p>
+<ul>
+<li><a href="#contrato-o-acuerdo-marco">Comercial y Ventas</a>,</li>
+<li><a href="#envío">Almacenes y Logística</a>,</li>
+<li><a href="#contrato-de-mantenimiento">Postventa</a>,</li>
+<li><a href="#requisito-de-cliente">Calidad</a>,</li>
+<li>etc.</li>
+</ul>
+<p>Enterradas en un PDF de cuarenta páginas, nadie las conoce.</p>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Una ficha resumen por contrato, con unos pocos campos estructurados: obligaciones principales, plazos, penalizaciones, a quién afecta cada una. Las herramientas de IA pueden proponer un primer borrador de la ficha, que alguien revisa.</li>
+<li>Avisos automáticos de vencimientos y renovaciones al departamento afectado, no solo a Jurídico.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Menos penalizaciones pagadas por incumplimientos que nadie conocía; y menos consultas a Jurídico sobre “qué dice el contrato”.</li>
+</ul>
+<h3 id="quién-puede-firmar-qué"><a class="header" href="#quién-puede-firmar-qué">Quién puede firmar qué</a></h3>
+<p>Los <a href="#poder-o-apoderamiento">Poderes</a> están en las escrituras, que guarda Jurídico. Para Jurídico, el poder ya está otorgado. Pero lo necesitan saber a diario:</p>
+<ul>
+<li><a href="#financiación">Administración general, Contabilidad y Finanzas</a> (bancos, avales),</li>
+<li><a href="#pedido-de-compra">Compras</a> y <a href="#contrato-o-acuerdo-marco">Comercial y Ventas</a> (contratos y pedidos importantes),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Publicar una matriz de firmas sencilla (persona, qué puede firmar, hasta qué importe), y actualizarla en el mismo momento en que se otorga o se revoca un poder.</li>
+<li>Conectarla con los circuitos de aprobación de pedidos y pagos, para que el sistema pida la firma a quien corresponde.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Menos documentos firmados por quien no podía firmarlos, que luego hay que repetir o que pueden no ser válidos.</li>
+</ul>
+<h3 id="qué-exige-a-cada-departamento-una-norma-nueva"><a class="header" href="#qué-exige-a-cada-departamento-una-norma-nueva">Qué exige a cada departamento una norma nueva</a></h3>
+<p>Jurídico vigila los cambios en la <a href="#normativa-o-requisito-legal">Normativa o requisito legal</a> y sabe que una norma ha cambiado. Traducirla a qué tiene que hacer cada departamento, y registrarlo, va más allá de su análisis jurídico. Pero es lo que necesita cada departamento afectado para aplicarla a tiempo.</p>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Registrar cada norma relevante con los requisitos concretos que impone, el departamento responsable de cada uno y la fecha a partir de la que se aplica.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que cada departamento consulte su propia lista de requisitos pendientes; y que Jurídico pueda demostrar, ante una inspección o una auditoría, que la norma se comunicó y se aplicó.</li>
+</ul>
+<h2 id="algunas-de-las-principales-normativas-a-vigilar-su-cumplimiento-compliance"><a class="header" href="#algunas-de-las-principales-normativas-a-vigilar-su-cumplimiento-compliance">Algunas de las principales normativas a vigilar su cumplimiento (<em>compliance</em>)</a></h2>
+<p>UNE-ISO 37301:2021 - Sistemas de gestión del compliance. Requisitos con orientación para su uso. Sustituye a la UNE-ISO 19600:2015, que era solo una guía; esta, al contener requisitos, es certificable.</p>
+<p>UNE 19601:2025 - Sistemas de gestión de compliance penal. Requisitos con orientación para su uso. Sustituye a la UNE 19601:2017.</p>
+<h3 id="mercantil"><a class="header" href="#mercantil">Mercantil</a></h3>
+<p><a href="https://boe.es/biblioteca_juridica/publicacion.php?id=PUB-PR-2023-195&amp;tipo=L&amp;modo=2">Código de comercio</a></p>
+<h3 id="laboral"><a class="header" href="#laboral">Laboral</a></h3>
+<p><a href="https://boe.es/biblioteca_juridica/publicacion.php?id=PUB-DT-2025-139">Estatuto de los trabajadores</a></p>
+<h3 id="prevención-del-blanqueo-de-capitales"><a class="header" href="#prevención-del-blanqueo-de-capitales">Prevención del blanqueo de capitales</a></h3>
+<p>Ley 10/2010, de 28 abril 2010, de prevención del blanqueo de capitales y de la financiación del terrorismo.</p>
+<p><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2010-6737">Ley 10/2010</a></p>
+<h3 id="canal-de-denuncias-whistleblowing"><a class="header" href="#canal-de-denuncias-whistleblowing">Canal de denuncias (whistleblowing)</a></h3>
+<p>(UE) Directiva 2019/1937</p>
+<p>Ley 2/2023, de 20 febrero 2023, reguladora de la protección de las personas que informen sobre infracciones normativas y de lucha contra la corrupción.</p>
+<p><a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2023-4513">Ley 2/2023</a></p>
+<h3 id="protección-de-datos-personales-rgpd-y-lopdgdd"><a class="header" href="#protección-de-datos-personales-rgpd-y-lopdgdd">Protección de datos personales, RGPD y LOPDGDD</a></h3>
+<p>RGPD (Reglamento General de Protección de Datos) de la Unión Europea, (UE) 2016/679, del 27 abril 2016. Adaptado a la legislación española por la LOPDGDD (Ley Orgánica 3/2018, de Protección de Datos Personales y Garantía de los Derechos Digitales), BOE 294 del 5 diciembre 2018.</p>
+<p><a href="https://eur-lex.europa.eu/ES/legal-content/summary/general-data-protection-regulation-gdpr.html">RGPD</a></p>
+<p><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673">LOPDGDD</a></p>
+<p><a href="https://es.wikipedia.org/wiki/Reglamento_General_de_Protecci%C3%B3n_de_Datos">RGPD, descripción en Wikipedia</a></p>
+<h3 id="uso-de-ia-ai-act"><a class="header" href="#uso-de-ia-ai-act">Uso de IA, AI Act</a></h3>
+<p>AI Act (Artificial Intelligence Act), (UE) 2024/1689, del 13 junio 2024.</p>
+<p><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02024R1689-20260727">AI Act</a></p>
+<p><a href="https://artificialintelligenceact.eu/ai-act-explorer/">AI Act explorer</a></p>
+<p><a href="https://es.wikipedia.org/wiki/Ley_de_Inteligencia_Artificial">AI Act, descripción en Wikipedia</a></p>
+<h3 id="servicios-digitales"><a class="header" href="#servicios-digitales">Servicios digitales</a></h3>
+<p>DSA (Digital Services Act), reglamento (UE) 2022/2065, del 19 octubre 2022.</p>
+<p><a href="https://eur-lex.europa.eu/eli/reg/2022/2065/oj?locale=es#">DSA</a></p>
+<p><a href="https://digital-strategy.ec.europa.eu/es/policies/digital-services-act">DSA, estrategia digital europea</a></p>
+<p><a href="https://es.wikipedia.org/wiki/Ley_de_Servicios_Digitales">DSA, descripción en Wikipedia</a></p>
+<h3 id="ciberseguridad"><a class="header" href="#ciberseguridad">Ciberseguridad</a></h3>
+<p>ISO 27001</p>
+<p>NIS2</p>
+<h3 id="continuidad-del-negocio"><a class="header" href="#continuidad-del-negocio">Continuidad del negocio</a></h3>
+<p>ISO 22301</p>
+<p>UNE-ISO 31000:2018 - Gestión de riesgos</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="sistemas-de-información-it"><a class="header" href="#sistemas-de-información-it">Sistemas de información, IT</a></h1>
+<h2 id="algunas-entidades-habituales-14"><a class="header" href="#algunas-entidades-habituales-14">Algunas entidades habituales</a></h2>
+<h3 id="sistemas-e-infraestructura"><a class="header" href="#sistemas-e-infraestructura">Sistemas e infraestructura</a></h3>
+<h4 id="aplicación-o-sistema"><a class="header" href="#aplicación-o-sistema">Aplicación o Sistema</a></h4>
+<ul>
+<li>Responsable funcional (el departamento usuario). Proveedor. Versión. Contrato de soporte.</li>
+</ul>
+<p>Ver <a href="#apéndice-algunos-softwares-habituales">lista de las aplicaciones y sistemas habituales</a></p>
+<h4 id="integración"><a class="header" href="#integración">Integración</a></h4>
+<ul>
+<li>Qué datos pasan de qué sistema a cuál. Cuándo (en tiempo real, cada noche…). Cómo (EDI, servicios web, ficheros). Responsable.</li>
+</ul>
+<p>Es la versión técnica del mapa de flujos que se describe en este libro. Si no está documentada, nadie sabe qué se rompe al cambiar un sistema.</p>
+<h4 id="equipo-informático"><a class="header" href="#equipo-informático">Equipo informático</a></h4>
+<ul>
+<li>Ordenadores, móviles, terminales, servidores, impresoras,… Persona o puesto al que está asignado. Fecha de compra. Garantía.</li>
+</ul>
+<p>Son equipos que se renuevan con frecuencia (cada cuatro o cinco años). Es conveniente llevar un buen inventario.</p>
+<h4 id="licencia-de-software"><a class="header" href="#licencia-de-software">Licencia de software</a></h4>
+<ul>
+<li>Programa. Número de licencias. A quién están asignadas. Vencimiento. Coste.</li>
+</ul>
+<p>Ver también <a href="#licencia">Cumplimiento jurídico</a>.</p>
+<h3 id="usuarios-y-seguridad"><a class="header" href="#usuarios-y-seguridad">Usuarios y seguridad</a></h3>
+<h4 id="usuario-y-permisos"><a class="header" href="#usuario-y-permisos">Usuario y Permisos</a></h4>
+<ul>
+<li>Persona. Sistemas a los que accede. Perfil o rol en cada uno. Fechas de alta y de baja.</li>
+</ul>
+<p>Las altas, bajas y cambios de puesto los comunica <a href="#empleado">Departamento de personal</a>. Si no llegan a tiempo, quedan accesos abiertos de personas que ya no están.</p>
+<h4 id="copia-de-seguridad"><a class="header" href="#copia-de-seguridad">Copia de seguridad</a></h4>
+<ul>
+<li>Qué se copia. Frecuencia. Dónde se guarda. Última prueba de recuperación.</li>
+</ul>
+<h4 id="incidente-de-seguridad"><a class="header" href="#incidente-de-seguridad">Incidente de seguridad</a></h4>
+<ul>
+<li>Qué ha pasado. Sistemas y datos afectados. Medidas tomadas.</li>
+</ul>
+<p>Si afecta a datos personales, es una <a href="#brecha-de-seguridad">Brecha de seguridad</a> que puede ser necesario comunicar a otras instancias.</p>
+<h3 id="soporte"><a class="header" href="#soporte">Soporte</a></h3>
+<h4 id="incidencia-o-petición-de-usuario"><a class="header" href="#incidencia-o-petición-de-usuario">Incidencia o Petición de usuario</a></h4>
+<ul>
+<li>Usuario. Sistema. Descripción. Prioridad. Técnico asignado. Tiempos de respuesta y de resolución.</li>
+</ul>
+<h4 id="proyecto-o-petición-de-desarrollo"><a class="header" href="#proyecto-o-petición-de-desarrollo">Proyecto o Petición de desarrollo</a></h4>
+<ul>
+<li>Quién lo pide. Qué se necesita. Prioridad. Estimación. Estado.</li>
+</ul>
+<h3 id="datos"><a class="header" href="#datos">Datos</a></h3>
+<h4 id="catálogo-de-productos-de-datos"><a class="header" href="#catálogo-de-productos-de-datos">Catálogo de productos de datos</a></h4>
+<ul>
+<li>Qué significa cada dato. En qué sistema está. Qué departamento es responsable de mantenerlo.</li>
+</ul>
+<p>IT no suele ser el dueño de los datos, sino de los sistemas que los contienen.</p>
+<p>Entre otros muchos, los <a href="#datos-y-categorías-maestros-globales">Datos maestros</a> y sus responsables deberían aparecer aquí.</p>
+<h4 id="almacén-de-datos"><a class="header" href="#almacén-de-datos">Almacén de datos</a></h4>
+<ul>
+<li>Datos extraídos de todos los sistemas. Filtrados, adecuados y almacenados. Histórico.</li>
+</ul>
+<p>IT se encarga de capturar, filtrar, adecuar y almacenar los datos en bruto y preelaborados. Para que los usuarios puedan consultarlos y analizarlos por sí mismos. Lo utilizan sobre todo <a href="#cuadro-de-mando-dashboard">Dirección</a> y <a href="#estudio-de-comportamiento">Marketing</a>.</p>
+<h4 id="calidad-de-los-datos"><a class="header" href="#calidad-de-los-datos">Calidad de los datos</a></h4>
+<ul>
+<li>Duplicados. Datos incompletos. Datos que no coinciden entre sistemas. Responsable de corregirlos.</li>
+</ul>
+<p>Lo ideal es que quien descubre un error lo corrija, o avise a quien mantiene ese dato.</p>
+<h2 id="algunos-potenciales-puntos-de-fricción-14"><a class="header" href="#algunos-potenciales-puntos-de-fricción-14">Algunos potenciales puntos de fricción</a></h2>
+<h3 id="documentación-de-las-integraciones"><a class="header" href="#documentación-de-las-integraciones">Documentación de las integraciones</a></h3>
+<p>Quien programa una <a href="#integración">Integración</a> entre dos sistemas la deja funcionando y pasa al siguiente proyecto. Documentar qué datos pasan, de dónde a dónde y cuándo no le hace falta: él lo sabe. Pero lo necesitan:</p>
+<ul>
+<li>quien la tenga que modificar más adelante (a menudo otra persona, o un proveedor distinto),</li>
+<li>los departamentos usuarios, para saber de dónde vienen sus datos y a quién afecta un cambio en ellos,</li>
+<li>quien vigila la <a href="#calidad-de-los-datos">Calidad de los datos</a>,</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Usar herramientas de integración que documenten automáticamente los flujos que gestionan.</li>
+<li>Que ninguna integración pase a producción sin una ficha mínima: sistemas de origen y destino, datos, frecuencia, responsable.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Publicar el mapa de integraciones para toda la empresa. Es, en buena medida, el mapa de fuentes y consumidores de datos que se describe en este libro.</li>
+</ul>
+<h3 id="uso-real-de-las-aplicaciones-y-las-licencias"><a class="header" href="#uso-real-de-las-aplicaciones-y-las-licencias">Uso real de las aplicaciones y las licencias</a></h3>
+<p>IT conoce, por los registros de acceso, quién usa realmente cada aplicación y cada <a href="#licencia-de-software">Licencia de software</a>. Para mantener los sistemas, ese dato le importa poco. Pero es muy útil para:</p>
+<ul>
+<li><a href="#centro-de-coste">Administración general, Contabilidad y Finanzas</a> (repartir el coste del software por centro de coste),</li>
+<li><a href="#contrato-o-acuerdo-marco-1">Compras</a> (renegociar contratos de licencias que no se usan),</li>
+<li><a href="#licencia">Cumplimiento jurídico</a> (no usar más licencias de las contratadas),</li>
+<li>etc.</li>
+</ul>
+<p>Para facilitar el registro:</p>
+<ul>
+<li>Obtenerlo automáticamente del inicio de sesión único (<em>single sign-on</em>) y de las consolas de administración de cada aplicación, en un informe periódico.</li>
+</ul>
+<p>Para hacer ver su valor:</p>
+<ul>
+<li>Que cada departamento vea el coste del software que usa y las licencias asignadas que nadie utiliza; suele ser un ahorro inmediato.</li>
+</ul>
+<h2 id="apéndice-algunos-softwares-habituales"><a class="header" href="#apéndice-algunos-softwares-habituales">apéndice: algunos softwares habituales</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Sistema</th><th>Dominio</th><th>Muestra de algunos datos que maneja</th></tr>
+</thead>
+<tbody>
+<tr><td>ERP</td><td>Económico-administrativo</td><td>Pedidos, órdenes, movimientos de stock, costes, facturación</td></tr>
+<tr><td>CRM</td><td>Comercial</td><td>Oportunidades, ofertas, motivos de pérdida</td></tr>
+<tr><td>MES / MOM</td><td>Ejecución de producción</td><td>Declaraciones de producción, paradas, scrap, tiempos</td></tr>
+<tr><td>PLM / PDM</td><td>Ingeniería</td><td>BOM, rutas, revisiones, ECO</td></tr>
+<tr><td>WMS</td><td>Almacén</td><td>Ubicaciones, movimientos, inventarios</td></tr>
+<tr><td>GMAO / CMMS</td><td>Mantenimiento</td><td>Órdenes, averías, preventivos, repuestos</td></tr>
+<tr><td>SCADA / Historian</td><td>Procesos productivos</td><td>Señales de sensor, estados de máquina</td></tr>
+<tr><td>LIMS</td><td>Calidad</td><td>Ensayos, resultados, certificados</td></tr>
+<tr><td>EDI / portales cliente</td><td>Cadena de suministro</td><td>Previsiones, llamadas, ASN</td></tr>
+</tbody>
+</table>
+</div>
+<p>Acrónimos:</p>
+<ul>
+<li>ERP (Enterprise Resource Planning)</li>
+<li>CRM (Customer Relationship Management)</li>
+<li>MES (Manufacturing Execution System)</li>
+<li>MOM (Manufacturing Operations Management)</li>
+<li>PLM (Product Lifecycle Management)</li>
+<li>PDM (Product Data Management)</li>
+<li>CMS (Content Management System)</li>
+<li>WMS (Warehouse Management System)</li>
+<li>WES (Warehouse Execution System)</li>
+<li>WCS (Warehouse Control System)</li>
+<li>GMAO (Gestión de Mantenimiento Asistido por Ordenador)</li>
+<li>CMMS (Computerized Maintenance Management System)</li>
+<li>SCADA (Supervisory Control and Data Acquisition)</li>
+<li>LIMS (Laboratory Information Management System)</li>
+<li>EDI (Electronic Data Interchange)</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
